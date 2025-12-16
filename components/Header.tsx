@@ -157,7 +157,9 @@ export default function Header() {
 
             {/* Log In - moved here to be close to About */}
             <motion.a 
-              href="#login" 
+              href="https://app.digitallift.io/" 
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
@@ -235,7 +237,9 @@ export default function Header() {
                 Contact
               </motion.a>
               <motion.a 
-                href="#login" 
+                href="https://app.digitallift.io/" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}

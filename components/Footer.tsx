@@ -52,7 +52,7 @@ export default function Footer() {
                 { href: '/roi-calculator', text: 'ROI Calculator' },
                 { href: '/testimonials', text: 'Testimonials' },
                 { href: '/our-work', text: 'Our Work' },
-                { href: '#login', text: 'Log in' }
+                { href: 'https://app.digitallift.io/', text: 'Log in', external: true }
               ]
             },
             {
@@ -94,6 +94,8 @@ export default function Footer() {
                   <li key={itemIndex}>
                     <motion.a 
                       href={item.href} 
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
                       className="hover:text-white transition-colors inline-block"
                       whileHover={{ x: 4 }}
                       transition={{ duration: 0.2 }}
