@@ -1,5 +1,10 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Section from './Section';
 import TestimonialCard from './TestimonialCard';
+import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const testimonials = [
   {
@@ -73,15 +78,29 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <Section id="testimonials" className="bg-gray-50">
-      <div className="text-center mb-8 sm:mb-12 px-4">
+      <motion.div 
+        ref={ref}
+        className="text-center mb-8 sm:mb-12 px-4"
+        variants={fadeInUp}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
           The proof is in the pudding...<br className="hidden sm:block" />
           Let's see what our clients have to say
         </h2>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4">
+      </motion.div>
+      <motion.div 
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4"
+        variants={staggerContainer}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
             key={index}
@@ -89,7 +108,7 @@ export default function Testimonials() {
             quote={testimonial.quote}
           />
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }

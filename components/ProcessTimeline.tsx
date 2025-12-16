@@ -1,4 +1,9 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Section from './Section';
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 const steps = [
   {
@@ -25,21 +30,55 @@ const steps = [
 ];
 
 export default function ProcessTimeline() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <Section>
-      <div className="text-center mb-12">
+      <motion.div 
+        ref={ref}
+        className="text-center mb-12"
+        variants={fadeInUp}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           What working with us looks like...
         </h2>
-        <div className="w-24 h-1 bg-gray-300 mx-auto my-6"></div>
-      </div>
-      <div className="space-y-6 sm:space-y-8 max-w-4xl mx-auto px-4">
+        <motion.div 
+          className="w-24 h-1 bg-gray-300 mx-auto my-6"
+          initial={{ width: 0 }}
+          animate={isInView ? { width: 96 } : { width: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </motion.div>
+      <motion.div 
+        className="space-y-6 sm:space-y-8 max-w-4xl mx-auto px-4"
+        variants={staggerContainer}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         {steps.map((step, index) => (
-          <div key={index} className="flex gap-4 sm:gap-6">
+          <motion.div 
+            key={index} 
+            className="flex gap-4 sm:gap-6"
+            variants={staggerItem}
+          >
             <div className="flex-shrink-0">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base sm:text-lg">
+              <motion.div 
+                className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-base sm:text-lg"
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : { scale: 0 }}
+                transition={{ 
+                  delay: index * 0.1 + 0.5, 
+                  type: "spring", 
+                  stiffness: 200, 
+                  damping: 15 
+                }}
+                whileHover={{ scale: 1.1 }}
+              >
                 {index + 1}
-              </div>
+              </motion.div>
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
@@ -47,9 +86,9 @@ export default function ProcessTimeline() {
               </h3>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{step.description}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }

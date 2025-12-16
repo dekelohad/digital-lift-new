@@ -1,60 +1,111 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Button from './Button';
 import Logo from './Logo';
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 export default function Footer() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Top Section */}
-        <div className="mb-8 sm:mb-12">
-          <Logo className="mb-4" variant="light" />
-          <h3 className="text-lg sm:text-xl font-bold mb-4">Ready to get started?</h3>
-          <Button variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100 text-sm sm:text-base">
-            Book A Call
-          </Button>
-        </div>
+        <motion.div 
+          ref={ref}
+          className="mb-8 sm:mb-12"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.div variants={fadeInUp}>
+            <Logo className="mb-4" variant="light" />
+          </motion.div>
+          <motion.h3 
+            className="text-lg sm:text-xl font-bold mb-4"
+            variants={fadeInUp}
+          >
+            Ready to get started?
+          </motion.h3>
+          <motion.div variants={fadeInUp}>
+            <Button variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100 text-sm sm:text-base">
+              Book A Call
+            </Button>
+          </motion.div>
+        </motion.div>
 
         {/* Links Section */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8">
-          <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Links</h4>
-            <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li><a href="/pricing" className="hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="/testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-              <li><a href="/our-work" className="hover:text-white transition-colors">Our Work</a></li>
-              <li><a href="#login" className="hover:text-white transition-colors">Log in</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">About</h4>
-            <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li><a href="/about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="/our-process" className="hover:text-white transition-colors">Our Process</a></li>
-              <li><a href="/trades-we-serve" className="hover:text-white transition-colors">Trades We Serve</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Services</h4>
-            <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li><a href="/functional-website" className="hover:text-white transition-colors">Functional Website</a></li>
-              <li><a href="/missed-call-text-back" className="hover:text-white transition-colors">Missed Call Text Back</a></li>
-              <li><a href="/5-star-magic-funnel" className="hover:text-white transition-colors">5 Star Magic Funnel</a></li>
-              <li><a href="/automated-lead-follow-up" className="hover:text-white transition-colors">Automated Lead Follow Up</a></li>
-              <li><a href="/one-click-marketing-campaigns" className="hover:text-white transition-colors">One-Click Marketing Campaigns</a></li>
-              <li><a href="/all-in-one-inbox" className="hover:text-white transition-colors">All-In-One Inbox</a></li>
-              <li><a href="/business-phone" className="hover:text-white transition-colors">Business Phone</a></li>
-              <li><a href="/local-seo" className="hover:text-white transition-colors">Local SEO</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Legal</h4>
-            <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
-              <li><a href="/terms" className="hover:text-white transition-colors">Terms & Conditions</a></li>
-              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-            </ul>
-          </div>
-        </div>
+        <motion.div 
+          className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-8"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          {[
+            {
+              title: 'Links',
+              items: [
+                { href: '/pricing', text: 'Pricing' },
+                { href: '/testimonials', text: 'Testimonials' },
+                { href: '/our-work', text: 'Our Work' },
+                { href: '#login', text: 'Log in' }
+              ]
+            },
+            {
+              title: 'About',
+              items: [
+                { href: '/about', text: 'About' },
+                { href: '/our-process', text: 'Our Process' },
+                { href: '/trades-we-serve', text: 'Trades We Serve' },
+                { href: '/contact', text: 'Contact' }
+              ]
+            },
+            {
+              title: 'Services',
+              items: [
+                { href: '/functional-website', text: 'Functional Website' },
+                { href: '/missed-call-text-back', text: 'Missed Call Text Back' },
+                { href: '/5-star-magic-funnel', text: '5 Star Magic Funnel' },
+                { href: '/automated-lead-follow-up', text: 'Automated Lead Follow Up' },
+                { href: '/one-click-marketing-campaigns', text: 'One-Click Marketing Campaigns' },
+                { href: '/all-in-one-inbox', text: 'All-In-One Inbox' },
+                { href: '/business-phone', text: 'Business Phone' },
+                { href: '/local-seo', text: 'Local SEO' }
+              ]
+            },
+            {
+              title: 'Legal',
+              items: [
+                { href: '/terms', text: 'Terms & Conditions' },
+                { href: '/privacy', text: 'Privacy Policy' }
+              ]
+            }
+          ].map((section, sectionIndex) => (
+            <motion.div 
+              key={section.title}
+              variants={staggerItem}
+            >
+              <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{section.title}</h4>
+              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+                {section.items.map((item, itemIndex) => (
+                  <li key={itemIndex}>
+                    <motion.a 
+                      href={item.href} 
+                      className="hover:text-white transition-colors inline-block"
+                      whileHover={{ x: 4 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      {item.text}
+                    </motion.a>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </footer>
   );

@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { useRef } from 'react';
 import Section from './Section';
 import { ChevronDown } from 'lucide-react';
+import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 interface FAQItem {
   question: string;
@@ -52,31 +55,58 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
   const answerContent = Array.isArray(answer) ? answer : [answer];
 
   return (
-    <div className="border-b border-gray-200">
-      <button
+    <motion.div 
+      className="border-b border-gray-200"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <motion.button
         className="w-full py-4 sm:py-6 text-left flex items-center justify-between gap-4"
         onClick={onToggle}
+        whileHover={{ x: 4 }}
+        transition={{ duration: 0.2 }}
       >
         <span className="text-base sm:text-lg font-semibold text-gray-900 pr-2 sm:pr-4 leading-snug">{question}</span>
-        <ChevronDown
-          className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-600 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
-        />
-      </button>
-      {isOpen && (
-        <div className="pb-4 sm:pb-6 text-gray-700 space-y-2 text-sm sm:text-base leading-relaxed">
-          {answerContent.map((paragraph, index) => (
-            <p key={index} className={paragraph === '' ? 'h-2' : ''}>
-              {paragraph}
-            </p>
-          ))}
-        </div>
-      )}
-    </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 flex-shrink-0" />
+        </motion.div>
+      </motion.button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            className="pb-4 sm:pb-6 text-gray-700 space-y-2 text-sm sm:text-base leading-relaxed overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            {answerContent.map((paragraph, index) => (
+              <motion.p 
+                key={index} 
+                className={paragraph === '' ? 'h-2' : ''}
+                initial={{ opacity: 0, x: -10 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.05, duration: 0.3 }}
+              >
+                {paragraph}
+              </motion.p>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -84,12 +114,23 @@ export default function FAQ() {
 
   return (
     <Section className="bg-gray-50">
-      <div className="text-center mb-12">
+      <motion.div 
+        ref={ref}
+        className="text-center mb-12"
+        variants={fadeInUp}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
           Frequently Asked Questions
         </h2>
-      </div>
-      <div className="max-w-4xl mx-auto px-4">
+      </motion.div>
+      <motion.div 
+        className="max-w-4xl mx-auto px-4"
+        variants={staggerContainer}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
         {faqs.map((faq, index) => (
           <FAQItem
             key={index}
@@ -99,7 +140,7 @@ export default function FAQ() {
             onToggle={() => toggleFAQ(index)}
           />
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }

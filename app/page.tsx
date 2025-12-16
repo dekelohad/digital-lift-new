@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
@@ -8,10 +11,17 @@ import ProcessTimeline from '@/components/ProcessTimeline';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import { pageTransition } from '@/lib/animations';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <motion.main 
+      className="min-h-screen"
+      variants={pageTransition}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <Header />
       <Hero />
       <Testimonials />
@@ -97,6 +107,6 @@ export default function Home() {
       
       <Testimonials />
       <Footer />
-    </main>
+    </motion.main>
   );
 }

@@ -1,8 +1,22 @@
+'use client';
+
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Check } from 'lucide-react';
+import { fadeInUp, staggerContainer, staggerItem, scaleIn } from '@/lib/animations';
 
 export default function PricingPage() {
+  const heroRef = useRef(null);
+  const heroInView = useInView(heroRef, { once: true, margin: '-100px' });
+  const plansRef = useRef(null);
+  const plansInView = useInView(plansRef, { once: true, margin: '-50px' });
+  const faqRef = useRef(null);
+  const faqInView = useInView(faqRef, { once: true, margin: '-100px' });
+  const ctaRef = useRef(null);
+  const ctaInView = useInView(ctaRef, { once: true, margin: '-100px' });
+
   const plans = [
     {
       name: "Starter",
@@ -72,34 +86,65 @@ export default function PricingPage() {
   ];
 
   return (
-    <main className="min-h-screen">
+    <motion.main 
+      className="min-h-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <Header />
       
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-12 sm:mb-16 px-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+          <motion.div 
+            ref={heroRef}
+            className="text-center mb-12 sm:mb-16 px-4"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={heroInView ? "visible" : "hidden"}
+          >
+            <motion.h1 
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
+              variants={fadeInUp}
+            >
               Simple, Affordable Pricing
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            </motion.h1>
+            <motion.p 
+              className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
+              variants={fadeInUp}
+            >
               No hidden fees. No long-term contracts. Just honest pricing that works.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          <motion.div 
+            ref={plansRef}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={plansInView ? "visible" : "hidden"}
+          >
             {plans.map((plan, index) => (
-              <div
+              <motion.div
                 key={index}
                 className={`bg-white rounded-xl shadow-lg border-2 ${
                   plan.popular
                     ? 'border-blue-600 md:transform md:scale-105'
                     : 'border-gray-200'
                 } overflow-hidden relative`}
+                variants={scaleIn}
+                whileHover={{ y: -8, scale: plan.popular ? 1.08 : 1.02 }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center py-2 text-xs sm:text-sm font-semibold">
+                  <motion.div 
+                    className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center py-2 text-xs sm:text-sm font-semibold"
+                    initial={{ y: -20 }}
+                    animate={plansInView ? { y: 0 } : { y: -20 }}
+                    transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
+                  >
                     Most Popular
-                  </div>
+                  </motion.div>
                 )}
                 <div className={`p-6 sm:p-8 ${plan.popular ? 'pt-10 sm:pt-12' : ''}`}>
                   <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
@@ -108,62 +153,108 @@ export default function PricingPage() {
                     <span className="text-4xl sm:text-5xl font-bold text-gray-900">{plan.price}</span>
                     <span className="text-sm sm:text-base text-gray-600 ml-2">{plan.period}</span>
                   </div>
-                  <button
+                  <motion.button
                     className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all ${
                       plan.popular
                         ? 'bg-blue-600 text-white hover:bg-blue-700'
                         : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
                     }`}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
                     Get Started
-                  </button>
-                  <ul className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
+                  </motion.button>
+                  <motion.ul 
+                    className="mt-6 sm:mt-8 space-y-3 sm:space-y-4"
+                    variants={staggerContainer}
+                    initial="hidden"
+                    animate={plansInView ? "visible" : "hidden"}
+                  >
                     {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
+                      <motion.li 
+                        key={featureIndex} 
+                        className="flex items-start"
+                        variants={staggerItem}
+                      >
                         <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
                         <span className="text-sm sm:text-base text-gray-700">{feature}</span>
-                      </li>
+                      </motion.li>
                     ))}
-                  </ul>
+                  </motion.ul>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+          <motion.h2 
+            ref={faqRef}
+            className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
+            variants={fadeInUp}
+            initial="hidden"
+            animate={faqInView ? "visible" : "hidden"}
+          >
             Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
+          </motion.h2>
+          <motion.div 
+            className="space-y-6"
+            variants={staggerContainer}
+            initial="hidden"
+            animate={faqInView ? "visible" : "hidden"}
+          >
             {faq.map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+              <motion.div 
+                key={index} 
+                className="bg-white p-6 rounded-lg shadow-md border border-gray-200"
+                variants={staggerItem}
+                whileHover={{ y: -4, boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
+                transition={{ duration: 0.3 }}
+              >
                 <h3 className="text-xl font-bold text-gray-900 mb-3">{item.question}</h3>
                 <p className="text-gray-700 leading-relaxed">{item.answer}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
       <section className="py-20 md:py-28 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="container mx-auto px-4 max-w-7xl text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <motion.div 
+          ref={ctaRef}
+          className="container mx-auto px-4 max-w-7xl text-center"
+          variants={staggerContainer}
+          initial="hidden"
+          animate={ctaInView ? "visible" : "hidden"}
+        >
+          <motion.h2 
+            className="text-3xl md:text-5xl font-bold mb-6"
+            variants={fadeInUp}
+          >
             Still have questions?
-          </h2>
-          <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95">
+          </motion.h2>
+          <motion.p 
+            className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95"
+            variants={fadeInUp}
+          >
             Let's schedule a call and we'll answer all your questions.
-          </p>
-          <button className="bg-white text-blue-600 px-10 py-5 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+          </motion.p>
+          <motion.button 
+            className="bg-white text-blue-600 px-10 py-5 rounded-lg font-semibold text-lg shadow-xl"
+            variants={fadeInUp}
+            whileHover={{ scale: 1.05, y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
             Book A Call
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </section>
 
       <Footer />
-    </main>
+    </motion.main>
   );
 }
 
