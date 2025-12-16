@@ -2,7 +2,6 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Button from './Button';
 import Logo from './Logo';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
@@ -23,17 +22,6 @@ export default function Footer() {
         >
           <motion.div variants={fadeInUp}>
             <Logo className="mb-4" variant="light" />
-          </motion.div>
-          <motion.h3 
-            className="text-lg sm:text-xl font-bold mb-4"
-            variants={fadeInUp}
-          >
-            Ready to get started?
-          </motion.h3>
-          <motion.div variants={fadeInUp}>
-            <Button variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100 text-sm sm:text-base">
-              Book A Call
-            </Button>
           </motion.div>
         </motion.div>
 
