@@ -30,6 +30,7 @@ export default function ContactForm({ variant = 'light' }: ContactFormProps) {
   const submitForm = async (formData: FormData) => {
     try {
       setIsLoading(true);
+      
       const templateParams = {
         to_name: 'Digital Lift',
         from_name: formData.name,
@@ -48,9 +49,18 @@ export default function ContactForm({ variant = 'light' }: ContactFormProps) {
 
       setIsSubmitted(true);
       reset();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error sending email:', error);
-      alert('There was an error sending your message. Please try again.');
+      
+      let errorMessage = 'There was an error sending your message. Please try again.';
+      
+      if (error?.text?.includes('Gmail_API') || error?.text?.includes('Invalid grant')) {
+        errorMessage = 'Email service configuration error. Please reconnect your Gmail account in EmailJS dashboard.';
+      } else if (error?.status === 412) {
+        errorMessage = 'Email service needs to be reconfigured. Please reconnect your Gmail account.';
+      }
+      
+      alert(errorMessage);
     } finally {
       setIsLoading(false);
     }
