@@ -56,26 +56,26 @@ export default function Header() {
 
         {/* Mobile/Tablet Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden py-4 space-y-4">
-            <a href="/#services" className="block text-gray-700 hover:text-gray-900 font-medium">
+          <div className="lg:hidden py-4 space-y-3 border-t border-gray-200 mt-2">
+            <a href="/#services" className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base">
               Services
             </a>
-            <a href="/pricing" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/pricing" className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base">
               Pricing
             </a>
-            <a href="/testimonials" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/testimonials" className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base">
               Testimonials
             </a>
-            <a href="/our-work" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/our-work" className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base">
               Our Work
             </a>
-            <a href="/about" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/about" className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base">
               About
             </a>
-            <a href="#login" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="#login" className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base">
               Log In
             </a>
-            <Button variant="primary" className="w-full">Book A Call</Button>
+            <Button variant="primary" className="w-full mt-2">Book A Call</Button>
           </div>
         )}
       </nav>

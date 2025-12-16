@@ -75,13 +75,13 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <Section id="testimonials" className="bg-gray-50">
-      <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          The proof is in the pudding...<br />
+      <div className="text-center mb-8 sm:mb-12 px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+          The proof is in the pudding...<br className="hidden sm:block" />
           Let's see what our clients have to say
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
             key={index}

@@ -67,43 +67,43 @@ export default function OurProcessPage() {
       
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Our Process
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               What working with us looks like... Simple, straightforward, and designed to get you results.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-12">
+          <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12 px-4">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
                   <div className="flex-shrink-0">
-                    <div className="w-20 h-20 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-3xl shadow-lg">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-2xl sm:text-3xl shadow-lg">
                       {step.number}
                     </div>
                   </div>
-                  <div className="flex-1 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-                      {step.title} {step.subtitle && <span className="text-gray-600 font-normal text-2xl">{step.subtitle}</span>}
+                  <div className="flex-1 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 w-full">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 leading-tight">
+                      {step.title} {step.subtitle && <span className="text-gray-600 font-normal text-lg sm:text-xl md:text-2xl">{step.subtitle}</span>}
                     </h2>
-                    <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                    <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
                       {step.description}
                     </p>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 sm:space-y-3">
                       {step.details.map((detail, detailIndex) => (
                         <li key={detailIndex} className="flex items-start">
-                          <span className="text-blue-600 mr-3 font-bold text-xl mt-1">•</span>
-                          <span className="text-gray-700">{detail}</span>
+                          <span className="text-blue-600 mr-2 sm:mr-3 font-bold text-lg sm:text-xl mt-1 flex-shrink-0">•</span>
+                          <span className="text-sm sm:text-base text-gray-700">{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 </div>
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute left-10 top-20 w-0.5 h-12 bg-gray-300"></div>
+                  <div className="hidden md:block absolute left-8 sm:left-10 top-16 sm:top-20 w-0.5 h-8 sm:h-12 bg-gray-300"></div>
                 )}
               </div>
             ))}

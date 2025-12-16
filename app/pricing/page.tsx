@@ -77,39 +77,39 @@ export default function PricingPage() {
       
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Simple, Affordable Pricing
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               No hidden fees. No long-term contracts. Just honest pricing that works.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
             {plans.map((plan, index) => (
               <div
                 key={index}
                 className={`bg-white rounded-xl shadow-lg border-2 ${
                   plan.popular
-                    ? 'border-blue-600 transform scale-105'
+                    ? 'border-blue-600 md:transform md:scale-105'
                     : 'border-gray-200'
                 } overflow-hidden relative`}
               >
                 {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center py-2 text-sm font-semibold">
+                  <div className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center py-2 text-xs sm:text-sm font-semibold">
                     Most Popular
                   </div>
                 )}
-                <div className={`p-8 ${plan.popular ? 'pt-12' : ''}`}>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <p className="text-gray-600 mb-6">{plan.description}</p>
-                  <div className="mb-6">
-                    <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600 ml-2">{plan.period}</span>
+                <div className={`p-6 sm:p-8 ${plan.popular ? 'pt-10 sm:pt-12' : ''}`}>
+                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{plan.description}</p>
+                  <div className="mb-4 sm:mb-6">
+                    <span className="text-4xl sm:text-5xl font-bold text-gray-900">{plan.price}</span>
+                    <span className="text-sm sm:text-base text-gray-600 ml-2">{plan.period}</span>
                   </div>
                   <button
-                    className={`w-full py-3 rounded-lg font-semibold transition-all ${
+                    className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all ${
                       plan.popular
                         ? 'bg-blue-600 text-white hover:bg-blue-700'
                         : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
@@ -117,11 +117,11 @@ export default function PricingPage() {
                   >
                     Get Started
                   </button>
-                  <ul className="mt-8 space-y-4">
+                  <ul className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <Check className="w-5 h-5 text-green-600 mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
+                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm sm:text-base text-gray-700">{feature}</span>
                       </li>
                     ))}
                   </ul>

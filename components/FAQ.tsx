@@ -54,16 +54,16 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
   return (
     <div className="border-b border-gray-200">
       <button
-        className="w-full py-6 text-left flex items-center justify-between"
+        className="w-full py-4 sm:py-6 text-left flex items-center justify-between gap-4"
         onClick={onToggle}
       >
-        <span className="text-lg font-semibold text-gray-900 pr-4">{question}</span>
+        <span className="text-base sm:text-lg font-semibold text-gray-900 pr-2 sm:pr-4 leading-snug">{question}</span>
         <ChevronDown
-          className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-600 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`}
         />
       </button>
       {isOpen && (
-        <div className="pb-6 text-gray-700 space-y-2">
+        <div className="pb-4 sm:pb-6 text-gray-700 space-y-2 text-sm sm:text-base leading-relaxed">
           {answerContent.map((paragraph, index) => (
             <p key={index} className={paragraph === '' ? 'h-2' : ''}>
               {paragraph}
@@ -89,7 +89,7 @@ export default function FAQ() {
           Frequently Asked Questions
         </h2>
       </div>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto px-4">
         {faqs.map((faq, index) => (
           <FAQItem
             key={index}

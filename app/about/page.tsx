@@ -34,19 +34,19 @@ export default function AboutPage() {
       
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+          <div className="text-center mb-12 sm:mb-16 px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
               About Stone Systems
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               We're here to cut through the marketing BS and give contractors the tools they need to grow their businesses.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="bg-white p-8 md:p-12 rounded-xl shadow-lg border border-gray-200">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed text-lg">
+          <div className="max-w-4xl mx-auto mb-12 sm:mb-16 px-4">
+            <div className="bg-white p-6 sm:p-8 md:p-12 rounded-xl shadow-lg border border-gray-200">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Our Story</h2>
+              <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
                 <p>
                   Cut the bullsh*t, Marketing isn't rocket science. No agency... (including ours) has the miracle solution to all your problems. We'll give you the tools to win but you need to commit to using them!
                 </p>
@@ -64,17 +64,17 @@ export default function AboutPage() {
 
       <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-12 px-4">
             Our Team
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4">
             {team.map((member, index) => (
               <div key={index} className="text-center">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 mx-auto mb-4 flex items-center justify-center shadow-lg border-4 border-white">
-                  <span className="text-gray-700 text-lg font-semibold">{member.name}</span>
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 mx-auto mb-3 sm:mb-4 flex items-center justify-center shadow-lg border-4 border-white">
+                  <span className="text-gray-700 text-sm sm:text-base md:text-lg font-semibold">{member.name}</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-gray-600">{member.role}</p>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{member.name}</h3>
+                <p className="text-sm sm:text-base text-gray-600">{member.role}</p>
               </div>
             ))}
           </div>
@@ -83,14 +83,14 @@ export default function AboutPage() {
 
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-12 px-4">
             Our Values
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{value.description}</p>
+              <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{value.title}</h3>
+                <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
@@ -99,13 +99,13 @@ export default function AboutPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 px-4">
             Want to work with us?
           </h2>
-          <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95">
+          <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-10 max-w-2xl mx-auto opacity-95 px-4">
             Let's see if we're a good fit to partner with.
           </p>
-          <button className="bg-white text-blue-600 px-10 py-5 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+          <button className="bg-white text-blue-600 px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
             Book A Call
           </button>
         </div>
