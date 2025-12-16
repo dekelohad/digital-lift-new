@@ -20,19 +20,19 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#products" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
-              Products
+            <a href="/#services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+              Services
             </a>
-            <a href="#pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Pricing
             </a>
-            <a href="#testimonials" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/testimonials" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Testimonials
             </a>
-            <a href="#work" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/our-work" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               Our Work
             </a>
-            <a href="#about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
               About
             </a>
           </div>
@@ -58,19 +58,19 @@ export default function Header() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <a href="#products" className="block text-gray-700 hover:text-gray-900 font-medium">
-              Products
+            <a href="/#services" className="block text-gray-700 hover:text-gray-900 font-medium">
+              Services
             </a>
-            <a href="#pricing" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/pricing" className="block text-gray-700 hover:text-gray-900 font-medium">
               Pricing
             </a>
-            <a href="#testimonials" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/testimonials" className="block text-gray-700 hover:text-gray-900 font-medium">
               Testimonials
             </a>
-            <a href="#work" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/our-work" className="block text-gray-700 hover:text-gray-900 font-medium">
               Our Work
             </a>
-            <a href="#about" className="block text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/about" className="block text-gray-700 hover:text-gray-900 font-medium">
               About
             </a>
             <a href="#login" className="block text-gray-700 hover:text-gray-900 font-medium">

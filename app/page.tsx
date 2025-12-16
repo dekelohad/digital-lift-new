@@ -28,6 +28,7 @@ export default function Home() {
           "Optimized For Local Google Searches - This should go without saying but we'll still say it. We make sure your business is found on Google."
         ]}
         imageSide="right"
+        linkTo="/functional-website"
       />
 
       {/* 5-Star Magic Review Funnel */}
@@ -41,6 +42,7 @@ export default function Home() {
           "Stop worrying about bad reviews - Unsure if you should ask for a review? We'll take the guesswork out by guiding your customer to leave a 5-star review!"
         ]}
         imageSide="left"
+        linkTo="/5-star-magic-funnel"
       />
 
       {/* Missed Call Text Back */}
@@ -54,6 +56,7 @@ export default function Home() {
           "Be available 24/7 - Missed a call after hours? No worries, we'll make sure everyone feels loved even while you're getting your beauty sleep."
         ]}
         imageSide="right"
+        linkTo="/missed-call-text-back"
       />
 
       {/* One-Click Marketing Campaigns */}
@@ -67,6 +70,7 @@ export default function Home() {
           "Marketing Campaigns At Your Fingertips - Just click a button and we'll take care of the rest. No need to hire a marketing team."
         ]}
         imageSide="left"
+        linkTo="/one-click-marketing-campaigns"
       />
 
       {/* Local SEO */}
@@ -79,6 +83,7 @@ export default function Home() {
           "Organic Acquisition System - Create your own qualified leads instead of paying for tirekickers."
         ]}
         imageSide="right"
+        linkTo="/local-seo"
       />
 
       <TradesGrid />

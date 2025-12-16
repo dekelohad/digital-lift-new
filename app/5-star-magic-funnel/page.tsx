@@ -1,0 +1,160 @@
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import { Star, RefreshCw, MousePointerClick, Shield } from 'lucide-react';
+
+export default function FiveStarMagicFunnelPage() {
+  const stats = [
+    {
+      percentage: "92%",
+      description: "of customers read online reviews before making a purchase"
+    },
+    {
+      percentage: "88%",
+      description: "of consumers trust online reviews as much as personal recommendations"
+    },
+    {
+      percentage: "4.5+",
+      description: "star rating can increase conversion rates by up to 270%"
+    }
+  ];
+
+  const features = [
+    {
+      icon: Star,
+      title: "5-Star Reviews Only",
+      description: "You can't make everyone happy, but our magic funnel sure can. Five stars, every time."
+    },
+    {
+      icon: RefreshCw,
+      title: "Automatic Follow-Up Reminders",
+      description: "\"Sure I'll leave you a review\", but the truth is people forget. We'll 'gently' remind them for a few weeks until they remember."
+    },
+    {
+      icon: MousePointerClick,
+      title: "Ask For Reviews In One Click",
+      description: "As promised, we keep it simple. If you're confused, we're fired and extremely embarrassed."
+    },
+    {
+      icon: Shield,
+      title: "Stop worrying about bad reviews",
+      description: "Unsure if you should ask for a review? We'll take the guesswork out by guiding your customer to leave a 5-star review!"
+    }
+  ];
+
+  return (
+    <main className="min-h-screen">
+      <Header />
+      
+      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
+              5-Star Magic Review Funnel
+            </h1>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
+            {stats.map((stat, index) => (
+              <div key={index} className="bg-white p-8 rounded-xl shadow-lg border border-gray-200 text-center hover:shadow-xl transition-shadow">
+                <div className="text-6xl md:text-7xl font-bold text-blue-600 mb-4">
+                  {stat.percentage}
+                </div>
+                <p className="text-gray-700 text-base md:text-lg leading-relaxed font-medium">
+                  {stat.description}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="max-w-5xl mx-auto mb-20">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+              See a short demo below
+            </h2>
+            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl aspect-video flex items-center justify-center shadow-2xl border-2 border-gray-300 overflow-hidden relative">
+              <div className="absolute inset-0 bg-white m-4 rounded-lg shadow-inner">
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="text-xl font-bold text-gray-900">Review Request</div>
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="bg-yellow-50 p-4 rounded-lg mb-4">
+                    <p className="text-sm text-gray-600">How was your experience?</p>
+                    <p className="text-gray-900 font-semibold mt-2">Leave us a 5-star review!</p>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 hover:bg-opacity-30 transition-all cursor-pointer group">
+                <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
+                  <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
+            How the Magic Funnel Works
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {features.map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <div key={index} className="bg-white text-gray-900 p-8 md:p-10 rounded-xl shadow-2xl hover:shadow-3xl transition-all transform hover:-translate-y-1">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-20 h-20 bg-yellow-100 rounded-xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-10 h-10 text-yellow-600" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{feature.title}</h3>
+                      <p className="text-gray-700 leading-relaxed text-base md:text-lg">{feature.description}</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+                Want to schedule a time to talk?
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl">
+                See everything we do to help you grow your business so you can implement it yourself or let us do it for you.
+              </p>
+              <button className="bg-blue-600 text-white px-10 py-5 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                Book A Call
+              </button>
+            </div>
+            <div className="flex-1 flex justify-center md:justify-end">
+              <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-500 rounded-full flex items-center justify-center shadow-2xl relative">
+                <Star className="w-32 h-32 text-white fill-white" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-yellow-300 rounded-full opacity-50 blur-xl"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-yellow-400 rounded-full opacity-50 blur-xl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+

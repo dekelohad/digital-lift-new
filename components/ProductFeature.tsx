@@ -1,5 +1,6 @@
 import Button from './Button';
 import Section from './Section';
+import Link from 'next/link';
 import { ReactNode } from 'react';
 
 interface ProductFeatureProps {
@@ -9,6 +10,7 @@ interface ProductFeatureProps {
   demoButton?: boolean;
   imageSide?: 'left' | 'right';
   children?: ReactNode;
+  linkTo?: string;
 }
 
 export default function ProductFeature({
@@ -17,7 +19,8 @@ export default function ProductFeature({
   features,
   demoButton = true,
   imageSide = 'right',
-  children
+  children,
+  linkTo
 }: ProductFeatureProps) {
   const isImageRight = imageSide === 'right';
 
@@ -43,7 +46,13 @@ export default function ProductFeature({
             ))}
           </ul>
           {demoButton && (
-            <Button variant="primary">See Short Demo</Button>
+            linkTo ? (
+              <Link href={linkTo}>
+                <Button variant="primary">See Short Demo</Button>
+              </Link>
+            ) : (
+              <Button variant="primary">See Short Demo</Button>
+            )
           )}
         </div>
 
