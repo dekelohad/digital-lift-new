@@ -1,0 +1,26 @@
+<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with rounded corners -->
+  <rect width="180" height="180" rx="40" fill="url(#bgGradient)"/>
+  
+  <!-- Rocket body -->
+  <path d="M90 40C85 40 80 42.5 77.5 47.5C75 52.5 75 57.5 77.5 62.5C80 67.5 85 70 90 70C95 70 100 67.5 102.5 62.5C105 57.5 105 52.5 102.5 47.5C100 42.5 95 40 90 40Z" fill="white"/>
+  
+  <!-- Rocket window -->
+  <circle cx="90" cy="55" r="8" fill="#2563EB"/>
+  
+  <!-- Rocket fins -->
+  <path d="M70 75L60 95L70 85" fill="white"/>
+  <path d="M110 75L120 95L110 85" fill="white"/>
+  
+  <!-- Rocket flame -->
+  <path d="M80 95L90 120L100 95" fill="#F97316"/>
+  <path d="M85 105L90 115L95 105" fill="#FB923C"/>
+  
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2563EB"/>
+      <stop offset="100%" stop-color="#1D4ED8"/>
+    </linearGradient>
+  </defs>
+</svg>
+

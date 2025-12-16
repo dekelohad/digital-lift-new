@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Button from './Button';
+import Logo from './Logo';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,41 +14,39 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-2xl md:text-3xl font-bold text-gray-900 hover:text-blue-600 transition-colors">
-              logo
-            </a>
+            <Logo />
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="/#services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+          <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
+            <a href="/#services" className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap">
               Services
             </a>
-            <a href="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/pricing" className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap">
               Pricing
             </a>
-            <a href="/testimonials" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/testimonials" className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap">
               Testimonials
             </a>
-            <a href="/our-work" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/our-work" className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap">
               Our Work
             </a>
-            <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors">
+            <a href="/about" className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap">
               About
             </a>
           </div>
 
           {/* Desktop CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="#login" className="text-gray-700 hover:text-gray-900 font-medium">
+          <div className="hidden lg:flex items-center space-x-4">
+            <a href="#login" className="text-gray-700 hover:text-gray-900 font-medium whitespace-nowrap">
               Log In
             </a>
-            <Button variant="primary">Book A Call</Button>
+            <Button variant="primary" className="whitespace-nowrap">Book A Call</Button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile/Tablet Menu Button - Shows on screens smaller than lg */}
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -55,9 +54,9 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile/Tablet Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
+          <div className="lg:hidden py-4 space-y-4">
             <a href="/#services" className="block text-gray-700 hover:text-gray-900 font-medium">
               Services
             </a>

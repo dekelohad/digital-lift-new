@@ -1,24 +1,17 @@
 import Button from './Button';
+import Logo from './Logo';
 
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
-            <div className="text-2xl font-bold mb-4">logo</div>
-            <h3 className="text-xl font-bold mb-4">Ready to get started?</h3>
-            <Button variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
-              Book A Call
-            </Button>
-          </div>
-          <div>
-            <h3 className="text-xl font-bold mb-4">Want to learn more about how we can help?</h3>
-            <Button variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
-              Book A Call
-            </Button>
-          </div>
+        <div className="mb-12">
+          <Logo className="mb-4" variant="light" />
+          <h3 className="text-xl font-bold mb-4">Ready to get started?</h3>
+          <Button variant="secondary" className="bg-white text-gray-900 hover:bg-gray-100">
+            Book A Call
+          </Button>
         </div>
 
         {/* Links Section */}
