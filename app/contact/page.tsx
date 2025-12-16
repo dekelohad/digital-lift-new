@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Mail, Phone, MapPin } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Contact Digital Lift - Get in Touch | Austin, TX",
+  description: "Have questions about our marketing systems? Contact Digital Lift today. Email us at info@digitalLift.io or call +1 (737) 937-6612. Located in Austin, Texas.",
+};
 
 export default function ContactPage() {
   return (

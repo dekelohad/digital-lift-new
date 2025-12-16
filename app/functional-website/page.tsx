@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Search, Star, Smartphone, MessageSquare } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Functional Websites for Contractors - Convert Visitors to Leads | Digital Lift",
+  description: "Get a functional website designed to convert traffic into real text conversations. Mobile-first design, SEO optimization, review showcase, and instant SMS lead capture. Built for contractors.",
+};
 
 export default function FunctionalWebsitePage() {
   const stats = [

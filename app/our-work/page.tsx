@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ExternalLink } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Our Work - Contractor Website Examples | Digital Lift",
+  description: "See examples of contractor websites and marketing systems we've built. Real results from roofing, plumbing, HVAC, landscaping, electrical, and general contractor clients.",
+};
 
 export default function OurWorkPage() {
   const projects = [

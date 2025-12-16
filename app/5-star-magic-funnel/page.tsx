@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Star, RefreshCw, MousePointerClick, Zap } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "5-Star Review Funnel - Automated Review System for Contractors | Digital Lift",
+  description: "Automated 5-star review funnel that works on autopilot. Generate more positive reviews, send automated follow-ups, and protect your online reputation. One-click review requests included.",
+};
 
 export default function FiveStarMagicFunnelPage() {
   const stats = [

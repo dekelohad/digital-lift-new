@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Search, TrendingUp, Target, MapPin, FileText, Globe, Settings, Building2, BarChart } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Local SEO for Contractors - Get Found on Google | Digital Lift",
+  description: "Local SEO that brings qualified leads to your business. On-site SEO, off-site optimization, Google Business Profile management, and monthly reporting. Get found when customers search locally.",
+};
 
 export default function LocalSEOPage() {
   const stats = [

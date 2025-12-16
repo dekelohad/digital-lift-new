@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: "Our Process - How Digital Lift Works | Contractor Marketing",
+  description: "See how Digital Lift works with contractors in 5 simple steps: Strategy Call, Onboarding, Build & Setup, Launch, and Ongoing Support. Transparent process from start to finish.",
+};
 
 export default function OurProcessPage() {
   const steps = [

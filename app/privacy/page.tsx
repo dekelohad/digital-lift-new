@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Digital Lift",
+  description: "Read Digital Lift's privacy policy. Learn how we collect, use, and protect your personal information. Last updated December 2024.",
+};
 
 export default function PrivacyPage() {
   return (

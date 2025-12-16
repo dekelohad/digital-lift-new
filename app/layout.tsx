@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Digital Lift - Website Design & Marketing Systems For Contractors",
-  description: "Marketing isn't magic and there's no miracle solution. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.",
+  description: "Marketing isn't magic and there's no miracle solution. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency. Functional websites, local SEO, review funnels, and automated lead follow-up for contractors.",
   icons: {
     icon: [
       { url: '/icon.svg?v=2', type: 'image/svg+xml' },
@@ -25,4 +25,3 @@ export default function RootLayout({
     </html>
   );
 }
-

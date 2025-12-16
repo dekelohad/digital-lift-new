@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { FileText, MessageSquare, Phone, Share2 } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Automated SMS Lead Follow-Up - Never Lose a Lead | Digital Lift",
+  description: "Automated SMS lead follow-up that converts faster. Instant responses to quote forms, chat widgets, missed calls, and social media messages. Keep prospects engaged 24/7.",
+};
 
 export default function AutomatedLeadFollowUpPage() {
   const stats = [

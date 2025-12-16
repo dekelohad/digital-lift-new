@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { MousePointerClick, Users, Gift, Calendar, Heart, Rocket } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "One-Click Marketing Campaigns - Drive Repeat Business | Digital Lift",
+  description: "Launch proven marketing campaigns with one click. Referral campaigns, return customer campaigns, lead revival, and holiday promotions. Drive revenue from existing customers.",
+};
 
 export default function OneClickMarketingCampaignsPage() {
   const stats = [

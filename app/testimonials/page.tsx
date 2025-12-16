@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import TestimonialCard from '@/components/TestimonialCard';
+
+export const metadata: Metadata = {
+  title: "Client Testimonials - Real Results from Digital Lift Customers",
+  description: "Read real testimonials from contractors who use Digital Lift's marketing systems. See how we've helped businesses get more leads, increase sales, and grow their online presence.",
+};
 
 const testimonials = [
   {

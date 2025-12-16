@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Phone, PhoneForwarded, PhoneCall } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Business Phone for Contractors - Professional Phone Number | Digital Lift",
+  description: "Get a dedicated business phone number with call tracking and insights. Separate business and personal calls, track every lead, and present a professional image to customers.",
+};
 
 export default function BusinessPhonePage() {
   const stats = [

@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Phone, Clock, Heart, Moon } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "Missed Call Text Back - Never Lose a Lead | Digital Lift",
+  description: "Automatically text back missed calls instantly. Stand out from competitors, capture more leads, and show customers you care. Available 24/7 to keep your business responsive.",
+};
 
 export default function MissedCallTextBackPage() {
   const stats = [

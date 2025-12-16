@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Inbox } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: "All-in-One Inbox - Unified Customer Communication | Digital Lift",
+  description: "Manage Facebook messages, Instagram DMs, text messages, and emails from one unified inbox. Faster responses, better organization, and nothing gets missed.",
+};
 
 export default function AllInOneInboxPage() {
   const stats = [

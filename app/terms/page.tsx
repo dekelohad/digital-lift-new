@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions - Digital Lift",
+  description: "Read Digital Lift's terms and conditions. Service description, payment terms, cancellation policy, and limitation of liability. Last updated December 2024.",
+};
 
 export default function TermsPage() {
   return (
