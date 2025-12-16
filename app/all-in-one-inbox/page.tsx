@@ -1,45 +1,23 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Inbox, MessageSquare, Bell, Filter } from 'lucide-react';
+import { Inbox } from 'lucide-react';
 
 export default function AllInOneInboxPage() {
   const stats = [
     {
-      percentage: "5x",
-      description: "faster response time with unified inbox"
+      percentage: "70%",
+      description: "of contractors respond faster when using a single inbox."
     },
     {
-      percentage: "90%",
-      description: "reduction in missed messages"
+      percentage: "61%",
+      description: "feel less overwhelmed managing customer messages in one place."
     },
     {
-      percentage: "1 Place",
-      description: "to manage all your customer communications"
+      percentage: "83%",
+      description: "become more organized by centralizing communication."
     }
   ];
 
-  const features = [
-    {
-      icon: Inbox,
-      title: "Unified Inbox",
-      description: "Manage all your messages from email, SMS, phone calls, and social media in one convenient place."
-    },
-    {
-      icon: MessageSquare,
-      title: "Multi-Channel Support",
-      description: "Respond to customers on their preferred channel - text, email, phone, or social media - all from one inbox."
-    },
-    {
-      icon: Bell,
-      title: "Real-Time Notifications",
-      description: "Get instant notifications when new messages arrive, so you never miss an important customer inquiry."
-    },
-    {
-      icon: Filter,
-      title: "Smart Organization",
-      description: "Automatically organize and filter messages by priority, customer type, or status to stay on top of everything."
-    }
-  ];
 
   return (
     <main className="min-h-screen">
@@ -49,7 +27,7 @@ export default function AllInOneInboxPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
-              All-In-One Inbox
+              All in One Inbox for Faster Responses
             </h1>
           </div>
 
@@ -79,7 +57,7 @@ export default function AllInOneInboxPage() {
                   </div>
                   <div className="space-y-2">
                     <div className="bg-blue-50 p-3 rounded-lg flex items-center gap-3">
-                      <MessageSquare className="w-5 h-5 text-blue-600" />
+                      <Inbox className="w-5 h-5 text-blue-600" />
                       <div className="flex-1">
                         <p className="text-sm font-semibold text-gray-900">SMS from John</p>
                         <p className="text-xs text-gray-600">Just now</p>
@@ -109,29 +87,29 @@ export default function AllInOneInboxPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Inbox Features
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+            What Is the All in One Inbox?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            The all in one inbox brings every customer message into one simple dashboard so nothing gets missed and responses stay fast.
+          </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            {features.map((feature, index) => {
-              const IconComponent = feature.icon;
-              return (
-                <div key={index} className="bg-white text-gray-900 p-8 md:p-10 rounded-xl shadow-2xl hover:shadow-3xl transition-all transform hover:-translate-y-1">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-20 h-20 bg-blue-100 rounded-xl flex items-center justify-center shadow-lg">
-                        <IconComponent className="w-10 h-10 text-blue-600" />
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{feature.title}</h3>
-                      <p className="text-gray-700 leading-relaxed text-base md:text-lg">{feature.description}</p>
-                    </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white text-gray-900 p-8 md:p-10 rounded-xl shadow-2xl hover:shadow-3xl transition-all transform hover:-translate-y-1">
+              <div className="flex items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 bg-blue-100 rounded-xl flex items-center justify-center shadow-lg">
+                    <Inbox className="w-10 h-10 text-blue-600" />
                   </div>
                 </div>
-              );
-            })}
+                <div className="flex-1">
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">4 in 1 Unified Inbox</h3>
+                  <p className="text-gray-700 leading-relaxed text-base md:text-lg">
+                    Manage Facebook messages, Instagram DMs, text messages, and emails from one inbox. This keeps your communication organized, improves response times, and makes it easy to prioritize leads without switching between platforms.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

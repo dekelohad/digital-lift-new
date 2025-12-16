@@ -1,43 +1,43 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Star, RefreshCw, MousePointerClick, Shield } from 'lucide-react';
+import { Star, RefreshCw, MousePointerClick, Zap } from 'lucide-react';
 
 export default function FiveStarMagicFunnelPage() {
   const stats = [
     {
-      percentage: "92%",
-      description: "of customers read online reviews before making a purchase"
+      percentage: "97%",
+      description: "of people read reviews before choosing a business."
     },
     {
-      percentage: "88%",
-      description: "of consumers trust online reviews as much as personal recommendations"
+      percentage: "72%",
+      description: "use Google reviews to find local services."
     },
     {
-      percentage: "4.5+",
-      description: "star rating can increase conversion rates by up to 270%"
+      percentage: "2.7x",
+      description: "more sales for businesses with more reviews."
     }
   ];
 
   const features = [
     {
       icon: Star,
-      title: "Attract More 5-Star Reviews",
-      description: "You cannot please everyone, but our funnel is designed to consistently generate positive reviews and protect your online reputation."
+      title: "Generate More 5 Star Reviews",
+      description: "Customers receive a custom review link. If they leave less than four stars, they are redirected to private feedback so issues can be resolved before becoming public."
     },
     {
       icon: RefreshCw,
-      title: "Automated Follow-Up Reminders",
-      description: "We send polite, scheduled reminders so customers remember to leave a review, without you having to chase anyone."
+      title: "Automated Follow Up Reminders",
+      description: "We automatically send polite follow up messages over several weeks to remind customers to leave a review. The timing is spaced out to maximize responses without annoying them."
     },
     {
       icon: MousePointerClick,
-      title: "One-Click Review Requests",
-      description: "Leaving a review takes seconds. The simpler the process, the more reviews you get."
+      title: "One Click Review Requests",
+      description: "Send a review request in seconds. Enter the customer's name and phone number and the system handles everything else."
     },
     {
-      icon: Shield,
-      title: "Reduce the Risk of Bad Reviews",
-      description: "We guide customers through the right experience, helping you collect positive feedback while minimizing negative public reviews."
+      icon: Zap,
+      title: "Contractor Review Injector",
+      description: "Already have a list of past customers? We gradually request reviews from previous clients, helping you build a strong review profile over time."
     }
   ];
 
@@ -49,11 +49,8 @@ export default function FiveStarMagicFunnelPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              5-Star Review Funnel That Works on Autopilot
+              5 Star Review Funnel That Builds Trust Automatically
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Customers mean well, but most forget to leave a review. Our system follows up automatically and professionally until they do, without feeling pushy or awkward.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 px-4">
@@ -104,9 +101,12 @@ export default function FiveStarMagicFunnelPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16 px-4">
-            How the Magic Funnel Works
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 px-4">
+            What Is the 5 Star Review Funnel?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
+            The 5 Star Review Funnel helps you collect more positive reviews while protecting your online reputation. Happy customers are guided to leave public reviews, while negative feedback is handled privately.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
             {features.map((feature, index) => {

@@ -6,15 +6,15 @@ export default function FunctionalWebsitePage() {
   const stats = [
     {
       percentage: "75%",
-      description: "of people judge a company's credibility based on their website"
+      description: "of people judge a company's credibility based on its website."
     },
     {
       percentage: "78%",
-      description: "of small business owners say a website has boosted their growth."
+      description: "of small business owners say a website has helped grow their business."
     },
     {
       percentage: "67%",
-      description: "of users trust websites with a seamless experience, boosting sales."
+      description: "of users trust businesses with a seamless website experience, leading to higher sales."
     }
   ];
 
@@ -22,22 +22,22 @@ export default function FunctionalWebsitePage() {
     {
       icon: Search,
       title: "Get Found Online",
-      description: "If customers cannot find your business on Google, they will find your competitor instead. We make sure your business shows up where it matters."
+      description: "We build every website with search visibility in mind. Your site is properly indexed and optimized according to Google's best practices. We structure keywords, meta tags, headers, and page speed before launch so your business shows up when customers search locally. Content options are available to support long term growth."
     },
     {
       icon: Star,
       title: "Showcase Your Best Reviews",
-      description: "Every business has a bad review or two. We highlight the feedback that builds trust and convinces customers to contact you."
+      description: "Your reputation matters. We highlight your strongest reviews across your website to build trust instantly. Reviews are kept up to date and professionally presented so your business always puts its best foot forward."
     },
     {
       icon: Smartphone,
-      title: "Mobile-First Design",
-      description: "Most people visit your website from their phone. We design for mobile first so your site looks great and converts fast on any device."
+      title: "Mobile First Experience",
+      description: "Most customers search for local services on their phone. We prioritize fast load times, clear calls to action, clickable phone numbers, and a smooth mobile experience that makes it easy to contact you."
     },
     {
       icon: MessageSquare,
-      title: "Instantly Starts SMS Conversations",
-      description: "Creating SMS conversations, eliminating email back-and-forths, functional quote forms, chat widgets, instant confirmation messages, and capturing phone numbers."
+      title: "Instant SMS Conversations",
+      description: "Email back and forth slows down sales. Our websites are designed to start text conversations instantly. Quote forms and chat widgets capture phone numbers and send immediate confirmations so you can follow up directly, even if the visitor leaves your site."
     }
   ];
 
@@ -50,14 +50,8 @@ export default function FunctionalWebsitePage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Functional Website
+              Functional Websites That Build Trust and Drive Growth
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Websites Built to Turn Visitors Into Conversations
-            </p>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4 leading-relaxed">
-              Get a website designed to convert traffic into real text conversations that go straight to your phone. No missed leads. No slow response times.
-            </p>
           </div>
 
           {/* Statistics */}
@@ -111,9 +105,12 @@ export default function FunctionalWebsitePage() {
       {/* What is the functional website? Section */}
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            What is the functional website?
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+            What Is a Functional Website?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            A functional website is not just about design. It is built to be found, earn trust, and turn visitors into real conversations.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
             {features.map((feature, index) => {

@@ -1,43 +1,43 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Zap, Clock, Target, TrendingUp } from 'lucide-react';
+import { FileText, MessageSquare, Phone, Share2 } from 'lucide-react';
 
 export default function AutomatedLeadFollowUpPage() {
   const stats = [
     {
-      percentage: "50%",
-      description: "of sales go to the vendor who responds first"
+      percentage: "70%",
+      description: "of people reply to SMS follow ups within 24 hours."
     },
     {
-      percentage: "78%",
-      description: "of customers buy from the company that responds to their inquiry first"
+      percentage: "72%",
+      description: "of contractors increase sales using automated follow up."
     },
     {
-      percentage: "10x",
-      description: "faster response time with automated follow-up"
+      percentage: "97%",
+      description: "of SMS messages are read within 24 hours."
     }
   ];
 
   const features = [
     {
-      icon: Zap,
-      title: "Instant Response",
-      description: "Automatically respond to leads within seconds, not hours. Never miss an opportunity again."
+      icon: FileText,
+      title: "Website Quote Forms",
+      description: "When a customer submits a quote request, they instantly receive a confirmation text that starts the conversation. You are notified immediately so you can follow up while interest is high."
     },
     {
-      icon: Clock,
-      title: "Follow-Up Sequences",
-      description: "Set up automated follow-up sequences that nurture leads until they're ready to buy."
+      icon: MessageSquare,
+      title: "Website Chat Widget",
+      description: "Messages sent through your website chat trigger an automatic text response, letting the customer know their request was received and keeping the conversation moving."
     },
     {
-      icon: Target,
-      title: "Lead Qualification",
-      description: "Automatically qualify leads and route them to the right person at the right time."
+      icon: Phone,
+      title: "Missed Call Text Back",
+      description: "If a customer misses your call, we send a text right away to let them know you tried to reach them and invite them to continue the conversation."
     },
     {
-      icon: TrendingUp,
-      title: "Increased Conversions",
-      description: "Turn more leads into customers with timely, personalized follow-up messages."
+      icon: Share2,
+      title: "Instagram and Facebook Auto Responder",
+      description: "Messages from Facebook and Instagram receive an automatic reply, reassuring customers that you will get back to them quickly while alerting you to respond."
     }
   ];
 
@@ -49,7 +49,7 @@ export default function AutomatedLeadFollowUpPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
-              Automated Lead Follow Up
+              Automated SMS Lead Follow Up That Converts Faster
             </h1>
           </div>
 
@@ -75,7 +75,7 @@ export default function AutomatedLeadFollowUpPage() {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
                     <div className="text-xl font-bold text-gray-900">Lead Follow-Up</div>
-                    <Zap className="w-8 h-8 text-yellow-500" />
+                    <MessageSquare className="w-8 h-8 text-blue-600" />
                   </div>
                   <div className="space-y-3">
                     <div className="bg-green-50 p-3 rounded-lg">
@@ -103,9 +103,12 @@ export default function AutomatedLeadFollowUpPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            How It Works
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+            What Is Automated SMS Lead Follow Up?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            Automated SMS lead follow up ensures every inquiry receives an immediate response, keeping prospects engaged while you focus on the job.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {features.map((feature, index) => {
@@ -114,8 +117,8 @@ export default function AutomatedLeadFollowUpPage() {
                 <div key={index} className="bg-white text-gray-900 p-8 md:p-10 rounded-xl shadow-2xl hover:shadow-3xl transition-all transform hover:-translate-y-1">
                   <div className="flex items-start gap-6">
                     <div className="flex-shrink-0">
-                      <div className="w-20 h-20 bg-yellow-100 rounded-xl flex items-center justify-center shadow-lg">
-                        <IconComponent className="w-10 h-10 text-yellow-600" />
+                      <div className="w-20 h-20 bg-blue-100 rounded-xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-10 h-10 text-blue-600" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -145,10 +148,10 @@ export default function AutomatedLeadFollowUpPage() {
               </button>
             </div>
             <div className="flex-1 flex justify-center md:justify-end">
-              <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-yellow-300 via-yellow-400 to-yellow-500 rounded-full flex items-center justify-center shadow-2xl relative">
-                <Zap className="w-32 h-32 text-white" />
-                <div className="absolute top-0 right-0 w-16 h-16 bg-yellow-300 rounded-full opacity-50 blur-xl"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-yellow-400 rounded-full opacity-50 blur-xl"></div>
+              <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl relative">
+                <MessageSquare className="w-32 h-32 text-white" />
+                <div className="absolute top-0 right-0 w-16 h-16 bg-blue-300 rounded-full opacity-50 blur-xl"></div>
+                <div className="absolute bottom-0 left-0 w-20 h-20 bg-blue-400 rounded-full opacity-50 blur-xl"></div>
               </div>
             </div>
           </div>

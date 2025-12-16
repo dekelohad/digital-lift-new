@@ -1,43 +1,43 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { MousePointerClick, Users, Repeat, Rocket } from 'lucide-react';
+import { MousePointerClick, Users, Gift, Calendar, Heart, Rocket } from 'lucide-react';
 
 export default function OneClickMarketingCampaignsPage() {
   const stats = [
     {
-      percentage: "1-Click",
-      description: "Activate pre-built marketing campaigns instantly"
+      percentage: "98%",
+      description: "of text messages are read within three minutes."
     },
     {
-      percentage: "3x",
-      description: "more referrals with automated referral campaigns"
+      percentage: "30%",
+      description: "of SMS campaigns generate immediate sales."
     },
     {
-      percentage: "40%",
-      description: "increase in repeat customers with return campaigns"
+      percentage: "62%",
+      description: "of consumers are likely to engage with SMS promotions."
     }
   ];
 
   const features = [
     {
-      icon: MousePointerClick,
-      title: "Done For You Campaigns",
-      description: "Activate proven marketing campaigns with a single click. No setup, no complexity, no learning curve."
-    },
-    {
       icon: Users,
-      title: "Referral Campaigns",
-      description: "Your customers already trust you. We remind them to recommend your business to friends and family at the right time."
+      title: "Contractor Lead Revival",
+      description: "We re activate old leads and past inquiries that never converted. Using targeted messages, we bring them back into the conversation and get them ready to book."
     },
     {
-      icon: Repeat,
-      title: "Return Customer Campaigns",
-      description: "Repeat business is the foundation of long term growth. We keep your customers engaged with timely follow ups and special offers."
+      icon: Gift,
+      title: "Contractor 5 Star Review Injector",
+      description: "We run a review campaign to past customers to increase your review count and visibility. Incentives such as gift cards can be used to boost participation and repeat business."
     },
     {
-      icon: Rocket,
-      title: "Marketing at Your Fingertips",
-      description: "Launch campaigns anytime with one click. No need to hire a marketing team or manage complicated tools."
+      icon: Calendar,
+      title: "Contractor Holiday Promotions",
+      description: "Seasonal campaigns bring customers back at the right time. We run targeted holiday promotions with special offers to increase bookings during peak seasons."
+    },
+    {
+      icon: Heart,
+      title: "Contractor Customer Nurture",
+      description: "We keep your business top of mind with personalized follow ups and offers. This builds loyalty, increases repeat work, and maximizes lifetime customer value."
     }
   ];
 
@@ -49,11 +49,8 @@ export default function OneClickMarketingCampaignsPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              One-Click Marketing Campaigns That Drive Repeat Business
+              One Click Marketing Campaigns That Drive Revenue
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Referrals and repeat customers are the most profitable leads. We make it easy to generate both with ready to use campaigns you can launch instantly.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
@@ -106,9 +103,12 @@ export default function OneClickMarketingCampaignsPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Campaign Features
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+            Why Do You Need Marketing Campaigns?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            Most contractors sit on a goldmine of past leads and customers. Marketing campaigns turn those contacts into repeat jobs, referrals, and fast revenue without relying only on new leads.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {features.map((feature, index) => {

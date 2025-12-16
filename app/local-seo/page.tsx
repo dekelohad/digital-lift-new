@@ -1,43 +1,48 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Search, TrendingUp, Target, MapPin } from 'lucide-react';
+import { Search, TrendingUp, Target, MapPin, FileText, Globe, Settings, Building2, BarChart } from 'lucide-react';
 
 export default function LocalSEOPage() {
   const stats = [
     {
-      percentage: "76%",
-      description: "of local searches result in a phone call or visit"
+      percentage: "93%",
+      description: "of people use Google to find local businesses."
+    },
+    {
+      percentage: "97%",
+      description: "research local companies online before making contact."
     },
     {
       percentage: "46%",
-      description: "of all Google searches are local"
-    },
-    {
-      percentage: "88%",
-      description: "of consumers who search for a local business on mobile call or visit within 24 hours"
+      description: "of searches have local purchase intent."
     }
   ];
 
   const features = [
     {
-      icon: Search,
-      title: "Higher Quality Leads",
-      description: "Organic traffic means customers who want your service and are ready to talk, not random leads that never answer the phone."
+      icon: FileText,
+      title: "On Site SEO",
+      description: "We optimize your website content, structure, and keywords to improve visibility and rankings. This includes proper use of headings, meta data, page speed optimization, and targeting high potential keywords that are most likely to convert into leads."
     },
     {
-      icon: Target,
-      title: "Stop Paying for Unqualified Leads",
-      description: "Quality matters more than volume. We focus on attracting the right customers instead of wasting your budget on low intent leads."
+      icon: Globe,
+      title: "Off Site SEO",
+      description: "We strengthen your online authority by optimizing external ranking factors. This includes managing your Google Business Profile, building high quality backlinks, and ensuring your business is properly targeted for your service area."
     },
     {
-      icon: TrendingUp,
-      title: "Sustainable Organic Growth",
-      description: "Build a long term lead system that works for you every month without paying for every click."
+      icon: Settings,
+      title: "Technical SEO",
+      description: "We ensure your website meets all technical requirements for search engines. This includes site speed, mobile responsiveness, secure connections, proper indexing, clean redirects, and structured data to help Google understand and rank your site correctly."
     },
     {
-      icon: MapPin,
-      title: "Local Visibility",
-      description: "Get found by customers in your area when they search for your services on Google."
+      icon: Building2,
+      title: "Google Business Profile Optimization",
+      description: "Your Google Business Profile is one of your most powerful local assets. We optimize your listing for accuracy, visibility, and engagement so your business shows up in local map results and attracts more calls."
+    },
+    {
+      icon: BarChart,
+      title: "Monthly SEO Reporting",
+      description: "You receive clear monthly reports showing traffic growth, keyword rankings, and overall site health. We highlight what is working, identify opportunities for improvement, and continuously refine your local SEO strategy."
     }
   ];
 
@@ -49,11 +54,8 @@ export default function LocalSEOPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Local SEO That Brings Qualified Leads
+              Local SEO That Drives Real Local Customers
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              There are no overnight rankings. Real local SEO takes time, but when done right, it consistently brings customers who are actively searching for your services.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">
@@ -111,9 +113,12 @@ export default function LocalSEOPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            SEO Benefits
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+            What Is Local SEO?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            Local SEO helps your business appear in front of customers who are actively searching for your services in your area. When done correctly, it brings consistent, high intent leads without paying for every click.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {features.map((feature, index) => {

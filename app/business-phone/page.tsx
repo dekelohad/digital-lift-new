@@ -1,43 +1,38 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Phone, Voicemail, PhoneForwarded, PhoneCall } from 'lucide-react';
+import { Phone, PhoneForwarded, PhoneCall } from 'lucide-react';
 
 export default function BusinessPhonePage() {
   const stats = [
     {
-      percentage: "24/7",
-      description: "professional phone service for your business"
+      percentage: "80%",
+      description: "more calls to contractors with a business phone lead to jobs."
     },
     {
-      percentage: "100%",
-      description: "of calls answered, never miss a customer"
+      percentage: "71%",
+      description: "of customers are more likely to refer contractors who use a business phone number."
     },
     {
-      percentage: "3x",
-      description: "more professional with dedicated business number"
+      percentage: "58%",
+      description: "manage appointments more efficiently with a dedicated business phone."
     }
   ];
 
   const features = [
     {
       icon: Phone,
-      title: "Professional Business Number",
-      description: "Get a dedicated business phone number that makes you look professional and established."
-    },
-    {
-      icon: Voicemail,
-      title: "Custom Voicemail",
-      description: "Set up professional voicemail greetings that represent your brand and provide important information."
+      title: "Dedicated Business Phone Number",
+      description: "Your customers call a professional business number that represents your company, not a personal line. Every call is tracked and logged so you can follow up quickly and stay organized."
     },
     {
       icon: PhoneForwarded,
-      title: "Call Forwarding",
-      description: "Forward calls to any number, so you never miss important business calls, even when you're on the go."
+      title: "Call Tracking and Insights",
+      description: "Track every incoming call to understand where leads come from and how customers reach your business. This helps you measure marketing performance and improve how calls are handled."
     },
     {
       icon: PhoneCall,
-      title: "Call Recording & Analytics",
-      description: "Record important calls and track analytics to improve your customer service and sales process."
+      title: "Separate Business and Personal Calls",
+      description: "Keep your personal number private while managing all business calls in one place. This creates clear boundaries, improves responsiveness, and presents a more professional image to customers."
     }
   ];
 
@@ -49,7 +44,7 @@ export default function BusinessPhonePage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
-              Business Phone
+              Business Phone Built for Contractors
             </h1>
           </div>
 
@@ -98,9 +93,12 @@ export default function BusinessPhonePage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-16">
-            Phone Features
+          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8">
+            Why Do You Need a Business Phone?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-16 max-w-3xl mx-auto">
+            A business phone gives your company a professional presence, better call management, and clear separation between work and personal life.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {features.map((feature, index) => {

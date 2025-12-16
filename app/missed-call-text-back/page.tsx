@@ -5,16 +5,16 @@ import { Phone, Clock, Heart, Moon } from 'lucide-react';
 export default function MissedCallTextBackPage() {
   const stats = [
     {
-      percentage: "80%",
-      description: "of customers expect a response within 5 minutes of missing a call"
+      percentage: "85%",
+      description: "of customers appreciate receiving a text after a missed call."
     },
     {
-      percentage: "65%",
-      description: "of businesses lose leads due to missed calls"
+      percentage: "72%",
+      description: "more customers respond to texts compared to voicemails."
     },
     {
-      percentage: "90%",
-      description: "of customers prefer text messages over voicemail"
+      percentage: "69%",
+      description: "of businesses gain more customers by using missed call text back."
     }
   ];
 
@@ -22,22 +22,17 @@ export default function MissedCallTextBackPage() {
     {
       icon: Phone,
       title: "Stand Out From Your Competition",
-      description: "Most businesses miss calls and do nothing. You respond immediately and start the conversation."
+      description: "Most contractors miss calls and never follow up. We send a personalized text immediately after a missed call, acknowledging the customer and directing them to your quote form so the conversation continues."
     },
     {
       icon: Clock,
       title: "No More Lost Leads",
-      description: "Busy on a job site or unable to answer the phone? An automatic text is sent instantly so the lead stays engaged."
-    },
-    {
-      icon: Heart,
-      title: "Show Customers You Care",
-      description: "A quick response builds trust. Customers feel acknowledged and are far more likely to move forward when they know you care."
+      description: "When customers are ready to hire, speed matters. If a call goes unanswered, they move on. We start the conversation instantly to keep the lead engaged and prevent lost opportunities."
     },
     {
       icon: Moon,
       title: "Available 24/7",
-      description: "Even after hours, every missed call receives a response. Your business stays active while you focus on the work."
+      description: "Your system works around the clock. Every missed call receives a prompt response, even after hours, so no inquiry is ever ignored and your business stays responsive at all times."
     }
   ];
 
@@ -49,11 +44,8 @@ export default function MissedCallTextBackPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              Missed Call Text Back That Never Loses a Lead
+              Missed Call Text Back That Captures More Leads
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Every contractor misses calls. The difference is what happens next. We instantly text back missed callers so you stay ahead of competitors and never lose an opportunity.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 px-4">
@@ -100,9 +92,12 @@ export default function MissedCallTextBackPage() {
 
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16 px-4">
-            Why Missed Call Text Back?
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 px-4">
+            What Is Missed Call Text Back?
           </h2>
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-12 sm:mb-16 max-w-3xl mx-auto">
+            Missed call text back automatically responds to unanswered calls with an instant text message, letting potential customers know you received their call and guiding them to take the next step.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
             {features.map((feature, index) => {

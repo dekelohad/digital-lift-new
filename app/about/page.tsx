@@ -12,20 +12,20 @@ export default function AboutPage() {
 
   const values = [
     {
-      title: "No Bullsh*t",
-      description: "We tell it like it is. No fancy marketing speak, just honest solutions that work."
+      title: "Honest and Direct",
+      description: "We tell you what works and what does not. No marketing jargon, no false promises, just clear strategies that deliver real results."
     },
     {
-      title: "Affordable Pricing",
-      description: "We believe in keeping you for 10+ years, not charging you out the door."
+      title: "Fair and Sustainable Pricing",
+      description: "Our goal is long term partnerships, not short term wins. We price our services so you can grow with us for years, not feel pressured to leave."
     },
     {
-      title: "Simple Systems",
-      description: "No degrees required. We build systems that contractors can actually use."
+      title: "Simple and Practical Systems",
+      description: "Everything we build is designed to be easy to use. No technical background required, just systems that make running your business simpler."
     },
     {
-      title: "Real Results",
-      description: "We're not here to perform miracles, but we'll give you the tools to win."
+      title: "Focused on Real Results",
+      description: "We do not promise miracles. We provide proven tools and support that help you consistently win more business when used the right way."
     }
   ];
 
@@ -40,7 +40,7 @@ export default function AboutPage() {
               About Digital Lift
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              We're here to cut through the marketing BS and give contractors the tools they need to grow their businesses.
+              We cut through the noise and give contractors practical marketing systems that help them grow consistently.
             </p>
           </div>
 
