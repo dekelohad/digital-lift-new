@@ -29,12 +29,12 @@ export default function Home() {
       {/* Functional Website */}
       <ProductFeature
         title="Functional Website"
+        subtitle="Websites Built to Turn Visitors Into Conversations. Get a website designed to convert traffic into real text conversations that go straight to your phone. No missed leads. No slow response times."
         features={[
-          "Get a website that instantly turns leads into text conversations that go DIRECTLY to your phone.",
-          "Actually Get Found Online - If a customer googles your business and can't find you, that might be awkward... Don't worry, we won't let that happen.",
-          "Showcase Your Best Reviews - We all have one or two bad reviews... That doesn't mean your customers need to see them.",
-          "Mobile Friendly - 87% of people visit websites on their phone. We'll make sure your business looks extra sexy on mobile.",
-          "Optimized For Local Google Searches - This should go without saying but we'll still say it. We make sure your business is found on Google."
+          "Get Found Online - If customers cannot find your business on Google, they will find your competitor instead. We make sure your business shows up where it matters.",
+          "Showcase Your Best Reviews - Every business has a bad review or two. We highlight the feedback that builds trust and convinces customers to contact you.",
+          "Mobile-First Design - Most people visit your website from their phone. We design for mobile first so your site looks great and converts fast on any device.",
+          "Optimized for Local Google Searches - Local visibility is not optional. We optimize your website so customers in your service area can easily find you on Google."
         ]}
         imageSide="right"
         linkTo="/functional-website"
@@ -42,13 +42,13 @@ export default function Home() {
 
       {/* 5-Star Magic Review Funnel */}
       <ProductFeature
-        title="5-Star Magic Review Funnel"
-        subtitle={"Sure I'll leave you a review, but the truth is people forget. We'll 'gently' remind them for a few weeks until they remember."}
+        title="5-Star Review Funnel That Works on Autopilot"
+        subtitle="Customers mean well, but most forget to leave a review. Our system follows up automatically and professionally until they do, without feeling pushy or awkward."
         features={[
-          "5-Star Reviews Only - You can't make everyone happy, but our magic funnel sure can. Five stars, every time.",
-          "Automatic Follow-Up Reminders - \"Sure I'll leave you a review\", but the truth is people forget. We'll 'gently' reminder them for a few weeks until they remember.",
-          "Ask For Reviews In One Click - As promised, we keep it simple. If you're confused, we're fired and extremely embarrassed.",
-          "Stop worrying about bad reviews - Unsure if you should ask for a review? We'll take the guesswork out by guiding your customer to leave a 5-star review!"
+          "Attract More 5-Star Reviews - You cannot please everyone, but our funnel is designed to consistently generate positive reviews and protect your online reputation.",
+          "Automated Follow-Up Reminders - We send polite, scheduled reminders so customers remember to leave a review, without you having to chase anyone.",
+          "One-Click Review Requests - Leaving a review takes seconds. The simpler the process, the more reviews you get.",
+          "Reduce the Risk of Bad Reviews - We guide customers through the right experience, helping you collect positive feedback while minimizing negative public reviews."
         ]}
         imageSide="left"
         linkTo="/5-star-magic-funnel"
@@ -56,13 +56,13 @@ export default function Home() {
 
       {/* Missed Call Text Back */}
       <ProductFeature
-        title="Missed Call Text Back"
-        subtitle="Everyone misses calls, but not everyone texts back. Be the one who does. Outshine your competition."
+        title="Missed Call Text Back That Never Loses a Lead"
+        subtitle="Every contractor misses calls. The difference is what happens next. We instantly text back missed callers so you stay ahead of competitors and never lose an opportunity."
         features={[
-          "Stand out from your competition - Everyone misses calls, but not everyone texts back. Be the one who does and outshine your competition.",
-          "No More Lost Leads - On a job site and can't answer the phone? No problem, we'll fire off a text and start the conversation for you.",
-          "Show Customers You Care - Your ex didn't like it when you missed their calls - neither do your customers. At least send a text so they know you care.",
-          "Be available 24/7 - Missed a call after hours? No worries, we'll make sure everyone feels loved even while you're getting your beauty sleep."
+          "Stand Out From Your Competition - Most businesses miss calls and do nothing. You respond immediately and start the conversation.",
+          "No More Lost Leads - Busy on a job site or unable to answer the phone? An automatic text is sent instantly so the lead stays engaged.",
+          "Show Customers You Care - A quick response builds trust. Customers feel acknowledged and are far more likely to move forward when they know you care.",
+          "Available 24/7 - Even after hours, every missed call receives a response. Your business stays active while you focus on the work."
         ]}
         imageSide="right"
         linkTo="/missed-call-text-back"
@@ -70,13 +70,13 @@ export default function Home() {
 
       {/* One-Click Marketing Campaigns */}
       <ProductFeature
-        title="One-Click Marketing Campaigns"
-        subtitle="You know it, and we know it… Referrals and repeat customers are the best. Let's get you both!"
+        title="One-Click Marketing Campaigns That Drive Repeat Business"
+        subtitle="Referrals and repeat customers are the most profitable leads. We make it easy to generate both with ready to use campaigns you can launch instantly."
         features={[
-          "Done For You - Again... let's keep it simple. Activate our pre-built marketing campaigns with just one click.",
-          "Referral Campaigns - We know it and you know it... You do good work, and your customers love you. Let's remind them to tell their friends.",
-          "Return Customer Campaigns - Having loyal customers is key to a succesful business. We'll make sure your customers feel cared for with special offers.",
-          "Marketing Campaigns At Your Fingertips - Just click a button and we'll take care of the rest. No need to hire a marketing team."
+          "Done For You Campaigns - Activate proven marketing campaigns with a single click. No setup, no complexity, no learning curve.",
+          "Referral Campaigns - Your customers already trust you. We remind them to recommend your business to friends and family at the right time.",
+          "Return Customer Campaigns - Repeat business is the foundation of long term growth. We keep your customers engaged with timely follow ups and special offers.",
+          "Marketing at Your Fingertips - Launch campaigns anytime with one click. No need to hire a marketing team or manage complicated tools."
         ]}
         imageSide="left"
         linkTo="/one-click-marketing-campaigns"
@@ -84,12 +84,12 @@ export default function Home() {
 
       {/* Local SEO */}
       <ProductFeature
-        title="Local SEO"
-        subtitle="Rank number one on Google in a week! Just kidding, SEO takes time..."
+        title="Local SEO That Brings Qualified Leads"
+        subtitle="There are no overnight rankings. Real local SEO takes time, but when done right, it consistently brings customers who are actively searching for your services."
         features={[
-          "Qualified Leads - Sounds better than paying $50 for a lead that doesn't even pick up the phone, right?",
-          "Stop Paying For Unqualified Lead - Like mom always said, quality over quantity. Do we agree with her on this?",
-          "Organic Acquisition System - Create your own qualified leads instead of paying for tirekickers."
+          "Higher Quality Leads - Organic traffic means customers who want your service and are ready to talk, not random leads that never answer the phone.",
+          "Stop Paying for Unqualified Leads - Quality matters more than volume. We focus on attracting the right customers instead of wasting your budget on low intent leads.",
+          "Sustainable Organic Growth - Build a long term lead system that works for you every month without paying for every click."
         ]}
         imageSide="right"
         linkTo="/local-seo"

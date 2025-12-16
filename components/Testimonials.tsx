@@ -91,9 +91,11 @@ export default function Testimonials() {
         animate={isInView ? "visible" : "hidden"}
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-          The proof is in the pudding...<br className="hidden sm:block" />
-          Let's see what our clients have to say
+          Real Results From Real Clients
         </h2>
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          Don't take our word for it. Hear directly from contractors who use our systems and see the results firsthand.
+        </p>
       </motion.div>
       <motion.div 
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4"

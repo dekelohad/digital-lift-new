@@ -21,18 +21,18 @@ export default function FunctionalWebsitePage() {
   const features = [
     {
       icon: Search,
-      title: "Actually Get Found Online",
-      description: "SEO, Google indexing, keywords, meta tags, page speed optimization, and blog posts."
+      title: "Get Found Online",
+      description: "If customers cannot find your business on Google, they will find your competitor instead. We make sure your business shows up where it matters."
     },
     {
       icon: Star,
       title: "Showcase Your Best Reviews",
-      description: "Online reputation, showcasing top reviews, and prompt responses."
+      description: "Every business has a bad review or two. We highlight the feedback that builds trust and convinces customers to contact you."
     },
     {
       icon: Smartphone,
-      title: "Mobile Friendly",
-      description: "Mobile device searches, proper loading, clear call-to-actions, hyperlinked phone numbers, and quick load speeds."
+      title: "Mobile-First Design",
+      description: "Most people visit your website from their phone. We design for mobile first so your site looks great and converts fast on any device."
     },
     {
       icon: MessageSquare,
@@ -49,9 +49,15 @@ export default function FunctionalWebsitePage() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Functional Website
             </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Websites Built to Turn Visitors Into Conversations
+            </p>
+            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto mt-4 leading-relaxed">
+              Get a website designed to convert traffic into real text conversations that go straight to your phone. No missed leads. No slow response times.
+            </p>
           </div>
 
           {/* Statistics */}

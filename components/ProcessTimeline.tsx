@@ -7,25 +7,24 @@ import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 const steps = [
   {
-    title: 'Demo Call',
-    subtitle: '(20 mins)',
-    description: "It's actually a sales call, we just didn't want to scare you. But seriously... we'll answer all your questions, show you any features you have questions about, and see if we're a good fit to partner with…"
+    title: 'Strategy Call',
+    description: 'We start with a short call to understand your business, answer your questions, and confirm we are the right fit to work together.'
   },
   {
     title: 'Onboarding',
-    description: 'We get to know your business and set up your account.'
+    description: 'We collect the details we need and get your account set up properly from day one.'
   },
   {
-    title: 'Setup',
-    description: 'We build your website and configure all your marketing systems.'
+    title: 'Build and Setup',
+    description: 'We design your website and configure all marketing systems to match your business goals.'
   },
   {
     title: 'Launch',
-    description: 'Your website goes live and systems are activated.'
+    description: 'Your website goes live and all systems are activated and ready to generate leads.'
   },
   {
     title: 'Ongoing Support',
-    description: 'We continue to support you and help grow your business.'
+    description: 'We stay involved, provide ongoing support, and help optimize your system as your business grows.'
   }
 ];
 
@@ -43,7 +42,7 @@ export default function ProcessTimeline() {
         animate={isInView ? "visible" : "hidden"}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          What working with us looks like...
+          What Working With Digital Lift Looks Like
         </h2>
         <motion.div 
           className="w-24 h-1 bg-gray-300 mx-auto my-6"

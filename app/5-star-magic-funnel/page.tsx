@@ -21,23 +21,23 @@ export default function FiveStarMagicFunnelPage() {
   const features = [
     {
       icon: Star,
-      title: "5-Star Reviews Only",
-      description: "You can't make everyone happy, but our magic funnel sure can. Five stars, every time."
+      title: "Attract More 5-Star Reviews",
+      description: "You cannot please everyone, but our funnel is designed to consistently generate positive reviews and protect your online reputation."
     },
     {
       icon: RefreshCw,
-      title: "Automatic Follow-Up Reminders",
-      description: "\"Sure I'll leave you a review\", but the truth is people forget. We'll 'gently' remind them for a few weeks until they remember."
+      title: "Automated Follow-Up Reminders",
+      description: "We send polite, scheduled reminders so customers remember to leave a review, without you having to chase anyone."
     },
     {
       icon: MousePointerClick,
-      title: "Ask For Reviews In One Click",
-      description: "As promised, we keep it simple. If you're confused, we're fired and extremely embarrassed."
+      title: "One-Click Review Requests",
+      description: "Leaving a review takes seconds. The simpler the process, the more reviews you get."
     },
     {
       icon: Shield,
-      title: "Stop worrying about bad reviews",
-      description: "Unsure if you should ask for a review? We'll take the guesswork out by guiding your customer to leave a 5-star review!"
+      title: "Reduce the Risk of Bad Reviews",
+      description: "We guide customers through the right experience, helping you collect positive feedback while minimizing negative public reviews."
     }
   ];
 
@@ -48,9 +48,12 @@ export default function FiveStarMagicFunnelPage() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
-              5-Star Magic Review Funnel
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              5-Star Review Funnel That Works on Autopilot
             </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Customers mean well, but most forget to leave a review. Our system follows up automatically and professionally until they do, without feeling pushy or awkward.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 px-4">

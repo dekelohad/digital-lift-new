@@ -21,23 +21,23 @@ export default function MissedCallTextBackPage() {
   const features = [
     {
       icon: Phone,
-      title: "Stand out from your competition",
-      description: "Everyone misses calls, but not everyone texts back. Be the one who does and outshine your competition."
+      title: "Stand Out From Your Competition",
+      description: "Most businesses miss calls and do nothing. You respond immediately and start the conversation."
     },
     {
       icon: Clock,
       title: "No More Lost Leads",
-      description: "On a job site and can't answer the phone? No problem, we'll fire off a text and start the conversation for you."
+      description: "Busy on a job site or unable to answer the phone? An automatic text is sent instantly so the lead stays engaged."
     },
     {
       icon: Heart,
       title: "Show Customers You Care",
-      description: "Your ex didn't like it when you missed their calls - neither do your customers. At least send a text so they know you care."
+      description: "A quick response builds trust. Customers feel acknowledged and are far more likely to move forward when they know you care."
     },
     {
       icon: Moon,
-      title: "Be available 24/7",
-      description: "Missed a call after hours? No worries, we'll make sure everyone feels loved even while you're getting your beauty sleep."
+      title: "Available 24/7",
+      description: "Even after hours, every missed call receives a response. Your business stays active while you focus on the work."
     }
   ];
 
@@ -48,9 +48,12 @@ export default function MissedCallTextBackPage() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
-              Missed Call Text Back
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              Missed Call Text Back That Never Loses a Lead
             </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Every contractor misses calls. The difference is what happens next. We instantly text back missed callers so you stay ahead of competitors and never lose an opportunity.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 px-4">

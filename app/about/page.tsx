@@ -49,7 +49,7 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Our Story</h2>
               <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
                 <p>
-                  Cut the bullsh*t, Marketing isn't rocket science. No agency... (including ours) has the miracle solution to all your problems. We'll give you the tools to win but you need to commit to using them!
+                  Marketing isn't magic and there's no miracle solution. Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
                 </p>
                 <p>
                   We started Digital Lift because we saw too many contractors getting ripped off by marketing agencies promising the world and delivering nothing. We decided to do things differently.

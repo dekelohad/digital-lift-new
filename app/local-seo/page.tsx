@@ -21,18 +21,18 @@ export default function LocalSEOPage() {
   const features = [
     {
       icon: Search,
-      title: "Qualified Leads",
-      description: "Sounds better than paying $50 for a lead that doesn't even pick up the phone, right?"
+      title: "Higher Quality Leads",
+      description: "Organic traffic means customers who want your service and are ready to talk, not random leads that never answer the phone."
     },
     {
       icon: Target,
-      title: "Stop Paying For Unqualified Leads",
-      description: "Like mom always said, quality over quantity. Do we agree with her on this?"
+      title: "Stop Paying for Unqualified Leads",
+      description: "Quality matters more than volume. We focus on attracting the right customers instead of wasting your budget on low intent leads."
     },
     {
       icon: TrendingUp,
-      title: "Organic Acquisition System",
-      description: "Create your own qualified leads instead of paying for tirekickers."
+      title: "Sustainable Organic Growth",
+      description: "Build a long term lead system that works for you every month without paying for every click."
     },
     {
       icon: MapPin,
@@ -48,11 +48,11 @@ export default function LocalSEOPage() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
-              Local SEO
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              Local SEO That Brings Qualified Leads
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 italic">
-              "Rank number one on Google in a week!" Just kidding, SEO takes time...
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              There are no overnight rankings. Real local SEO takes time, but when done right, it consistently brings customers who are actively searching for your services.
             </p>
           </div>
 

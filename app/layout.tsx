@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Digital Lift - Website Design & Marketing Systems For Contractors",
-  description: "Cut the bullsh*t, Marketing isn't rocket science. We'll give you the tools to win but you need to commit to using them!",
+  description: "Marketing isn't magic and there's no miracle solution. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.",
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },

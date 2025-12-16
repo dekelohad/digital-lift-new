@@ -21,23 +21,23 @@ export default function OneClickMarketingCampaignsPage() {
   const features = [
     {
       icon: MousePointerClick,
-      title: "Done For You",
-      description: "Again... let's keep it simple. Activate our pre-built marketing campaigns with just one click."
+      title: "Done For You Campaigns",
+      description: "Activate proven marketing campaigns with a single click. No setup, no complexity, no learning curve."
     },
     {
       icon: Users,
       title: "Referral Campaigns",
-      description: "We know it and you know it... You do good work, and your customers love you. Let's remind them to tell their friends."
+      description: "Your customers already trust you. We remind them to recommend your business to friends and family at the right time."
     },
     {
       icon: Repeat,
       title: "Return Customer Campaigns",
-      description: "Having loyal customers is key to a successful business. We'll make sure your customers feel cared for with special offers."
+      description: "Repeat business is the foundation of long term growth. We keep your customers engaged with timely follow ups and special offers."
     },
     {
       icon: Rocket,
-      title: "Marketing Campaigns At Your Fingertips",
-      description: "Just click a button and we'll take care of the rest. No need to hire a marketing team."
+      title: "Marketing at Your Fingertips",
+      description: "Launch campaigns anytime with one click. No need to hire a marketing team or manage complicated tools."
     }
   ];
 
@@ -48,9 +48,12 @@ export default function OneClickMarketingCampaignsPage() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
-              One-Click Marketing Campaigns
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+              One-Click Marketing Campaigns That Drive Repeat Business
             </h1>
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              Referrals and repeat customers are the most profitable leads. We make it easy to generate both with ready to use campaigns you can launch instantly.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-16">

@@ -5,58 +5,57 @@ export default function OurProcessPage() {
   const steps = [
     {
       number: 1,
-      title: 'Demo Call',
-      subtitle: '(20 mins)',
-      description: "It's actually a sales call, we just didn't want to scare you. But seriously... we'll answer all your questions, show you any features you have questions about, and see if we're a good fit to partner with…",
+      title: 'Strategy Call',
+      description: 'We start with a short call to understand your business, answer your questions, and confirm we are the right fit to work together.',
       details: [
+        "Understand your business needs",
         "Answer all your questions",
-        "Show you any features you're curious about",
-        "See if we're a good fit to partner with",
+        "Confirm we're the right fit",
         "No pressure, just honest conversation"
       ]
     },
     {
       number: 2,
       title: 'Onboarding',
-      description: "We get to know your business inside and out. This is where we learn about your specific needs, your customers, and your goals.",
+      description: 'We collect the details we need and get your account set up properly from day one.',
       details: [
-        "Complete business assessment",
-        "Understand your target customers",
-        "Review your current marketing efforts",
-        "Set clear goals and expectations"
+        "Collect business information",
+        "Set up your account",
+        "Gather necessary details",
+        "Prepare for build phase"
       ]
     },
     {
       number: 3,
-      title: 'Setup',
-      description: "We build your website and configure all your marketing systems. This is where the magic happens - we set everything up so it works perfectly for your business.",
+      title: 'Build and Setup',
+      description: 'We design your website and configure all marketing systems to match your business goals.',
       details: [
-        "Build your custom website",
-        "Configure all marketing systems",
-        "Set up automated workflows",
-        "Integrate all tools and platforms"
+        "Design your website",
+        "Configure marketing systems",
+        "Match your business goals",
+        "Set up all integrations"
       ]
     },
     {
       number: 4,
       title: 'Launch',
-      description: "Your website goes live and systems are activated. This is when you start seeing results and your business starts growing.",
+      description: 'Your website goes live and all systems are activated and ready to generate leads.',
       details: [
         "Website goes live",
         "All systems activated",
-        "Training and support provided",
-        "You're ready to grow!"
+        "Ready to generate leads",
+        "Everything is operational"
       ]
     },
     {
       number: 5,
       title: 'Ongoing Support',
-      description: "We continue to support you and help grow your business. We're here for the long haul, not just a one-time setup.",
+      description: 'We stay involved, provide ongoing support, and help optimize your system as your business grows.',
       details: [
-        "Regular check-ins and updates",
-        "Ongoing optimization",
-        "New features and improvements",
-        "Dedicated support when you need it"
+        "Ongoing support provided",
+        "System optimization",
+        "Help as you grow",
+        "Long-term partnership"
       ]
     }
   ];
@@ -72,7 +71,7 @@ export default function OurProcessPage() {
               Our Process
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              What working with us looks like... Simple, straightforward, and designed to get you results.
+              What Working With Digital Lift Looks Like
             </p>
           </div>
 
@@ -87,7 +86,7 @@ export default function OurProcessPage() {
                   </div>
                   <div className="flex-1 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 w-full">
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 leading-tight">
-                      {step.title} {step.subtitle && <span className="text-gray-600 font-normal text-lg sm:text-xl md:text-2xl">{step.subtitle}</span>}
+                      {step.number}. {step.title}
                     </h2>
                     <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
                       {step.description}

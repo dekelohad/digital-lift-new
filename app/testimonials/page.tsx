@@ -90,10 +90,10 @@ export default function TestimonialsPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12 sm:mb-16 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              The proof is in the pudding...
+              Real Results From Real Clients
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Let's see what our clients have to say
+              Don't take our word for it. Hear directly from contractors who use our systems and see the results firsthand.
             </p>
           </div>
 

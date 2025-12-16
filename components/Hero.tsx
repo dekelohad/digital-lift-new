@@ -30,8 +30,8 @@ export default function Hero() {
             className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
-            Cut the bullsh*t, Marketing isn't rocket science.<br className="hidden sm:block" />
-            No agency... (including ours) has the miracle solution to all your problems. We'll give you the tools to win but you need to commit to using them!
+            Marketing isn't magic and there's no miracle solution.<br className="hidden sm:block" />
+            Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
           </motion.p>
         </motion.div>
 
