@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/lib/animations';
 
@@ -117,17 +116,6 @@ export default function ROICalculatorPage() {
     <main className="min-h-screen bg-white text-gray-900">
       <Header />
       
-      {/* Breadcrumb */}
-      <div className="bg-gray-50 border-b border-gray-200">
-        <div className="container mx-auto px-4 max-w-7xl py-4">
-          <nav className="text-sm text-gray-600">
-            <Link href="/" className="hover:text-gray-900 transition-colors">Home</Link>
-            <span className="mx-2">/</span>
-            <span className="text-gray-900">ROI Calculator</span>
-          </nav>
-        </div>
-      </div>
-
       {/* Page Title */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">

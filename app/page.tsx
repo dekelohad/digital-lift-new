@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
+import ContactSection from '@/components/ContactSection';
 import ProductIntro from '@/components/ProductIntro';
 import ProductFeature from '@/components/ProductFeature';
 import ProcessTimeline from '@/components/ProcessTimeline';
@@ -103,7 +104,7 @@ export default function Home() {
         description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
       />
       
-      <Testimonials />
+      <ContactSection />
       <Footer />
     </motion.main>
   );

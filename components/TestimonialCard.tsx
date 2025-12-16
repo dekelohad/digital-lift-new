@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { cardHover } from '@/lib/animations';
 
 interface TestimonialCardProps {
@@ -20,14 +21,17 @@ export default function TestimonialCard({ name, quote }: TestimonialCardProps) {
     >
       <p className="text-sm sm:text-base text-gray-700 mb-3 sm:mb-4 italic leading-relaxed">"{quote}"</p>
       <p className="text-gray-900 font-semibold mb-2 text-sm sm:text-base">-{name}</p>
-      <motion.a 
-        href="#testimonials" 
-        className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium inline-block"
+      <motion.div
         whileHover={{ x: 4 }}
         transition={{ duration: 0.2 }}
       >
-        See All →
-      </motion.a>
+        <Link 
+          href="/testimonials" 
+          className="text-blue-600 hover:text-blue-700 text-xs sm:text-sm font-medium inline-block"
+        >
+          See All →
+        </Link>
+      </motion.div>
     </motion.div>
   );
 }

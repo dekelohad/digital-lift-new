@@ -7,10 +7,10 @@ export const metadata: Metadata = {
   description: "Marketing isn't magic and there's no miracle solution. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.",
   icons: {
     icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon.svg?v=2', type: 'image/svg+xml' },
     ],
-    shortcut: '/icon.svg',
-    apple: '/apple-icon.svg',
+    shortcut: '/icon.svg?v=2',
+    apple: '/apple-icon.svg?v=2',
   },
 };
 

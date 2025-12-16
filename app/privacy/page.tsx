@@ -57,14 +57,27 @@ export default function PrivacyPage() {
               <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Your Rights</h2>
               <p className="text-gray-700 leading-relaxed">
                 You have the right to access, update, or delete your personal information. You may also opt-out 
-                of certain communications from us. Contact us at info@digitalLift.io to exercise these rights.
+                of certain communications from us. Contact us at{' '}
+                <a
+                  href="mailto:info@digitalLift.io"
+                  className="text-blue-600 hover:text-blue-700 underline"
+                >
+                  info@digitalLift.io
+                </a>{' '}
+                to exercise these rights.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Contact Us</h2>
               <p className="text-gray-700 leading-relaxed">
-                If you have any questions about this Privacy Policy, please contact us at info@digitalLift.io
+                If you have any questions about this Privacy Policy, please contact us at{' '}
+                <a
+                  href="mailto:info@digitalLift.io"
+                  className="text-blue-600 hover:text-blue-700 underline"
+                >
+                  info@digitalLift.io
+                </a>
               </p>
             </section>
           </div>
