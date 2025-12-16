@@ -8,7 +8,7 @@ const testimonials = [
   },
   {
     name: 'Armando',
-    quote: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Kai and StoneSystems"
+    quote: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Kai and Digital Lift"
   },
   {
     name: 'James',
@@ -28,15 +28,15 @@ const testimonials = [
   },
   {
     name: 'Frank',
-    quote: "I would highly recommend going with Stone Systems, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them!"
+    quote: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them!"
   },
   {
     name: 'David',
-    quote: "I've seen a significant improvement in my business. Stone Systems has made my life so much easier!"
+    quote: "I've seen a significant improvement in my business. Digital Lift has made my life so much easier!"
   },
   {
     name: 'Rick',
-    quote: "Thank you to Kai and Stone Systems , our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
+    quote: "Thank you to Kai and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
   },
   {
     name: 'Luckie',
@@ -44,7 +44,7 @@ const testimonials = [
   },
   {
     name: 'Lopaka',
-    quote: "Before I started working with Stonesystems I was paying $1500/month with another service that just was not working for me. Stonesystems is super affordable and they do a fantastic Job!"
+    quote: "Before I started working with Digital Lift I was paying $1500/month with another service that just was not working for me. Digital Lift is super affordable and they do a fantastic Job!"
   },
   {
     name: 'Adam',
@@ -68,7 +68,7 @@ const testimonials = [
   },
   {
     name: 'Zach',
-    quote: "Big shoutout to Kai and Stone Systems for helping me with my website and getting me more leads. I would recommend them to anyone!"
+    quote: "Big shoutout to Kai and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
   }
 ];
 

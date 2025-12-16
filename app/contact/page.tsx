@@ -22,7 +22,7 @@ export default function ContactPage() {
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
               <Mail className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 mb-3 sm:mb-4" />
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Email</h3>
-              <p className="text-sm sm:text-base text-gray-700">info@stonesystems.io</p>
+              <p className="text-sm sm:text-base text-gray-700">info@digitallift.io</p>
             </div>
             <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
               <Phone className="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 mb-3 sm:mb-4" />

@@ -78,7 +78,7 @@ export default function FunctionalWebsitePage() {
               <div className="absolute inset-0 bg-white m-4 rounded-lg shadow-inner">
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <div className="text-xl font-bold text-gray-900">STONE SYSTEMS</div>
+                    <div className="text-xl font-bold text-gray-900">DIGITAL LIFT</div>
                     <div className="w-8 h-8 bg-blue-600 rounded"></div>
                   </div>
                   <div className="bg-gray-100 h-32 rounded mb-4"></div>

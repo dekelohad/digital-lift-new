@@ -1,4 +1,4 @@
-# Stone Systems Website - Complete Tracking Document
+# Digital Lift Website - Complete Tracking Document
 
 ## Project Setup
 - [x] Next.js 14+ with App Router
@@ -29,22 +29,22 @@
   - "See All" link
 - [ ] Testimonials to include (with exact quotes):
   - **Cody**: "If you are looking for someone to get that phone ringing, they're the right fit for you! I'm so happy with them!"
-  - **Armando**: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Kai and StoneSystems"
+  - **Armando**: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Kai and Digital Lift"
   - **James**: "After going through 2-3 other people i finally found someone that told me the truth. Really easy to work with and very respectable. I would recommend them to anyone!"
   - **Manny**: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up. We started getting calls almost immediately."
   - **Wendy**: "Getting 5 star reviews has always given me anxiety, Kai and his team have taken all that away and I have seen a significant increase in business since I started working with them. I would recommend them to anyone!"
   - **Netane**: "Nothing but professional and awesome in every way, they are absolutely great to work with"
-  - **Frank**: "I would highly recommend going with Stone Systems, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them!"
-  - **David**: "I've seen a significant improvement in my business. Stone Systems has made my life so much easier!"
-  - **Rick**: "Thank you to Kai and Stone Systems , our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
+  - **Frank**: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them!"
+  - **David**: "I've seen a significant improvement in my business. Digital Lift has made my life so much easier!"
+  - **Rick**: "Thank you to Kai and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
   - **Luckie**: "Their business marketing systems have helped us a lot. Anytime I need anything I can always give them a call. They're super helpful with everything they do, I would recommend them to anybody"
-  - **Lopaka**: "Before I started working with Stonesystems I was paying $1500/month with another service that just was not working for me. Stonesystems is super affordable and they do a fantastic Job!"
+  - **Lopaka**: "Before I started working with Digital Lift I was paying $1500/month with another service that just was not working for me. Digital Lift is super affordable and they do a fantastic Job!"
   - **Adam**: "It's been great and all I needed was one sale a month to pay for the service. Since I signed up i've gotten quite a bit more than that. I would recommend them to anyone!"
   - **Mason**: "They made me a brand new website, super professional and it's been absolutely amazing. I cannot say enough good things about theme. It turned those 100s of viewers into 100s of clients!"
   - **Matt**: "First i thought it was a scam, but then it turns out they're just a really good company at a really good price. I would recommend them to anyone!"
   - **Ryan**: "They've made it so easy with all their automations and the awesome website. I can't thank them enough and you should all definitely check them out"
   - **Scott**: "He really got everything going well. I'm getting organic leads now that don't cost me any money. I would recommend them to anyone!"
-  - **Zach**: "Big shoutout to Kai and Stone Systems for helping me with my website and getting me more leads. I would recommend them to anyone!"
+  - **Zach**: "Big shoutout to Kai and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
 
 ## Product Features Sections
 
@@ -143,14 +143,14 @@
 - [ ] Section title: "Frequently Asked Questions"
 - [ ] FAQ items with exact answers:
   - **Q: When am I going to start seeing results?**
-    - A: "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month a month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Stone Systems is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles."
+    - A: "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month a month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Digital Lift is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles."
     - Includes numbered list of 7 questions/benefits
   - **Q: Why is your pricing so cheap?**
     - A: "Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably. We believe if we don't overcharge and provide you with excellent service, you'll never have a reason to leave."
-  - **Q: What happens if I decide to cancel my membership with Stone Systems?**
+  - **Q: What happens if I decide to cancel my membership with Digital Lift?**
     - A: "We'll be extremely sad to see you go, but after a good cry we'll bounce back. However, you will lose access to all the features we set up for you."
   - **Q: Can people find my website on Google?**
-    - A: "We make sure every Stone Systems website is set up for Google with the best SEO practices. This includes keyword research, adding alt tags, meta tags, and header titles, securing an SSL certificate, optimizing for a high Google Speed test score, and providing regular updates. Your Google ranking will depend on how long your site's been live, local competition, and factors like your Google My Business reviews. We also offer blogging to boost your content. While we don't handle off-page backlinks beyond your social media, our ongoing updates keep your site in great shape—unlike some developers who set up your site and then forget about it."
+    - A: "We make sure every Digital Lift website is set up for Google with the best SEO practices. This includes keyword research, adding alt tags, meta tags, and header titles, securing an SSL certificate, optimizing for a high Google Speed test score, and providing regular updates. Your Google ranking will depend on how long your site's been live, local competition, and factors like your Google My Business reviews. We also offer blogging to boost your content. While we don't handle off-page backlinks beyond your social media, our ongoing updates keep your site in great shape—unlike some developers who set up your site and then forget about it."
   - **Q: Why should I spend on a website when word of mouth is already pulling in business?**
     - A: "We might be a bit biased, but here's the deal: if each of your customers brings in about $500 a year, getting just 2-4 new customers from your website will pay off. We know you'll see great value from your site. It will help you attract new customers, make it easier for existing customers to refer you, allow you to run ads if you want, and attract bigger clients who value professionalism."
 - [ ] Accordion/collapsible component

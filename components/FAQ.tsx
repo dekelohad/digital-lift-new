@@ -13,7 +13,7 @@ const faqs: FAQItem[] = [
   {
     question: 'When am I going to start seeing results?',
     answer: [
-      "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month a month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Stone Systems is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles.",
+      "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month a month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Digital Lift is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles.",
       '',
       '"Explain how you help me grow my business"',
       '',
@@ -35,12 +35,12 @@ const faqs: FAQItem[] = [
     answer: 'Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably. We believe if we don\'t overcharge and provide you with excellent service, you\'ll never have a reason to leave.'
   },
   {
-    question: 'What happens if I decide to cancel my membership with Stone Systems?',
+    question: 'What happens if I decide to cancel my membership with Digital Lift?',
     answer: "We'll be extremely sad to see you go, but after a good cry we'll bounce back. However, you will lose access to all the features we set up for you."
   },
   {
     question: 'Can people find my website on Google?',
-    answer: "We make sure every Stone Systems website is set up for Google with the best SEO practices. This includes keyword research, adding alt tags, meta tags, and header titles, securing an SSL certificate, optimizing for a high Google Speed test score, and providing regular updates. Your Google ranking will depend on how long your site's been live, local competition, and factors like your Google My Business reviews. We also offer blogging to boost your content. While we don't handle off-page backlinks beyond your social media, our ongoing updates keep your site in great shape—unlike some developers who set up your site and then forget about it."
+    answer: "We make sure every Digital Lift website is set up for Google with the best SEO practices. This includes keyword research, adding alt tags, meta tags, and header titles, securing an SSL certificate, optimizing for a high Google Speed test score, and providing regular updates. Your Google ranking will depend on how long your site's been live, local competition, and factors like your Google My Business reviews. We also offer blogging to boost your content. While we don't handle off-page backlinks beyond your social media, our ongoing updates keep your site in great shape—unlike some developers who set up your site and then forget about it."
   },
   {
     question: 'Why should I spend on a website when word of mouth is already pulling in business?',

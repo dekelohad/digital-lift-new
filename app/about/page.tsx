@@ -36,7 +36,7 @@ export default function AboutPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12 sm:mb-16 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              About Stone Systems
+              About Digital Lift
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               We're here to cut through the marketing BS and give contractors the tools they need to grow their businesses.
@@ -51,7 +51,7 @@ export default function AboutPage() {
                   Cut the bullsh*t, Marketing isn't rocket science. No agency... (including ours) has the miracle solution to all your problems. We'll give you the tools to win but you need to commit to using them!
                 </p>
                 <p>
-                  We started Stone Systems because we saw too many contractors getting ripped off by marketing agencies promising the world and delivering nothing. We decided to do things differently.
+                  We started Digital Lift because we saw too many contractors getting ripped off by marketing agencies promising the world and delivering nothing. We decided to do things differently.
                 </p>
                 <p>
                   Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably and provide you with excellent service. We believe if we don't overcharge and provide you with excellent service, you'll never have a reason to leave.

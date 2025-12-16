@@ -1,6 +1,6 @@
-# Digital Lift - Stone Systems Clone
+# Digital Lift
 
-A Next.js project recreating the Stone Systems website 1:1.
+A Next.js project for Digital Lift website.
 
 ## Getting Started
 

@@ -19,7 +19,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">1. Agreement to Terms</h2>
               <p className="text-gray-700 leading-relaxed">
-                By accessing and using Stone Systems services, you agree to be bound by these Terms and Conditions. 
+                By accessing and using Digital Lift services, you agree to be bound by these Terms and Conditions. 
                 If you do not agree with any part of these terms, you may not access our services.
               </p>
             </section>
@@ -27,7 +27,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Service Description</h2>
               <p className="text-gray-700 leading-relaxed">
-                Stone Systems provides website design, marketing systems, and related services for contractors. 
+                Digital Lift provides website design, marketing systems, and related services for contractors. 
                 We reserve the right to modify, suspend, or discontinue any part of our services at any time.
               </p>
             </section>
@@ -51,7 +51,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Limitation of Liability</h2>
               <p className="text-gray-700 leading-relaxed">
-                Stone Systems is not liable for any indirect, incidental, or consequential damages arising from 
+                Digital Lift is not liable for any indirect, incidental, or consequential damages arising from 
                 the use of our services. Our total liability shall not exceed the amount paid by you in the 
                 twelve months preceding the claim.
               </p>
@@ -60,7 +60,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Contact Information</h2>
               <p className="text-gray-700 leading-relaxed">
-                If you have any questions about these Terms & Conditions, please contact us at info@stonesystems.io
+                If you have any questions about these Terms & Conditions, please contact us at info@digitallift.io
               </p>
             </section>
           </div>
