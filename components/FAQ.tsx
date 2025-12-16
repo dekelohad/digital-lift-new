@@ -56,16 +56,20 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
 
   return (
     <motion.div 
-      className="border-b border-gray-200"
+      className={`bg-white rounded-lg border transition-all duration-300 ${
+        isOpen ? 'border-blue-600 shadow-md' : 'border-gray-200 shadow-sm hover:shadow-md'
+      }`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.button
-        className="w-full py-4 sm:py-6 text-left flex items-center justify-between gap-4"
+        className={`w-full py-4 sm:py-6 px-4 sm:px-6 text-left flex items-center justify-between gap-4 rounded-lg transition-colors ${
+          isOpen ? 'bg-blue-50' : 'bg-white hover:bg-gray-50'
+        }`}
         onClick={onToggle}
-        whileHover={{ x: 4 }}
+        whileHover={{ x: 2 }}
         transition={{ duration: 0.2 }}
       >
         <span className="text-base sm:text-lg font-semibold text-gray-900 pr-2 sm:pr-4 leading-snug">{question}</span>
@@ -79,7 +83,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="pb-4 sm:pb-6 text-gray-700 space-y-2 text-sm sm:text-base leading-relaxed overflow-hidden"
+            className="px-4 sm:px-6 pb-4 sm:pb-6 text-gray-700 space-y-2 text-sm sm:text-base leading-relaxed overflow-hidden"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -126,7 +130,7 @@ export default function FAQ() {
         </h2>
       </motion.div>
       <motion.div 
-        className="max-w-4xl mx-auto px-4"
+        className="max-w-4xl mx-auto px-4 space-y-4"
         variants={staggerContainer}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
