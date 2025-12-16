@@ -60,7 +60,7 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Contact Information</h2>
               <p className="text-gray-700 leading-relaxed">
-                If you have any questions about these Terms & Conditions, please contact us at info@digitallift.io
+                If you have any questions about these Terms & Conditions, please contact us at info@digitalLift.io
               </p>
             </section>
           </div>

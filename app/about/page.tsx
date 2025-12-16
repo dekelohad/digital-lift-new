@@ -1,12 +1,13 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const team = [
-    { name: "Michael", role: "Founder & CEO" },
-    { name: "Jonathan", role: "Co-Founder & CTO" },
-    { name: "Kevin", role: "Head of Operations" },
-    { name: "Astrid", role: "Customer Success" }
+    { name: "David", role: "Founder & CEO", image: "https://i.pravatar.cc/400?img=1" },
+    { name: "Jonathan", role: "Co-Founder & CTO", image: "/team/jonathan-dekel.png" },
+    { name: "Sarah", role: "Head of Operations", image: "https://i.pravatar.cc/400?img=47" },
+    { name: "Marcus", role: "Customer Success", image: "https://i.pravatar.cc/400?img=33" }
   ];
 
   const values = [
@@ -70,8 +71,14 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4">
             {team.map((member, index) => (
               <div key={index} className="text-center">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 mx-auto mb-3 sm:mb-4 flex items-center justify-center shadow-lg border-4 border-white">
-                  <span className="text-gray-700 text-sm sm:text-base md:text-lg font-semibold">{member.name}</span>
+                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full mx-auto mb-3 sm:mb-4 overflow-hidden shadow-lg border-4 border-white relative">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
+                  />
                 </div>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{member.name}</h3>
                 <p className="text-sm sm:text-base text-gray-600">{member.role}</p>

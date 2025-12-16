@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['digitallift.io'],
+    domains: ['digitallift.io', 'i.pravatar.cc'],
   },
 }
 

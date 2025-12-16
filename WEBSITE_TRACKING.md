@@ -17,7 +17,7 @@
 ## Hero Section
 - [ ] Main headline: "Website Design & Marketing Systems For Contractors"
 - [ ] Subheadline: "Cut the bullsh*t, Marketing isn't rocket science..."
-- [ ] Team member images (Michael, Jonathan, Kevin, Astrid)
+- [ ] Team member images (David, Jonathan, Sarah, Marcus)
 - [ ] Book A Call CTA button
 - [ ] Review badges/logos (Google, Facebook, Trustpilot with star ratings)
 
@@ -218,7 +218,7 @@
 
 ### Images & Assets
 - [ ] Logo file
-- [ ] Team member photos (Michael, Jonathan, Kevin, Astrid)
+- [ ] Team member photos (David, Jonathan, Sarah, Marcus)
 - [ ] Review platform logos (Google, Facebook, Trustpilot)
 - [ ] Product feature animations/illustrations
 - [ ] Trade icons/images
@@ -280,7 +280,7 @@ components/
 ## Hero Section Details
 - [ ] Main heading: "Website Design & Marketing Systems For Contractors"
 - [ ] Subheading: "Cut the bullsh*t, Marketing isn't rocket science. No agency... (including ours) has the miracle solution to all your problems. We'll give you the tools to win but you need to commit to using them!"
-- [ ] Team photos grid (4 team members: Michael, Jonathan, Kevin, Astrid)
+- [ ] Team photos grid (4 team members: David, Jonathan, Sarah, Marcus)
 - [ ] "Book A Call" button
 - [ ] Review badges section:
   - Google logo + 5 stars
