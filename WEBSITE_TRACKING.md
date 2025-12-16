@@ -17,7 +17,7 @@
 ## Hero Section
 - [ ] Main headline: "Website Design & Marketing Systems For Contractors"
 - [ ] Subheadline: "Cut the bullsh*t, Marketing isn't rocket science..."
-- [ ] Team member images (Michael, Kai, Kevin, Astrid)
+- [ ] Team member images (Michael, Jonathan, Kevin, Astrid)
 - [ ] Book A Call CTA button
 - [ ] Review badges/logos (Google, Facebook, Trustpilot with star ratings)
 
@@ -29,14 +29,14 @@
   - "See All" link
 - [ ] Testimonials to include (with exact quotes):
   - **Cody**: "If you are looking for someone to get that phone ringing, they're the right fit for you! I'm so happy with them!"
-  - **Armando**: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Kai and Digital Lift"
+  - **Armando**: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Jonathan and Digital Lift"
   - **James**: "After going through 2-3 other people i finally found someone that told me the truth. Really easy to work with and very respectable. I would recommend them to anyone!"
   - **Manny**: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up. We started getting calls almost immediately."
-  - **Wendy**: "Getting 5 star reviews has always given me anxiety, Kai and his team have taken all that away and I have seen a significant increase in business since I started working with them. I would recommend them to anyone!"
+  - **Wendy**: "Getting 5 star reviews has always given me anxiety, Jonathan and his team have taken all that away and I have seen a significant increase in business since I started working with them. I would recommend them to anyone!"
   - **Netane**: "Nothing but professional and awesome in every way, they are absolutely great to work with"
   - **Frank**: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them!"
   - **David**: "I've seen a significant improvement in my business. Digital Lift has made my life so much easier!"
-  - **Rick**: "Thank you to Kai and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
+  - **Rick**: "Thank you to Jonathan and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
   - **Luckie**: "Their business marketing systems have helped us a lot. Anytime I need anything I can always give them a call. They're super helpful with everything they do, I would recommend them to anybody"
   - **Lopaka**: "Before I started working with Digital Lift I was paying $1500/month with another service that just was not working for me. Digital Lift is super affordable and they do a fantastic Job!"
   - **Adam**: "It's been great and all I needed was one sale a month to pay for the service. Since I signed up i've gotten quite a bit more than that. I would recommend them to anyone!"
@@ -44,7 +44,7 @@
   - **Matt**: "First i thought it was a scam, but then it turns out they're just a really good company at a really good price. I would recommend them to anyone!"
   - **Ryan**: "They've made it so easy with all their automations and the awesome website. I can't thank them enough and you should all definitely check them out"
   - **Scott**: "He really got everything going well. I'm getting organic leads now that don't cost me any money. I would recommend them to anyone!"
-  - **Zach**: "Big shoutout to Kai and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
+  - **Zach**: "Big shoutout to Jonathan and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
 
 ## Product Features Sections
 
@@ -218,7 +218,7 @@
 
 ### Images & Assets
 - [ ] Logo file
-- [ ] Team member photos (Michael, Kai, Kevin, Astrid)
+- [ ] Team member photos (Michael, Jonathan, Kevin, Astrid)
 - [ ] Review platform logos (Google, Facebook, Trustpilot)
 - [ ] Product feature animations/illustrations
 - [ ] Trade icons/images
@@ -280,7 +280,7 @@ components/
 ## Hero Section Details
 - [ ] Main heading: "Website Design & Marketing Systems For Contractors"
 - [ ] Subheading: "Cut the bullsh*t, Marketing isn't rocket science. No agency... (including ours) has the miracle solution to all your problems. We'll give you the tools to win but you need to commit to using them!"
-- [ ] Team photos grid (4 team members: Michael, Kai, Kevin, Astrid)
+- [ ] Team photos grid (4 team members: Michael, Jonathan, Kevin, Astrid)
 - [ ] "Book A Call" button
 - [ ] Review badges section:
   - Google logo + 5 stars

@@ -21,7 +21,7 @@ export default function Hero() {
             <span className="text-gray-700 text-[10px] sm:text-xs font-semibold">Michael</span>
           </div>
           <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center shadow-md border-2 border-white">
-            <span className="text-gray-700 text-[10px] sm:text-xs font-semibold">Kai</span>
+            <span className="text-gray-700 text-[10px] sm:text-xs font-semibold">Jonathan</span>
           </div>
           <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center shadow-md border-2 border-white">
             <span className="text-gray-700 text-[10px] sm:text-xs font-semibold">Kevin</span>

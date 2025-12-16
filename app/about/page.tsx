@@ -4,7 +4,7 @@ import Footer from '@/components/Footer';
 export default function AboutPage() {
   const team = [
     { name: "Michael", role: "Founder & CEO" },
-    { name: "Kai", role: "Co-Founder & CTO" },
+    { name: "Jonathan", role: "Co-Founder & CTO" },
     { name: "Kevin", role: "Head of Operations" },
     { name: "Astrid", role: "Customer Success" }
   ];

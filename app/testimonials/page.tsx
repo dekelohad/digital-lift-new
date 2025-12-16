@@ -9,7 +9,7 @@ const testimonials = [
   },
   {
     name: 'Armando',
-    quote: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Kai and Digital Lift"
+    quote: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Jonathan and Digital Lift"
   },
   {
     name: 'James',
@@ -21,7 +21,7 @@ const testimonials = [
   },
   {
     name: 'Wendy',
-    quote: "Getting 5 star reviews has always given me anxiety, Kai and his team have taken all that away and I have seen a significant increase in business since I started working with them. I would recommend them to anyone!"
+    quote: "Getting 5 star reviews has always given me anxiety, Jonathan and his team have taken all that away and I have seen a significant increase in business since I started working with them. I would recommend them to anyone!"
   },
   {
     name: 'Netane',
@@ -37,7 +37,7 @@ const testimonials = [
   },
   {
     name: 'Rick',
-    quote: "Thank you to Kai and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
+    quote: "Thank you to Jonathan and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
   },
   {
     name: 'Luckie',
@@ -69,7 +69,7 @@ const testimonials = [
   },
   {
     name: 'Zach',
-    quote: "Big shoutout to Kai and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
+    quote: "Big shoutout to Jonathan and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
   },
   {
     name: 'Dale',
@@ -77,7 +77,7 @@ const testimonials = [
   },
   {
     name: 'George',
-    quote: "Shoutout to Kai and Remy for an amazing job that they did doing my website. I've been a pain in the butt every now and then but they did it right. Check them out, you won't be dissapointed."
+    quote: "Shoutout to Jonathan and Remy for an amazing job that they did doing my website. I've been a pain in the butt every now and then but they did it right. Check them out, you won't be dissapointed."
   }
 ];
 
