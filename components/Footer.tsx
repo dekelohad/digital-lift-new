@@ -58,9 +58,9 @@ export default function Footer() {
             {
               title: 'About',
               items: [
-                { href: '/about', text: 'About' },
-                { href: '/our-process', text: 'Our Process' },
-                { href: '/contact', text: 'Contact' }
+                { href: '/about', text: 'About Us' },
+                { href: '/our-work', text: 'Our Work' },
+                { href: '/our-process', text: 'Our Process' }
               ]
             },
             {

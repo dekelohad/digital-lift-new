@@ -17,9 +17,16 @@ const services = [
   { href: '/local-seo', text: 'Local SEO' }
 ];
 
+const aboutItems = [
+  { href: '/about', text: 'About Us' },
+  { href: '/our-work', text: 'Our Work' },
+  { href: '/our-process', text: 'Our Process' }
+];
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesHovered, setServicesHovered] = useState(false);
+  const [aboutHovered, setAboutHovered] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
@@ -80,10 +87,7 @@ export default function Header() {
             {/* Other Navigation Items */}
             {[
               { label: 'Pricing', href: '/pricing' },
-              { label: 'ROI Calculator', href: '/roi-calculator' },
-              { label: 'Testimonials', href: '/testimonials' },
-              { label: 'Our Work', href: '/our-work' },
-              { label: 'About', href: '/about' }
+              { label: 'Testimonials', href: '/testimonials' }
             ].map((item, index) => (
               <motion.a
                 key={item.label}
@@ -95,18 +99,75 @@ export default function Header() {
                 {item.label}
               </motion.a>
             ))}
-          </div>
 
-          {/* Desktop CTA Buttons */}
-          <div className="hidden lg:flex items-center space-x-4">
+            {/* About Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => setAboutHovered(true)}
+              onMouseLeave={() => setAboutHovered(false)}
+            >
+              <motion.a
+                href="/about"
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1"
+                whileHover={{ y: -2 }}
+                transition={{ duration: 0.2 }}
+              >
+                About
+                <ChevronDown 
+                  size={16} 
+                  className={`transition-transform duration-200 ${aboutHovered ? 'rotate-180' : ''}`}
+                />
+              </motion.a>
+              
+              <AnimatePresence>
+                {aboutHovered && (
+                  <motion.div
+                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {aboutItems.map((item, index) => (
+                      <motion.a
+                        key={item.href}
+                        href={item.href}
+                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.03, duration: 0.2 }}
+                      >
+                        {item.text}
+                      </motion.a>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Contact */}
+            <motion.a
+              href="/contact"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.2 }}
+            >
+              Contact
+            </motion.a>
+
+            {/* Log In - moved here to be close to About */}
             <motion.a 
               href="#login" 
-              className="text-gray-700 hover:text-gray-900 font-medium whitespace-nowrap"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
               Log In
             </motion.a>
+          </div>
+
+          {/* Desktop CTA Button */}
+          <div className="hidden lg:flex items-center">
             <Button variant="primary" className="whitespace-nowrap">Book A Call</Button>
           </div>
 
@@ -133,10 +194,7 @@ export default function Header() {
               {[
                 { label: 'Services', href: '/#services' },
                 { label: 'Pricing', href: '/pricing' },
-                { label: 'ROI Calculator', href: '/roi-calculator' },
-                { label: 'Testimonials', href: '/testimonials' },
-                { label: 'Our Work', href: '/our-work' },
-                { label: 'About', href: '/about' }
+                { label: 'Testimonials', href: '/testimonials' }
               ].map((item, index) => (
                 <motion.a
                   key={item.label}
@@ -149,6 +207,33 @@ export default function Header() {
                   {item.label}
                 </motion.a>
               ))}
+              
+              {/* About Section in Mobile */}
+              <div className="border-t border-gray-200 pt-2 mt-2">
+                <div className="text-gray-700 font-medium py-2 text-base">About</div>
+                {aboutItems.map((item, index) => (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    className="block text-gray-600 hover:text-gray-900 font-medium py-2 pl-4 text-sm"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: (3 + index) * 0.05, duration: 0.3 }}
+                  >
+                    {item.text}
+                  </motion.a>
+                ))}
+              </div>
+              
+              <motion.a
+                href="/contact"
+                className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.15, duration: 0.3 }}
+              >
+                Contact
+              </motion.a>
               <motion.a 
                 href="#login" 
                 className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base"

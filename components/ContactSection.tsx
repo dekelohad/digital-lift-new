@@ -35,7 +35,7 @@ export default function ContactSection() {
                 <p className="text-gray-900 text-base sm:text-lg mb-1">Call us:</p>
                 <a
                   href="tel:+17379376612"
-                  className="text-gray-900 hover:text-emerald-500 transition-colors text-base sm:text-lg"
+                  className="text-gray-900 hover:text-blue-600 transition-colors text-base sm:text-lg"
                 >
                   +1 (737) 937-6612
                 </a>
@@ -44,7 +44,7 @@ export default function ContactSection() {
                 <p className="text-gray-900 text-base sm:text-lg mb-1">Send us an email:</p>
                 <a
                   href="mailto:info@digitalLift.io"
-                  className="text-gray-900 hover:text-emerald-500 transition-colors text-base sm:text-lg"
+                  className="text-gray-900 hover:text-blue-600 transition-colors text-base sm:text-lg"
                 >
                   info@digitalLift.io
                 </a>
