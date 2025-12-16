@@ -80,6 +80,7 @@ export default function Header() {
             {/* Other Navigation Items */}
             {[
               { label: 'Pricing', href: '/pricing' },
+              { label: 'ROI Calculator', href: '/roi-calculator' },
               { label: 'Testimonials', href: '/testimonials' },
               { label: 'Our Work', href: '/our-work' },
               { label: 'About', href: '/about' }
@@ -132,6 +133,7 @@ export default function Header() {
               {[
                 { label: 'Services', href: '/#services' },
                 { label: 'Pricing', href: '/pricing' },
+                { label: 'ROI Calculator', href: '/roi-calculator' },
                 { label: 'Testimonials', href: '/testimonials' },
                 { label: 'Our Work', href: '/our-work' },
                 { label: 'About', href: '/about' }
