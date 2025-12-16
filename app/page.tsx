@@ -6,7 +6,6 @@ import Hero from '@/components/Hero';
 import Testimonials from '@/components/Testimonials';
 import ProductIntro from '@/components/ProductIntro';
 import ProductFeature from '@/components/ProductFeature';
-import TradesGrid from '@/components/TradesGrid';
 import ProcessTimeline from '@/components/ProcessTimeline';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
@@ -96,7 +95,6 @@ export default function Home() {
         linkTo="/local-seo"
       />
 
-      <TradesGrid />
       <ProcessTimeline />
       <FAQ />
       

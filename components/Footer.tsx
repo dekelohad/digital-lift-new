@@ -46,7 +46,7 @@ export default function Footer() {
         >
           {[
             {
-              title: 'Links',
+              title: 'Quick Links',
               items: [
                 { href: '/pricing', text: 'Pricing' },
                 { href: '/testimonials', text: 'Testimonials' },
@@ -59,7 +59,6 @@ export default function Footer() {
               items: [
                 { href: '/about', text: 'About' },
                 { href: '/our-process', text: 'Our Process' },
-                { href: '/trades-we-serve', text: 'Trades We Serve' },
                 { href: '/contact', text: 'Contact' }
               ]
             },
