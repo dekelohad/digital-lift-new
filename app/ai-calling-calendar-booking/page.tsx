@@ -1,14 +1,116 @@
-import type { Metadata } from "next";
+'use client';
+
+import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Phone, Calendar, Clock, Zap } from 'lucide-react';
-
-export const metadata: Metadata = {
-  title: "AI Calling with Calendar Booking - Never Miss a Lead | Digital Lift",
-  description: "AI phone assistant answers calls 24/7, qualifies leads, and books appointments directly into your calendar. Never miss a call or lose a booking opportunity.",
-};
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { fadeInUp } from '@/lib/animations';
 
 export default function AICallingCalendarBookingPage() {
+  // ROI Calculator state with AI-specific defaults
+  const [averageClientValue, setAverageClientValue] = useState(5000);
+  const [leadsPerMonth, setLeadsPerMonth] = useState(50);
+  const [profitMargin, setProfitMargin] = useState(40);
+  const [closeRate, setCloseRate] = useState(35); // Higher close rate with 24/7 AI answering
+  const [monthlyInvestment, setMonthlyInvestment] = useState(497); // Typical AI calling service cost
+
+  const [totalNewCustomers, setTotalNewCustomers] = useState(0);
+  const [monthlyRevenuePotential, setMonthlyRevenuePotential] = useState(0);
+  const [grossMonthlyProfit, setGrossMonthlyProfit] = useState(0);
+  const [netMonthlyProfit, setNetMonthlyProfit] = useState(0);
+
+  const calculatorRef = useRef(null);
+  const calculatorInView = useInView(calculatorRef, { once: true, margin: '-100px' });
+
+  // Validation handlers
+  const handleAverageClientValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === '') {
+      setAverageClientValue(0);
+      return;
+    }
+    const numValue = Number(value);
+    const validatedValue = Math.max(0, Math.min(numValue, 999999999));
+    setAverageClientValue(validatedValue);
+  };
+
+  const handleLeadsPerMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === '') {
+      setLeadsPerMonth(0);
+      return;
+    }
+    const numValue = Number(value);
+    const validatedValue = Math.max(0, Math.min(numValue, 999999));
+    setLeadsPerMonth(validatedValue);
+  };
+
+  const handleProfitMarginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === '') {
+      setProfitMargin(0);
+      return;
+    }
+    const numValue = Number(value);
+    const validatedValue = Math.max(0, Math.min(numValue, 100));
+    setProfitMargin(validatedValue);
+  };
+
+  const handleCloseRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === '') {
+      setCloseRate(0);
+      return;
+    }
+    const numValue = Number(value);
+    const validatedValue = Math.max(0, Math.min(numValue, 100));
+    setCloseRate(validatedValue);
+  };
+
+  const handleMonthlyInvestmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (value === '') {
+      setMonthlyInvestment(0);
+      return;
+    }
+    const numValue = Number(value);
+    const validatedValue = Math.max(0, Math.min(numValue, 999999999));
+    setMonthlyInvestment(validatedValue);
+  };
+
+  useEffect(() => {
+    const clientValue = isFinite(averageClientValue) && !isNaN(averageClientValue) ? averageClientValue : 0;
+    const leads = isFinite(leadsPerMonth) && !isNaN(leadsPerMonth) ? leadsPerMonth : 0;
+    const margin = isFinite(profitMargin) && !isNaN(profitMargin) ? Math.max(0, Math.min(profitMargin, 100)) : 0;
+    const rate = isFinite(closeRate) && !isNaN(closeRate) ? Math.max(0, Math.min(closeRate, 100)) : 0;
+    const investment = isFinite(monthlyInvestment) && !isNaN(monthlyInvestment) ? monthlyInvestment : 0;
+
+    const newCustomers = Math.round(leads * (rate / 100));
+    setTotalNewCustomers(newCustomers);
+
+    const revenue = newCustomers * clientValue;
+    setMonthlyRevenuePotential(revenue);
+
+    const grossProfit = revenue * (margin / 100);
+    setGrossMonthlyProfit(grossProfit);
+
+    const netProfit = grossProfit - investment;
+    setNetMonthlyProfit(netProfit);
+  }, [averageClientValue, leadsPerMonth, profitMargin, closeRate, monthlyInvestment]);
+
+  const formatCurrency = (value: number) => {
+    if (!isFinite(value) || isNaN(value)) {
+      return '$0.00';
+    }
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    }).format(value);
+  };
   const stats = [
     {
       percentage: "90%",
@@ -133,6 +235,176 @@ export default function AICallingCalendarBookingPage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ROI Calculator Section */}
+      <section ref={calculatorRef} className="py-20 md:py-28 bg-gradient-to-b from-white to-gray-50">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <motion.div
+            className="text-center mb-12 sm:mb-16"
+            variants={fadeInUp}
+            initial="hidden"
+            animate={calculatorInView ? "visible" : "hidden"}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
+              Calculate Your ROI with AI Calling
+            </h2>
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
+              See how much revenue you could generate when every call is answered and every lead is captured, even when you're unavailable.
+            </p>
+          </motion.div>
+
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+              {/* Left Column: Business Details */}
+              <motion.div
+                className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200"
+                variants={fadeInUp}
+                initial="hidden"
+                animate={calculatorInView ? "visible" : "hidden"}
+                transition={{ delay: 0.2 }}
+              >
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                  Your Business Details
+                </h3>
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Average Client Value ($)
+                    </label>
+                    <input
+                      type="number"
+                      value={averageClientValue}
+                      onChange={handleAverageClientValueChange}
+                      min="0"
+                      max="999999999"
+                      step="1"
+                      className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Number of Leads per Month
+                    </label>
+                    <input
+                      type="number"
+                      value={leadsPerMonth}
+                      onChange={handleLeadsPerMonthChange}
+                      min="0"
+                      max="999999"
+                      step="1"
+                      className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Profit Margin (%)
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        value={profitMargin}
+                        onChange={handleProfitMarginChange}
+                        min="0"
+                        max="100"
+                        step="0.1"
+                        className="flex-1 bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                      />
+                      <span className="text-gray-600 text-lg font-medium">%</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Close Rate with AI (%)
+                      <span className="text-xs text-gray-500 ml-2">(Higher with 24/7 answering)</span>
+                    </label>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        value={closeRate}
+                        onChange={handleCloseRateChange}
+                        min="0"
+                        max="100"
+                        step="0.1"
+                        className="flex-1 bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                      />
+                      <span className="text-gray-600 text-lg font-medium">%</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Right Column: Potential Revenue */}
+              <motion.div
+                className="bg-white p-6 md:p-8 rounded-xl shadow-lg border border-gray-200"
+                variants={fadeInUp}
+                initial="hidden"
+                animate={calculatorInView ? "visible" : "hidden"}
+                transition={{ delay: 0.3 }}
+              >
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                  Your Potential Revenue
+                </h3>
+                
+                <div className="space-y-5">
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Total New Customers
+                    </label>
+                    <div className="bg-gray-100 text-gray-900 px-4 py-4 rounded-lg border border-gray-200 shadow-sm">
+                      <span className="text-2xl md:text-3xl font-bold">{totalNewCustomers.toLocaleString()}</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Monthly Revenue Potential
+                    </label>
+                    <div className="bg-gray-100 text-gray-900 px-4 py-4 rounded-lg border border-gray-200 shadow-sm">
+                      <span className="text-lg md:text-xl font-semibold">{formatCurrency(monthlyRevenuePotential)}</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Gross Monthly Profit
+                    </label>
+                    <div className="bg-gray-100 text-gray-900 px-4 py-4 rounded-lg border border-gray-200 shadow-sm">
+                      <span className="text-lg md:text-xl font-semibold">{formatCurrency(grossMonthlyProfit)}</span>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Monthly Investment (AI Calling)
+                    </label>
+                    <input
+                      type="number"
+                      value={monthlyInvestment}
+                      onChange={handleMonthlyInvestmentChange}
+                      min="0"
+                      max="999999999"
+                      step="1"
+                      className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-gray-700 font-medium text-sm mb-2">
+                      Net Monthly Profit
+                    </label>
+                    <div className="bg-blue-600 text-white px-4 py-5 rounded-lg border border-blue-500 shadow-lg">
+                      <span className="text-2xl md:text-3xl font-bold">{formatCurrency(netMonthlyProfit)}</span>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
