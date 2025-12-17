@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: "Our Process - How Digital Lift Works | Contractor Marketing",
@@ -100,7 +101,7 @@ export default function OurProcessPage() {
                     <ul className="space-y-2 sm:space-y-3">
                       {step.details.map((detail, detailIndex) => (
                         <li key={detailIndex} className="flex items-start">
-                          <span className="text-blue-600 mr-2 sm:mr-3 font-bold text-lg sm:text-xl mt-1 flex-shrink-0">•</span>
+                          <CheckCircle2 className="text-blue-600 mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
                           <span className="text-sm sm:text-base text-gray-700">{detail}</span>
                         </li>
                       ))}

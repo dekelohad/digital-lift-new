@@ -7,6 +7,7 @@ import Section from './Section';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { fadeInUp, slideInLeft, slideInRight, staggerContainer, staggerItem } from '@/lib/animations';
+import { CheckCircle2 } from 'lucide-react';
 
 interface ProductFeatureProps {
   title: string;
@@ -80,7 +81,7 @@ export default function ProductFeature({
                 className="flex items-start"
                 variants={staggerItem}
               >
-                <span className="text-blue-600 mr-3 font-bold text-lg sm:text-xl mt-1 flex-shrink-0">•</span>
+                <CheckCircle2 className="text-blue-600 mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" strokeWidth={2.5} />
                 <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{feature}</span>
               </motion.li>
             ))}
