@@ -96,6 +96,20 @@ export default function Home() {
         linkTo="/local-seo"
       />
 
+      {/* AI Calling with Calendar Booking */}
+      <ProductFeature
+        title="AI Calling with Calendar Booking That Never Misses an Opportunity"
+        subtitle="Your AI assistant answers calls, qualifies leads, and books appointments directly into your calendar. Never miss a call or lose a booking opportunity, even when you're busy on a job site."
+        features={[
+          { title: "24/7 AI Phone Assistant", description: "An intelligent AI handles every call professionally, answers questions, and qualifies leads so you only talk to serious prospects ready to book." },
+          { title: "Automatic Calendar Booking", description: "Qualified leads can book appointments directly into your calendar. No back-and-forth texts or missed scheduling opportunities." },
+          { title: "Never Lose a Lead", description: "Every call is answered, every lead is captured, and every booking opportunity is converted—even when you're unavailable." },
+          { title: "Seamless Integration", description: "Works with your existing calendar system and sends you instant notifications so you're always in the loop." }
+        ]}
+        imageSide="left"
+        linkTo="/ai-calling-calendar-booking"
+      />
+
       <ProcessTimeline />
       <FAQ />
       

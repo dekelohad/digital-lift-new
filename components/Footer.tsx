@@ -60,7 +60,8 @@ export default function Footer() {
                 { href: '/one-click-marketing-campaigns', text: 'One-Click Marketing Campaigns' },
                 { href: '/all-in-one-inbox', text: 'All-In-One Inbox' },
                 { href: '/business-phone', text: 'Business Phone' },
-                { href: '/local-seo', text: 'Local SEO' }
+                { href: '/local-seo', text: 'Local SEO' },
+                { href: '/ai-calling-calendar-booking', text: 'AI Calling with Calendar Booking' }
               ]
             },
             {
