@@ -9,10 +9,15 @@ import { ReactNode } from 'react';
 import { fadeInUp, slideInLeft, slideInRight, staggerContainer, staggerItem } from '@/lib/animations';
 import { BadgeCheck } from 'lucide-react';
 
+interface Feature {
+  title: string;
+  description: string;
+}
+
 interface ProductFeatureProps {
   title: string;
   subtitle?: string;
-  features: string[];
+  features: Feature[];
   demoButton?: boolean;
   imageSide?: 'left' | 'right';
   children?: ReactNode;
@@ -70,7 +75,7 @@ export default function ProductFeature({
             </motion.p>
           )}
           <motion.ul 
-            className="space-y-3 sm:space-y-4 mb-8"
+            className="space-y-4 sm:space-y-5 mb-8"
             variants={staggerContainer}
             initial="hidden"
             animate={contentInView ? "visible" : "hidden"}
@@ -81,8 +86,15 @@ export default function ProductFeature({
                 className="flex items-start"
                 variants={staggerItem}
               >
-                <BadgeCheck className="text-blue-600 mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" />
-                <span className="text-sm sm:text-base text-gray-700 leading-relaxed">{feature}</span>
+                <BadgeCheck className="text-blue-600 mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-base sm:text-lg font-semibold text-blue-600 mb-1">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </motion.li>
             ))}
           </motion.ul>
