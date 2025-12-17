@@ -11,6 +11,7 @@ import ProcessTimeline from '@/components/ProcessTimeline';
 import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
 import { pageTransition } from '@/lib/animations';
 
 export default function Home() {
@@ -122,6 +123,7 @@ export default function Home() {
       
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </motion.main>
   );
 }
