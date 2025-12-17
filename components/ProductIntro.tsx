@@ -21,10 +21,10 @@ export default function ProductIntro() {
         animate={isInView ? "visible" : "hidden"}
       >
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-          Simple systems that actually work
+          Simple systems built for real contractors
         </h2>
         <p className="text-lg sm:text-xl text-gray-700">
-          No degrees required, just a hard hat
+          No tech skills needed. Just tools that help you win more jobs.
         </p>
       </motion.div>
       <motion.div 

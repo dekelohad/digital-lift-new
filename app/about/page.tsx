@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   const team = [
-    { name: "David", role: "Founder & CEO", image: "https://i.pravatar.cc/400?img=1" },
-    { name: "Jonathan", role: "Co-Founder & CTO", image: "/team/jonathan-dekel.png" },
-    { name: "Sarah", role: "Head of Operations", image: "https://i.pravatar.cc/400?img=47" },
-    { name: "Marcus", role: "Customer Success", image: "https://i.pravatar.cc/400?img=33" }
+    { name: "Jonathan", role: "Co-Founder & CEO", image: "/team/Jonathan.png" },
+    { name: "David", role: "Co-Founder & COO", image: "/team/David.png" },
+    { name: "Sarah", role: "Head of Operations", image: "/team/Sarah.png" },
+    { name: "Marcus", role: "Customer Success", image: "/team/Marcus.png" }
   ];
 
   const values = [
@@ -55,13 +55,19 @@ export default function AboutPage() {
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 sm:mb-6">Our Story</h2>
               <div className="space-y-3 sm:space-y-4 text-gray-700 leading-relaxed text-base sm:text-lg">
                 <p>
-                  Marketing isn't magic and there's no miracle solution. Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
+                  Marketing is not magic and there is no miracle solution. Any agency promising instant results is selling hype. Real growth comes from using the right systems consistently over time. That is what we build.
                 </p>
                 <p>
-                  We started Digital Lift because we saw too many contractors getting ripped off by marketing agencies promising the world and delivering nothing. We decided to do things differently.
+                  Digital Lift started after seeing too many contractors get burned by agencies that overpromised, overcharged, and underdelivered. Flashy reports, confusing jargon, and zero real impact on their business. We knew contractors deserved better.
                 </p>
                 <p>
-                  Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably and provide you with excellent service. We believe if we don't overcharge and provide you with excellent service, you'll never have a reason to leave.
+                  So we built Digital Lift around simple, proven marketing systems that actually get used. No unnecessary complexity. No long term lock ins. Just tools designed to help contractors get found, respond faster, and win more jobs.
+                </p>
+                <p>
+                  Our goal is not quick wins. Our goal is to keep you for the next 10 plus years. We believe the best way to do that is fair pricing, honest communication, and consistent results. If we charge reasonably and deliver real value, you will never have a reason to leave.
+                </p>
+                <p>
+                  That is how we do business and that is what you can expect when you work with Digital Lift.
                 </p>
               </div>
             </div>
