@@ -88,7 +88,7 @@ export default function AboutPage() {
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
                   />
                 </div>
