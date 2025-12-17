@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Button from './Button';
@@ -25,9 +26,51 @@ const aboutItems = [
 ];
 
 export default function Header() {
+  const router = useRouter();
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [servicesHovered, setServicesHovered] = useState(false);
   const [aboutHovered, setAboutHovered] = useState(false);
+
+  const scrollToServices = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (pathname === '/') {
+      // Already on homepage, just scroll
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        const headerHeight = 80; // Account for sticky header
+        const elementPosition = servicesSection.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Navigate to homepage first, then scroll after page loads
+      router.push('/');
+      // Use a combination of timeout and checking for element existence
+      const checkAndScroll = () => {
+        const servicesSection = document.getElementById('services');
+        if (servicesSection) {
+          const headerHeight = 80;
+          const elementPosition = servicesSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        } else {
+          // If element not found yet, try again
+          setTimeout(checkAndScroll, 50);
+        }
+      };
+      setTimeout(checkAndScroll, 100);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
@@ -46,9 +89,9 @@ export default function Header() {
               onMouseEnter={() => setServicesHovered(true)}
               onMouseLeave={() => setServicesHovered(false)}
             >
-              <motion.a
-                href="/#services"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1"
+              <motion.button
+                onClick={scrollToServices}
+                className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1 cursor-pointer bg-transparent border-none"
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
               >
@@ -57,7 +100,7 @@ export default function Header() {
                   size={16} 
                   className={`transition-transform duration-200 ${servicesHovered ? 'rotate-180' : ''}`}
                 />
-              </motion.a>
+              </motion.button>
               
               <AnimatePresence>
                 {servicesHovered && (
@@ -195,7 +238,6 @@ export default function Header() {
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
               {[
-                { label: 'Services', href: '/#services' },
                 { label: 'Pricing', href: '/pricing' },
                 { label: 'Testimonials', href: '/testimonials' }
               ].map((item, index) => (
@@ -210,6 +252,18 @@ export default function Header() {
                   {item.label}
                 </motion.a>
               ))}
+              <motion.button
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  scrollToServices(e);
+                }}
+                className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base w-full text-left bg-transparent border-none cursor-pointer"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1, duration: 0.3 }}
+              >
+                Services
+              </motion.button>
               
               {/* About Section in Mobile */}
               <div className="border-t border-gray-200 pt-2 mt-2">

@@ -27,6 +27,7 @@ export default function Home() {
       <Testimonials />
       <ProductIntro />
       
+      <section id="services">
       {/* Functional Website */}
       <ProductFeature
         title="Functional Website"
@@ -109,6 +110,7 @@ export default function Home() {
         imageSide="left"
         linkTo="/ai-receptionist-calendar-booking"
       />
+      </section>
 
       <ProcessTimeline />
       <FAQ />
