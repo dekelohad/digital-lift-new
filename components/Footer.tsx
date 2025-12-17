@@ -37,9 +37,8 @@ export default function Footer() {
               title: 'Quick Links',
               items: [
                 { href: '/pricing', text: 'Pricing' },
-                { href: '/roi-calculator', text: 'ROI Calculator' },
                 { href: '/testimonials', text: 'Testimonials' },
-                { href: '/our-work', text: 'Our Work' },
+                { href: '/roi-calculator', text: 'ROI Calculator' },
                 { href: 'https://app.digitallift.io/', text: 'Log in', external: true }
               ]
             },
