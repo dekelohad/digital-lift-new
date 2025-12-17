@@ -21,17 +21,16 @@ export default function Hero() {
           animate={isInView ? "visible" : "hidden"}
         >
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
             variants={fadeInUp}
           >
             Website Design & Marketing Systems <span className="whitespace-nowrap">For Contractors</span>
           </motion.h1>
           <motion.p 
-            className="text-base sm:text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed"
             variants={fadeInUp}
           >
-            Marketing isn't magic and there's no miracle solution.<br className="hidden sm:block" />
-            Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
+            Marketing isn't magic and there's no miracle solution. Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
           </motion.p>
         </motion.div>
 
