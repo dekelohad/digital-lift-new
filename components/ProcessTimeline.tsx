@@ -81,7 +81,7 @@ export default function ProcessTimeline() {
             </div>
             <div className="flex-1 min-w-0">
               <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">
-                {step.title} {step.subtitle && <span className="text-gray-600 font-normal text-base sm:text-lg">{step.subtitle}</span>}
+                {step.title}
               </h3>
               <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{step.description}</p>
             </div>
