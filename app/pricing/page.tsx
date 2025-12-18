@@ -19,30 +19,32 @@ export default function PricingPage() {
 
   const plans = [
     {
-      name: "Starter",
+      name: "Essential",
       price: "$297",
       period: "per month",
       description: "Perfect for getting started",
+      paymentLink: "https://api.digitallift.io/payment-link/6942cc7bb17a074c60f75284",
       features: [
         "Functional Website",
-        "5-Star Review Funnel",
-        "Missed Call Text Back",
         "Basic SEO Setup",
-        "Email Support"
+        "Missed Call Text Back",
+        "5 Star Magic Funnel",
+        "Automated Lead Follow Up",
+        "One-Click Marketing Campaigns",
+        "All-In-One Inbox",
+        "Business Phone"
       ],
       popular: false
     },
     {
-      name: "Professional",
+      name: "Complete",
       price: "$497",
       period: "per month",
       description: "Most popular for growing businesses",
+      paymentLink: "https://api.digitallift.io/payment-link/6943ca052024d407e2273b0b",
       features: [
-        "Everything in Starter",
-        "One-Click Marketing Campaigns",
-        "Automated Lead Follow Up",
-        "All-In-One Inbox",
-        "Business Phone Number",
+        "Everything in Essential",
+        "AI Receptionist with Calendar Booking",
         "Priority Support",
         "Local SEO Optimization"
       ],
@@ -53,8 +55,9 @@ export default function PricingPage() {
       price: "Custom",
       period: "pricing",
       description: "For larger operations",
+      contactLink: "/contact",
       features: [
-        "Everything in Professional",
+        "Everything in Complete",
         "Multiple Locations",
         "Custom Integrations",
         "Dedicated Account Manager",
@@ -153,8 +156,11 @@ export default function PricingPage() {
                     <span className="text-4xl sm:text-5xl font-bold text-gray-900">{plan.price}</span>
                     <span className="text-sm sm:text-base text-gray-600 ml-2">{plan.period}</span>
                   </div>
-                  <motion.button
-                    className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all ${
+                  <motion.a
+                    href={plan.paymentLink || plan.contactLink || "#"}
+                    target={plan.paymentLink ? "_blank" : undefined}
+                    rel={plan.paymentLink ? "noopener noreferrer" : undefined}
+                    className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all block text-center ${
                       plan.popular
                         ? 'bg-blue-600 text-white hover:bg-blue-700'
                         : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
@@ -163,7 +169,7 @@ export default function PricingPage() {
                     whileTap={{ scale: 0.98 }}
                   >
                     Get Started
-                  </motion.button>
+                  </motion.a>
                   <motion.ul 
                     className="mt-6 sm:mt-8 space-y-3 sm:space-y-4"
                     variants={staggerContainer}

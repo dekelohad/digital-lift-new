@@ -194,3 +194,4 @@ export default function ContactForm({ variant = 'light' }: ContactFormProps) {
     </form>
   );
 }
+
