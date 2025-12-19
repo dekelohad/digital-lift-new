@@ -22,7 +22,8 @@ const services = [
 const aboutItems = [
   { href: '/about', text: 'About Us' },
   { href: '/our-work', text: 'Our Work' },
-  { href: '/our-process', text: 'Our Process' }
+  { href: '/our-process', text: 'Our Process' },
+  { href: '/trades-we-serve', text: 'Trades We Serve' }
 ];
 
 export default function Header() {
