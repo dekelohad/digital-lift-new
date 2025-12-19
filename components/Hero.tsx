@@ -52,7 +52,7 @@ export default function Hero() {
             >
               {/* Avatar group */}
               <div className="flex -space-x-3">
-                {['Jonathan', 'Marcus', 'Sarah', 'David'].map((name) => (
+                {['Jonathan', 'Marcus', 'David'].map((name) => (
                   <img 
                     key={name}
                     src={`/team/${name}.png`}

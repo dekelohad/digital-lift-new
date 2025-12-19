@@ -77,8 +77,8 @@ export default function Footer() {
               key={section.title}
               variants={staggerItem}
             >
-              <h4 className="font-bold mb-3 sm:mb-4 text-xl sm:text-2xl">{section.title}</h4>
-              <ul className="space-y-2 text-white text-base sm:text-lg">
+              <h4 className="font-bold mb-3 sm:mb-4 text-lg sm:text-xl">{section.title}</h4>
+              <ul className="space-y-2 text-white text-sm sm:text-base">
                 {section.items.map((item, itemIndex) => (
                   <li key={itemIndex}>
                     <a 
@@ -100,8 +100,8 @@ export default function Footer() {
           <motion.div 
             variants={staggerItem}
           >
-            <h4 className="font-bold mb-3 sm:mb-4 text-xl sm:text-2xl">Contact Info</h4>
-            <div className="space-y-2 text-white text-base sm:text-lg">
+            <h4 className="font-bold mb-3 sm:mb-4 text-lg sm:text-xl">Contact Info</h4>
+            <div className="space-y-2 text-white text-sm sm:text-base">
               <div>
                 <span className="text-blue-300">Phone:</span>
                 <br />
@@ -138,7 +138,7 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div className="border-t border-gray-800 pt-8 mt-8">
-          <p className="text-center text-white text-lg">
+          <p className="text-center text-gray-400 text-xs sm:text-sm">
             © Copyright {new Date().getFullYear()} Digital Lift, All Rights Reserved
           </p>
         </div>

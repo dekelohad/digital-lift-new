@@ -13,8 +13,22 @@ export default function AboutPage() {
   const team = [
     { name: "Jonathan", role: "Co-Founder & CEO", image: "/team/Jonathan.png" },
     { name: "David", role: "Co-Founder & COO", image: "/team/David.png" },
-    { name: "Sarah", role: "Head of Operations", image: "/team/Sarah.png" },
     { name: "Marcus", role: "Customer Success", image: "/team/Marcus.png" }
+  ];
+
+  const differences = [
+    {
+      title: "No Long-Term Contracts",
+      description: "We earn your business every month. No lock-ins, no cancellation fees. Stay because you want to, not because you have to."
+    },
+    {
+      title: "Built for Contractors",
+      description: "We don't work with restaurants, dentists, or lawyers. We specialize in contractors because we understand your business."
+    },
+    {
+      title: "Real Support, Real People",
+      description: "When you call, a real person answers. No overseas call centers, no chatbots. Just our team ready to help."
+    }
   ];
 
   const values = [
@@ -76,25 +90,23 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* What Makes Us Different */}
       <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-12 px-4">
-            Our Team
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4 px-4">
+            What Makes Us Different
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 px-4">
-            {team.map((member, index) => (
-              <div key={index} className="text-center">
-                <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full mx-auto mb-3 sm:mb-4 overflow-hidden shadow-lg border-4 border-white relative">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover object-top"
-                    sizes="(max-width: 640px) 96px, (max-width: 768px) 128px, 160px"
-                  />
+          <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            We're not your typical marketing agency. Here's why contractors choose to work with us.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            {differences.map((item, index) => (
+              <div key={index} className="text-center p-6">
+                <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <span className="text-4xl sm:text-5xl font-bold text-white">{index + 1}</span>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1 sm:mb-2">{member.name}</h3>
-                <p className="text-sm sm:text-base text-gray-600">{member.role}</p>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.description}</p>
               </div>
             ))}
           </div>
@@ -102,13 +114,38 @@ export default function AboutPage() {
       </section>
 
       <section className="py-20 md:py-28 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-14 px-4">
+            Meet Your Team at Digital Lift
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 px-4">
+            {team.map((member, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 text-center hover:shadow-xl transition-shadow">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full mx-auto mb-5 overflow-hidden relative">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 640px) 112px, 128px"
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{member.name}</h3>
+                <p className="text-base text-gray-500">{member.role}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28 bg-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8 sm:mb-12 px-4">
             Our Values
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
             {values.map((value, index) => (
-              <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+              <div key={index} className="bg-gray-50 p-6 sm:p-8 rounded-xl border border-gray-100">
                 <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3 sm:mb-4">{value.title}</h3>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{value.description}</p>
               </div>
@@ -126,4 +163,3 @@ export default function AboutPage() {
     </main>
   );
 }
-
