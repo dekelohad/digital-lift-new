@@ -90,18 +90,17 @@ export default function Header() {
               onMouseEnter={() => setServicesHovered(true)}
               onMouseLeave={() => setServicesHovered(false)}
             >
-              <motion.button
+              <button
                 onClick={scrollToServices}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1 cursor-pointer bg-transparent border-none"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
+                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1 cursor-pointer bg-transparent border-none group"
               >
                 Services
                 <ChevronDown 
                   size={16} 
                   className={`transition-transform duration-200 ${servicesHovered ? 'rotate-180' : ''}`}
                 />
-              </motion.button>
+                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              </button>
               
               <AnimatePresence>
                 {servicesHovered && (
@@ -112,17 +111,14 @@ export default function Header() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {services.map((service, index) => (
-                      <motion.a
+                    {services.map((service) => (
+                      <a
                         key={service.href}
                         href={service.href}
                         className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.03, duration: 0.2 }}
                       >
                         {service.text}
-                      </motion.a>
+                      </a>
                     ))}
                   </motion.div>
                 )}
@@ -133,16 +129,15 @@ export default function Header() {
             {[
               { label: 'Pricing', href: '/pricing' },
               { label: 'Testimonials', href: '/testimonials' }
-            ].map((item, index) => (
-              <motion.a
+            ].map((item) => (
+              <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
+                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap group"
               >
                 {item.label}
-              </motion.a>
+                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              </a>
             ))}
 
             {/* About Dropdown */}
@@ -151,18 +146,17 @@ export default function Header() {
               onMouseEnter={() => setAboutHovered(true)}
               onMouseLeave={() => setAboutHovered(false)}
             >
-              <motion.a
+              <a
                 href="/about"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1"
-                whileHover={{ y: -2 }}
-                transition={{ duration: 0.2 }}
+                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1 group"
               >
                 About
                 <ChevronDown 
                   size={16} 
                   className={`transition-transform duration-200 ${aboutHovered ? 'rotate-180' : ''}`}
                 />
-              </motion.a>
+                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+              </a>
               
               <AnimatePresence>
                 {aboutHovered && (
@@ -173,17 +167,14 @@ export default function Header() {
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.2 }}
                   >
-                    {aboutItems.map((item, index) => (
-                      <motion.a
+                    {aboutItems.map((item) => (
+                      <a
                         key={item.href}
                         href={item.href}
                         className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm"
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.03, duration: 0.2 }}
                       >
                         {item.text}
-                      </motion.a>
+                      </a>
                     ))}
                   </motion.div>
                 )}
@@ -191,28 +182,26 @@ export default function Header() {
             </div>
 
             {/* Contact */}
-            <motion.a
+            <a
               href="/contact"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
+              className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap group"
             >
               Contact
-            </motion.a>
+              <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+            </a>
           </div>
 
           {/* Desktop CTA Buttons */}
           <div className="hidden lg:flex items-center gap-3">
-            <motion.a 
+            <a 
               href="https://app.digitallift.io/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap px-4 py-2"
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
+              className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap px-4 py-2 group"
             >
               Log In
-            </motion.a>
+              <span className="absolute left-4 right-4 -bottom-0 h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+            </a>
             <Button variant="primary" className="whitespace-nowrap">Book A Call</Button>
           </div>
 

@@ -83,34 +83,37 @@ export default function OurProcessPage() {
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto space-y-8 sm:space-y-12 px-4">
+          <div className="max-w-4xl mx-auto px-4">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="flex flex-col md:flex-row gap-6 sm:gap-8 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-2xl sm:text-3xl shadow-lg">
+                {/* Content card */}
+                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
                       {step.number}
-                    </div>
-                  </div>
-                  <div className="flex-1 bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 w-full">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-2 leading-tight">
-                      {step.number}. {step.title}
+                    </span>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+                      {step.title}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                      {step.description}
-                    </p>
-                    <ul className="space-y-2 sm:space-y-3">
-                      {step.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="flex items-start">
-                          <BadgeCheck className="text-blue-600 mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm sm:text-base text-gray-700">{detail}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
+                  <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+                    {step.description}
+                  </p>
+                  <ul className="space-y-2 sm:space-y-3">
+                    {step.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start">
+                        <BadgeCheck className="text-blue-600 mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" />
+                        <span className="text-sm sm:text-base text-gray-700">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
+                
+                {/* Connecting line between cards */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute left-8 sm:left-10 top-16 sm:top-20 w-0.5 h-8 sm:h-12 bg-gray-300"></div>
+                  <div className="flex justify-center py-4">
+                    <div className="w-0.5 h-8 bg-blue-300"></div>
+                  </div>
                 )}
               </div>
             ))}
