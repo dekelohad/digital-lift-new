@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import Button from '@/components/Button';
+import CTA from '@/components/CTA';
 
 const testimonials = [
   {
@@ -63,7 +63,7 @@ export default function OurWorkPage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center mb-12 md:mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-12 md:mb-16 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -200,41 +200,10 @@ export default function OurWorkPage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Ready to see your business featured here?
-          </motion.h2>
-          <motion.p
-            className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Let's work together to create a marketing system that grows your business.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <Link href="/contact">
-              <button className="bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                Book A Call
-              </button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
 
       <Footer />
     </main>

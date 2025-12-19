@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 import { Phone, PhoneForwarded, PhoneCall } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -49,7 +50,7 @@ export default function BusinessPhonePage() {
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
               Business Phone Built for Contractors
             </h1>
           </div>
@@ -129,30 +130,10 @@ export default function BusinessPhonePage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="flex flex-col md:flex-row items-center gap-12 md:gap-16">
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
-                Want to schedule a time to talk?
-              </h2>
-              <p className="text-lg md:text-xl text-gray-700 mb-10 leading-relaxed max-w-2xl">
-                See everything we do to help you grow your business so you can implement it yourself or let us do it for you.
-              </p>
-              <button className="bg-blue-600 text-white px-10 py-5 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                Book A Call
-              </button>
-            </div>
-            <div className="flex-1 flex justify-center md:justify-end">
-              <div className="w-72 h-72 md:w-80 md:h-80 bg-gradient-to-br from-teal-300 via-teal-400 to-teal-500 rounded-full flex items-center justify-center shadow-2xl relative">
-                <Phone className="w-32 h-32 text-white" />
-                <div className="absolute top-0 right-0 w-16 h-16 bg-teal-300 rounded-full opacity-50 blur-xl"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-teal-400 rounded-full opacity-50 blur-xl"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
 
       <Footer />
     </main>

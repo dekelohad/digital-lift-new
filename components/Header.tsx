@@ -199,22 +199,20 @@ export default function Header() {
             >
               Contact
             </motion.a>
+          </div>
 
-            {/* Log In - moved here to be close to About */}
+          {/* Desktop CTA Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
             <motion.a 
               href="https://app.digitallift.io/" 
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
+              className="text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap px-4 py-2"
               whileHover={{ y: -2 }}
               transition={{ duration: 0.2 }}
             >
               Log In
             </motion.a>
-          </div>
-
-          {/* Desktop CTA Button */}
-          <div className="hidden lg:flex items-center">
             <Button variant="primary" className="whitespace-nowrap">Book A Call</Button>
           </div>
 

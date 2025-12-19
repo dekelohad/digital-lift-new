@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 import { BadgeCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -117,19 +118,10 @@ export default function OurProcessPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <div className="container mx-auto px-4 max-w-7xl text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Ready to get started?
-          </h2>
-          <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95">
-            Let's schedule a demo call and see if we're a good fit to partner with.
-          </p>
-          <button className="bg-white text-blue-600 px-10 py-5 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-            Book A Call
-          </button>
-        </div>
-      </section>
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
 
       <Footer />
     </main>

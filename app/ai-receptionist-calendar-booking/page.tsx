@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 import { Phone, Calendar, Clock, Zap } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -409,30 +410,10 @@ export default function AIReceptionistCalendarBookingPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-white">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="flex flex-col md:flex-row items-center gap-8 sm:gap-12 md:gap-16 px-4">
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                Want to schedule a time to talk?
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-10 leading-relaxed max-w-2xl mx-auto md:mx-0">
-                See everything we do to help you grow your business so you can implement it yourself or let us do it for you.
-              </p>
-              <button className="bg-blue-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                Book A Call
-              </button>
-            </div>
-            <div className="flex-1 flex justify-center md:justify-end w-full md:w-auto">
-              <div className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl relative">
-                <Phone className="w-24 h-24 sm:w-32 sm:h-32 text-white" />
-                <div className="absolute top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 bg-blue-300 rounded-full opacity-50 blur-xl"></div>
-                <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-20 sm:h-20 bg-blue-400 rounded-full opacity-50 blur-xl"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
 
       <Footer />
     </main>

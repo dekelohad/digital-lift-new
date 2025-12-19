@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 
 const featuredTrades = [
   { name: "Landscapers", image: "/tradesWeServe/Landscapers.webp" },
@@ -176,7 +177,7 @@ export default function TradesWeServePage() {
       <section className="py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-6xl">
           <motion.h1 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 text-center mb-12 md:mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 text-center mb-12 md:mb-16 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -251,45 +252,10 @@ export default function TradesWeServePage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left">
-              <motion.h2 
-                className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-              >
-                Want to schedule a time to talk?
-              </motion.h2>
-              <motion.p 
-                className="text-lg text-blue-100 max-w-xl"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                See everything we do to help you grow your business so you can implement it yourself or let us do it for you.
-              </motion.p>
-            </div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
-              <Link href="/contact">
-                <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                  Book A Call
-                </button>
-              </Link>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
 
       {/* Process Section */}
       <section className="py-16 md:py-24 bg-gray-50">
@@ -391,32 +357,6 @@ export default function TradesWeServePage() {
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-16 md:py-20 bg-gradient-to-r from-blue-600 to-blue-700">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
-          <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            Ready to get started?
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <Link href="/contact">
-              <button className="bg-white text-blue-600 px-10 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                Book A Call
-              </button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
 
       <Footer />
     </main>

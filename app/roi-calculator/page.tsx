@@ -74,7 +74,7 @@ export default function ROICalculatorPage() {
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-blue-600"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
             variants={fadeInUp}
             initial="hidden"
             animate="visible"

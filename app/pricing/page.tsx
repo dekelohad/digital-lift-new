@@ -1,11 +1,47 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Check } from 'lucide-react';
+import CTA from '@/components/CTA';
+import { Check, ChevronDown } from 'lucide-react';
 import { fadeInUp, staggerContainer, staggerItem, scaleIn } from '@/lib/animations';
+
+function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
+  return (
+    <div 
+      className={`bg-white rounded-lg border transition-all duration-200 ${
+        isOpen ? 'border-blue-600 shadow-md' : 'border-gray-200 shadow-sm hover:shadow-md'
+      }`}
+    >
+      <button
+        className={`w-full py-5 px-6 text-left flex items-center justify-between gap-4 rounded-lg transition-colors ${
+          isOpen ? 'bg-blue-50' : 'bg-white hover:bg-gray-50'
+        }`}
+        onClick={onToggle}
+      >
+        <span className="text-base sm:text-lg font-semibold text-gray-900 pr-4 leading-snug">{question}</span>
+        <ChevronDown 
+          className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`} 
+        />
+      </button>
+      <div 
+        className={`grid transition-all duration-200 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-6 pb-5 text-gray-600 text-base leading-relaxed">
+            {answer}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function PricingPage() {
   const heroRef = useRef(null);
@@ -14,8 +50,11 @@ export default function PricingPage() {
   const plansInView = useInView(plansRef, { once: true, margin: '-50px' });
   const faqRef = useRef(null);
   const faqInView = useInView(faqRef, { once: true, margin: '-100px' });
-  const ctaRef = useRef(null);
-  const ctaInView = useInView(ctaRef, { once: true, margin: '-100px' });
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+
+  const toggleFaq = (index: number) => {
+    setOpenFaqIndex(openFaqIndex === index ? null : index);
+  };
 
   const plans = [
     {
@@ -206,58 +245,28 @@ export default function PricingPage() {
             Frequently Asked Questions
           </motion.h2>
           <motion.div 
-            className="space-y-6"
+            className="space-y-4"
             variants={staggerContainer}
             initial="hidden"
             animate={faqInView ? "visible" : "hidden"}
           >
             {faq.map((item, index) => (
-              <motion.div 
-                key={index} 
-                className="bg-white p-6 rounded-lg shadow-md border border-gray-200"
-                variants={staggerItem}
-                whileHover={{ y: -4, boxShadow: '0 10px 25px rgba(0,0,0,0.1)' }}
-                transition={{ duration: 0.3 }}
-              >
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.question}</h3>
-                <p className="text-gray-700 leading-relaxed">{item.answer}</p>
-              </motion.div>
+              <FAQItem
+                key={index}
+                question={item.question}
+                answer={item.answer}
+                isOpen={openFaqIndex === index}
+                onToggle={() => toggleFaq(index)}
+              />
             ))}
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 md:py-28 bg-gradient-to-r from-blue-600 to-blue-700 text-white">
-        <motion.div 
-          ref={ctaRef}
-          className="container mx-auto px-4 max-w-7xl text-center"
-          variants={staggerContainer}
-          initial="hidden"
-          animate={ctaInView ? "visible" : "hidden"}
-        >
-          <motion.h2 
-            className="text-3xl md:text-5xl font-bold mb-6"
-            variants={fadeInUp}
-          >
-            Still have questions?
-          </motion.h2>
-          <motion.p 
-            className="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-95"
-            variants={fadeInUp}
-          >
-            Let's schedule a call and we'll answer all your questions.
-          </motion.p>
-          <motion.button 
-            className="bg-white text-blue-600 px-10 py-5 rounded-lg font-semibold text-lg shadow-xl"
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05, y: -4, boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-          >
-            Book A Call
-          </motion.button>
-        </motion.div>
-      </section>
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
 
       <Footer />
     </motion.main>
