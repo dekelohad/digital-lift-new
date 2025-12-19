@@ -12,6 +12,7 @@ import FAQ from '@/components/FAQ';
 import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import TradesWeServe from '@/components/TradesWeServe';
 import { pageTransition } from '@/lib/animations';
 
 export default function Home() {
@@ -40,7 +41,7 @@ export default function Home() {
           { title: "Optimized for Local Google Searches", description: "Local visibility is not optional. We optimize your website so customers in your service area can easily find you on Google." }
         ]}
         imageSide="right"
-        linkTo="/functional-website"
+        background="white"
       />
 
       {/* 5-Star Magic Review Funnel */}
@@ -54,7 +55,7 @@ export default function Home() {
           { title: "Reduce the Risk of Bad Reviews", description: "We guide customers through the right experience, helping you collect positive feedback while minimizing negative public reviews." }
         ]}
         imageSide="left"
-        linkTo="/5-star-magic-funnel"
+        background="gray"
       />
 
       {/* Missed Call Text Back */}
@@ -68,7 +69,7 @@ export default function Home() {
           { title: "Available 24/7", description: "Even after hours, every missed call receives a response. Your business stays active while you focus on the work." }
         ]}
         imageSide="right"
-        linkTo="/missed-call-text-back"
+        background="white"
       />
 
       {/* One-Click Marketing Campaigns */}
@@ -82,7 +83,7 @@ export default function Home() {
           { title: "Marketing at Your Fingertips", description: "Launch campaigns anytime with one click. No need to hire a marketing team or manage complicated tools." }
         ]}
         imageSide="left"
-        linkTo="/one-click-marketing-campaigns"
+        background="gray"
       />
 
       {/* Local SEO */}
@@ -95,7 +96,7 @@ export default function Home() {
           { title: "Sustainable Organic Growth", description: "Build a long term lead system that works for you every month without paying for every click." }
         ]}
         imageSide="right"
-        linkTo="/local-seo"
+        background="white"
       />
 
       {/* AI Receptionist with Calendar Booking */}
@@ -109,9 +110,11 @@ export default function Home() {
           { title: "Seamless Integration", description: "Works with your existing calendar system and sends you instant notifications so you're always in the loop." }
         ]}
         imageSide="left"
-        linkTo="/ai-receptionist-calendar-booking"
+        background="gray"
       />
       </section>
+
+      <TradesWeServe />
 
       <ProcessTimeline />
       <FAQ />

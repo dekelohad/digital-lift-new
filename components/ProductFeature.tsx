@@ -2,12 +2,11 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Button from './Button';
 import Section from './Section';
-import Link from 'next/link';
 import { ReactNode } from 'react';
 import { fadeInUp, slideInLeft, slideInRight, staggerContainer, staggerItem } from '@/lib/animations';
 import { BadgeCheck } from 'lucide-react';
+import VideoPlaceholder from './VideoPlaceholder';
 
 interface Feature {
   title: string;
@@ -18,20 +17,18 @@ interface ProductFeatureProps {
   title: string;
   subtitle?: string;
   features: Feature[];
-  demoButton?: boolean;
   imageSide?: 'left' | 'right';
   children?: ReactNode;
-  linkTo?: string;
+  background?: 'white' | 'gray';
 }
 
 export default function ProductFeature({
   title,
   subtitle,
   features,
-  demoButton = true,
   imageSide = 'right',
   children,
-  linkTo
+  background = 'white'
 }: ProductFeatureProps) {
   const isImageRight = imageSide === 'right';
   const ref = useRef(null);
@@ -42,7 +39,7 @@ export default function ProductFeature({
   const imageInView = useInView(imageRef, { once: true, margin: '-50px' });
 
   return (
-    <Section>
+    <Section className={background === 'gray' ? 'bg-gray-50' : 'bg-white'}>
       <div 
         ref={ref}
         className={`flex flex-col ${isImageRight ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12`}
@@ -75,7 +72,7 @@ export default function ProductFeature({
             </motion.p>
           )}
           <motion.ul 
-            className="space-y-4 sm:space-y-5 mb-8"
+            className="space-y-4 sm:space-y-5"
             variants={staggerContainer}
             initial="hidden"
             animate={contentInView ? "visible" : "hidden"}
@@ -98,25 +95,9 @@ export default function ProductFeature({
               </motion.li>
             ))}
           </motion.ul>
-          {demoButton && (
-            <motion.div
-              variants={fadeInUp}
-              initial="hidden"
-              animate={contentInView ? "visible" : "hidden"}
-              transition={{ delay: 0.4 }}
-            >
-              {linkTo ? (
-                <Link href={linkTo}>
-                  <Button variant="primary">See Short Demo</Button>
-                </Link>
-              ) : (
-                <Button variant="primary">See Short Demo</Button>
-              )}
-            </motion.div>
-          )}
         </motion.div>
 
-        {/* Image/Animation Placeholder */}
+        {/* Video Placeholder */}
         <motion.div 
           ref={imageRef}
           className="flex-1 px-4 sm:px-0"
@@ -124,15 +105,7 @@ export default function ProductFeature({
           initial="hidden"
           animate={imageInView ? "visible" : "hidden"}
         >
-          {children || (
-            <motion.div 
-              className="w-full h-48 sm:h-64 md:h-96 bg-gradient-to-br from-gray-100 to-gray-200 rounded-lg flex items-center justify-center shadow-lg border border-gray-200"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.3 }}
-            >
-              <span className="text-gray-500 font-medium text-sm sm:text-base">website animation</span>
-            </motion.div>
-          )}
+          {children || <VideoPlaceholder />}
         </motion.div>
       </div>
     </Section>

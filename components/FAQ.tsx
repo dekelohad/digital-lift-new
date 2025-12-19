@@ -15,27 +15,15 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: 'When am I going to start seeing results?',
-    answer: [
-      "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month a month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Digital Lift is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles.",
-      '',
-      '"Explain how you help me grow my business"',
-      '',
-      'Sure...',
-      '',
-      '1. Do you believe having more 5 star reviews will attract more customers?',
-      '2. Do you believe that being able to be found online and having a professional website that actually works will help you convert more leads into paying customers?',
-      '3. Do you believe that instantly following up with incoming leads will make you look more professional, therefore leading to more business?',
-      "4. Do you believe making sure you're making the most of every customer you work with by putting them into automated re-marketing campaigns will make them more likely to work with you again",
-      '5. Do you believe offering discounts for friends of your past customers will increase the number of referrals you get?',
-      '6. Do you believe using automation and AI could free you from repeating the same basic tasks in your business, therefore giving you more time for other things?',
-      '7. Do you believe having these systems in place is important to grow your business?',
-      '',
-      "If you believe any of those things can grow your business, that's exactly what we can help you with."
-    ]
+    answer: "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Digital Lift is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles."
   },
   {
-    question: 'Why is your pricing so cheap?',
-    answer: 'Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably. We believe if we don\'t overcharge and provide you with excellent service, you\'ll never have a reason to leave.'
+    question: 'How exactly do you help me grow my business?',
+    answer: "We help you get more 5-star reviews to attract more customers. We build you a professional website that actually converts leads into paying customers. We instantly follow up with incoming leads so you look more professional. We put your customers into automated re-marketing campaigns so they're more likely to work with you again. We help you get more referrals by offering discounts for friends of past customers. And we use automation and AI to free you from repeating the same basic tasks, giving you more time for other things. If you believe any of those things can grow your business, that's exactly what we help you with."
+  },
+  {
+    question: 'Why is your pricing so affordable?',
+    answer: "Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably. We believe if we don't overcharge and provide you with excellent service, you'll never have a reason to leave."
   },
   {
     question: 'What happens if I decide to cancel my membership with Digital Lift?',
@@ -55,55 +43,40 @@ function FAQItem({ question, answer, isOpen, onToggle }: { question: string; ans
   const answerContent = Array.isArray(answer) ? answer : [answer];
 
   return (
-    <motion.div 
-      className={`bg-white rounded-lg border transition-all duration-300 ${
+    <div 
+      className={`bg-white rounded-lg border transition-all duration-200 ${
         isOpen ? 'border-blue-600 shadow-md' : 'border-gray-200 shadow-sm hover:shadow-md'
       }`}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
-      <motion.button
-        className={`w-full py-4 sm:py-6 px-4 sm:px-6 text-left flex items-center justify-between gap-4 rounded-lg transition-colors ${
+      <button
+        className={`w-full py-5 px-6 text-left flex items-center justify-between gap-4 rounded-lg transition-colors ${
           isOpen ? 'bg-blue-50' : 'bg-white hover:bg-gray-50'
         }`}
         onClick={onToggle}
-        whileHover={{ x: 2 }}
-        transition={{ duration: 0.2 }}
       >
-        <span className="text-base sm:text-lg font-semibold text-gray-900 pr-2 sm:pr-4 leading-snug">{question}</span>
-        <motion.div
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <ChevronDown className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600 flex-shrink-0" />
-        </motion.div>
-      </motion.button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            className="px-4 sm:px-6 pb-4 sm:pb-6 text-gray-700 space-y-2 text-sm sm:text-base leading-relaxed overflow-hidden"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-          >
+        <span className="text-base sm:text-lg font-semibold text-gray-900 pr-4 leading-snug">{question}</span>
+        <ChevronDown 
+          className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`} 
+        />
+      </button>
+      <div 
+        className={`grid transition-all duration-200 ease-in-out ${
+          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="px-6 pb-5 text-gray-600 text-base leading-relaxed">
             {answerContent.map((paragraph, index) => (
-              <motion.p 
-                key={index} 
-                className={paragraph === '' ? 'h-2' : ''}
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.3 }}
-              >
+              <p key={index} className={paragraph === '' ? 'h-2' : ''}>
                 {paragraph}
-              </motion.p>
+              </p>
             ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

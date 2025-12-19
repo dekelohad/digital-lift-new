@@ -3,44 +3,32 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Section from './Section';
-import { fadeInUp, scaleIn } from '@/lib/animations';
+import { fadeInUp } from '@/lib/animations';
 
 export default function ProductIntro() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const imageRef = useRef(null);
-  const imageInView = useInView(imageRef, { once: true, margin: '-50px' });
 
   return (
-    <Section>
+    <Section className="py-16 sm:py-20 md:py-28">
       <motion.div 
         ref={ref}
-        className="text-center mb-8 sm:mb-12 px-4"
+        className="text-center px-4"
         variants={fadeInUp}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-          Simple systems built for real contractors
+        <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+          Simple systems that actually work
         </h2>
-        <p className="text-lg sm:text-xl text-gray-700">
+        <div className="flex justify-center mb-4">
+          <svg className="w-64 sm:w-80 md:w-96" viewBox="0 0 400 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8C80 2 320 2 398 8" stroke="#3B82F6" strokeWidth="5" strokeLinecap="round"/>
+          </svg>
+        </div>
+        <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 font-medium">
           No tech skills needed. Just tools that help you win more jobs.
         </p>
-      </motion.div>
-      <motion.div 
-        ref={imageRef}
-        className="flex justify-center px-4"
-        variants={scaleIn}
-        initial="hidden"
-        animate={imageInView ? "visible" : "hidden"}
-      >
-        <motion.div 
-          className="w-full max-w-2xl h-48 sm:h-64 md:h-96 bg-gray-200 rounded-lg flex items-center justify-center"
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.3 }}
-        >
-          <span className="text-gray-500 text-sm sm:text-base">website animation</span>
-        </motion.div>
       </motion.div>
     </Section>
   );
