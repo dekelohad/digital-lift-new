@@ -77,15 +77,15 @@ export default function Footer() {
               key={section.title}
               variants={staggerItem}
             >
-              <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">{section.title}</h4>
-              <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
+              <h4 className="font-bold mb-3 sm:mb-4 text-xl sm:text-2xl">{section.title}</h4>
+              <ul className="space-y-2 text-white text-base sm:text-lg">
                 {section.items.map((item, itemIndex) => (
                   <li key={itemIndex}>
                     <a 
                       href={item.href} 
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="relative hover:text-white transition-colors inline-block group"
+                      className="relative hover:text-blue-400 transition-colors inline-block group"
                     >
                       {item.text}
                       <span className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -100,34 +100,34 @@ export default function Footer() {
           <motion.div 
             variants={staggerItem}
           >
-            <h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Contact Info</h4>
-            <div className="space-y-2 text-gray-400 text-sm sm:text-base">
+            <h4 className="font-bold mb-3 sm:mb-4 text-xl sm:text-2xl">Contact Info</h4>
+            <div className="space-y-2 text-white text-base sm:text-lg">
               <div>
-                <span className="text-gray-500">Phone:</span>
+                <span className="text-blue-300">Phone:</span>
                 <br />
                 <a
                   href="tel:+17379376612"
-                  className="relative hover:text-white transition-colors inline-block group"
+                  className="relative hover:text-blue-400 transition-colors inline-block group"
                 >
                   +1 (737) 937-6612
                   <span className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               </div>
               <div>
-                <span className="text-gray-500">Email:</span>
+                <span className="text-blue-300">Email:</span>
                 <br />
                 <a
                   href="mailto:info@digitalLift.io"
-                  className="relative hover:text-white transition-colors inline-block group"
+                  className="relative hover:text-blue-400 transition-colors inline-block group"
                 >
                   info@digitalLift.io
                   <span className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               </div>
               <div>
-                <span className="text-gray-500">Address:</span>
+                <span className="text-blue-300">Address:</span>
                 <br />
-                <span className="text-gray-400">
+                <span className="text-white">
                   11801 Domain Blvd, Suite W350<br />
                   Austin, TX 78758
                 </span>
@@ -138,7 +138,7 @@ export default function Footer() {
 
         {/* Copyright Section */}
         <div className="border-t border-gray-800 pt-8 mt-8">
-          <p className="text-center text-gray-400 text-sm">
+          <p className="text-center text-white text-lg">
             © Copyright {new Date().getFullYear()} Digital Lift, All Rights Reserved
           </p>
         </div>

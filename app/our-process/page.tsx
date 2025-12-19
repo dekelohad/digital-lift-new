@@ -83,38 +83,28 @@ export default function OurProcessPage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto px-4">
+          <div className="max-w-4xl mx-auto px-4 space-y-8">
             {steps.map((step, index) => (
-              <div key={index} className="relative">
-                {/* Content card */}
-                <div className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                      {step.number}
-                    </span>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
-                      {step.title}
-                    </h2>
-                  </div>
-                  <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
-                    {step.description}
-                  </p>
-                  <ul className="space-y-2 sm:space-y-3">
-                    {step.details.map((detail, detailIndex) => (
-                      <li key={detailIndex} className="flex items-start">
-                        <BadgeCheck className="text-blue-600 mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" />
-                        <span className="text-sm sm:text-base text-gray-700">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+              <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 border-l-4 border-l-blue-500 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="w-12 h-12 sm:w-14 sm:h-14 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl sm:text-2xl shadow-md flex-shrink-0">
+                    {step.number}
+                  </span>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">
+                    {step.title}
+                  </h2>
                 </div>
-                
-                {/* Connecting line between cards */}
-                {index < steps.length - 1 && (
-                  <div className="flex justify-center py-4">
-                    <div className="w-0.5 h-8 bg-blue-300"></div>
-                  </div>
-                )}
+                <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6 leading-relaxed">
+                  {step.description}
+                </p>
+                <ul className="space-y-2 sm:space-y-3">
+                  {step.details.map((detail, detailIndex) => (
+                    <li key={detailIndex} className="flex items-start">
+                      <BadgeCheck className="text-blue-600 mr-2 sm:mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm sm:text-base text-gray-700">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
