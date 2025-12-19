@@ -1,121 +1,75 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import CTA from '@/components/CTA';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/lib/animations';
 
+const MONTHLY_CHARGE = 297;
+
 export default function ROICalculatorPage() {
-  const [averageClientValue, setAverageClientValue] = useState(34);
-  const [leadsPerMonth, setLeadsPerMonth] = useState(1313);
-  const [profitMargin, setProfitMargin] = useState(100);
-  const [closeRate, setCloseRate] = useState(100);
-  const [monthlyInvestment, setMonthlyInvestment] = useState(1500);
+  const [averageClientValue, setAverageClientValue] = useState('');
+  const [missedCallsPerMonth, setMissedCallsPerMonth] = useState('');
+  const [closeRate, setCloseRate] = useState('');
+  const [showResults, setShowResults] = useState(false);
+  const [results, setResults] = useState({
+    recoveredCustomers: 0,
+    monthlyLeftOnTable: 0,
+    netMonthlyProfit: 0,
+    roi: 0,
+  });
 
-  const [totalNewCustomers, setTotalNewCustomers] = useState(0);
-  const [monthlyRevenuePotential, setMonthlyRevenuePotential] = useState(0);
-  const [grossMonthlyProfit, setGrossMonthlyProfit] = useState(0);
-  const [netMonthlyProfit, setNetMonthlyProfit] = useState(0);
+  const handleCalculate = () => {
+    const clientValue = parseFloat(averageClientValue) || 0;
+    const missedCalls = parseFloat(missedCallsPerMonth) || 0;
+    const rate = parseFloat(closeRate) || 0;
 
-  // Validation handlers
-  const handleAverageClientValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === '') {
-      setAverageClientValue(0);
-      return;
-    }
-    const numValue = Number(value);
-    const validatedValue = Math.max(0, Math.min(numValue, 999999999));
-    setAverageClientValue(validatedValue);
+    // Recovered Customers = Missed Calls × Close Rate
+    const recoveredCustomers = Math.round(missedCalls * (rate / 100));
+
+    // Monthly $$$ Left on Table = Recovered Customers × Average Client Value
+    const monthlyLeftOnTable = recoveredCustomers * clientValue;
+
+    // Net Monthly Profit = Money Left on Table - Our Charge
+    const netMonthlyProfit = monthlyLeftOnTable - MONTHLY_CHARGE;
+
+    // ROI = ((Money Left on Table - Our Charge) / Our Charge) × 100
+    const roi = MONTHLY_CHARGE > 0 ? ((monthlyLeftOnTable - MONTHLY_CHARGE) / MONTHLY_CHARGE) * 100 : 0;
+
+    setResults({
+      recoveredCustomers,
+      monthlyLeftOnTable,
+      netMonthlyProfit,
+      roi,
+    });
+    setShowResults(true);
   };
-
-  const handleLeadsPerMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === '') {
-      setLeadsPerMonth(0);
-      return;
-    }
-    const numValue = Number(value);
-    const validatedValue = Math.max(0, Math.min(numValue, 999999));
-    setLeadsPerMonth(validatedValue);
-  };
-
-  const handleProfitMarginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === '') {
-      setProfitMargin(0);
-      return;
-    }
-    const numValue = Number(value);
-    const validatedValue = Math.max(0, Math.min(numValue, 100));
-    setProfitMargin(validatedValue);
-  };
-
-  const handleCloseRateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === '') {
-      setCloseRate(0);
-      return;
-    }
-    const numValue = Number(value);
-    const validatedValue = Math.max(0, Math.min(numValue, 100));
-    setCloseRate(validatedValue);
-  };
-
-  const handleMonthlyInvestmentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-    if (value === '') {
-      setMonthlyInvestment(0);
-      return;
-    }
-    const numValue = Number(value);
-    const validatedValue = Math.max(0, Math.min(numValue, 999999999));
-    setMonthlyInvestment(validatedValue);
-  };
-
-  useEffect(() => {
-    // Ensure all values are valid numbers
-    const clientValue = isFinite(averageClientValue) && !isNaN(averageClientValue) ? averageClientValue : 0;
-    const leads = isFinite(leadsPerMonth) && !isNaN(leadsPerMonth) ? leadsPerMonth : 0;
-    const margin = isFinite(profitMargin) && !isNaN(profitMargin) ? Math.max(0, Math.min(profitMargin, 100)) : 0;
-    const rate = isFinite(closeRate) && !isNaN(closeRate) ? Math.max(0, Math.min(closeRate, 100)) : 0;
-    const investment = isFinite(monthlyInvestment) && !isNaN(monthlyInvestment) ? monthlyInvestment : 0;
-
-    // Calculate Total New Customers
-    const newCustomers = Math.round(leads * (rate / 100));
-    setTotalNewCustomers(newCustomers);
-
-    // Calculate Monthly Revenue Potential
-    const revenue = newCustomers * clientValue;
-    setMonthlyRevenuePotential(revenue);
-
-    // Calculate Gross Monthly Profit
-    const grossProfit = revenue * (margin / 100);
-    setGrossMonthlyProfit(grossProfit);
-
-    // Calculate Net Monthly Profit
-    const netProfit = grossProfit - investment;
-    setNetMonthlyProfit(netProfit);
-  }, [averageClientValue, leadsPerMonth, profitMargin, closeRate, monthlyInvestment]);
 
   const formatCurrency = (value: number) => {
-    // Handle NaN and Infinity
     if (!isFinite(value) || isNaN(value)) {
-      return '$0.00';
+      return '$0';
     }
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     }).format(value);
+  };
+
+  const formatPercentage = (value: number) => {
+    if (!isFinite(value) || isNaN(value)) {
+      return '0%';
+    }
+    return `${Math.round(value)}%`;
   };
 
   return (
     <main className="min-h-screen bg-white text-gray-900">
       <Header />
-      
+
       {/* Page Title */}
       <section className="py-12 md:py-16 bg-white">
         <div className="container mx-auto px-4 max-w-7xl text-center">
@@ -125,10 +79,10 @@ export default function ROICalculatorPage() {
             initial="hidden"
             animate="visible"
           >
-            ROI Calculator
+            Missed Call Text Back
           </motion.h1>
           <motion.p
-            className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mt-4"
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
@@ -143,7 +97,7 @@ export default function ROICalculatorPage() {
       <section className="py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white pb-20">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
-            {/* Left Column: Business Details */}
+            {/* Left Column: Input Fields */}
             <motion.div
               className="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-200"
               variants={fadeInUp}
@@ -152,78 +106,62 @@ export default function ROICalculatorPage() {
               transition={{ delay: 0.2 }}
             >
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
-                Business Details
+                Your Business Details
               </h2>
               <div className="space-y-5">
                 {/* Average Client Value */}
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Average Client Value ($)
+                    Average Client Value:
                   </label>
                   <input
                     type="number"
                     value={averageClientValue}
-                    onChange={handleAverageClientValueChange}
+                    onChange={(e) => setAverageClientValue(e.target.value)}
+                    placeholder="Enter amount"
                     min="0"
-                    max="999999999"
-                    step="1"
                     className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
                   />
                 </div>
 
-                {/* Number of Leads per Month */}
+                {/* Missed Calls Per Month */}
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Number of Leads per Month
+                    Missed Calls Per Month:
                   </label>
                   <input
                     type="number"
-                    value={leadsPerMonth}
-                    onChange={handleLeadsPerMonthChange}
+                    value={missedCallsPerMonth}
+                    onChange={(e) => setMissedCallsPerMonth(e.target.value)}
+                    placeholder="Enter number"
                     min="0"
-                    max="999999"
-                    step="1"
                     className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
                   />
                 </div>
 
-                {/* Profit Margin */}
+                {/* Average Close Rate */}
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Profit Margin (%)
+                    Average Close Rate (%):
                   </label>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="number"
-                      value={profitMargin}
-                      onChange={handleProfitMarginChange}
-                      min="0"
-                      max="100"
-                      step="0.1"
-                      className="flex-1 bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                    />
-                    <span className="text-gray-600 text-lg font-medium">%</span>
-                  </div>
+                  <input
+                    type="number"
+                    value={closeRate}
+                    onChange={(e) => setCloseRate(e.target.value)}
+                    placeholder="Enter percentage"
+                    min="0"
+                    max="100"
+                    className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
+                  />
                 </div>
 
-                {/* Close Rate */}
-                <div>
-                  <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Close Rate (%)
-                  </label>
-                  <div className="flex items-center gap-2">
-                    <input
-                      type="number"
-                      value={closeRate}
-                      onChange={handleCloseRateChange}
-                      min="0"
-                      max="100"
-                      step="0.1"
-                      className="flex-1 bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                    />
-                    <span className="text-gray-600 text-lg font-medium">%</span>
-                  </div>
-                </div>
+                {/* Calculate Button */}
+                <button
+                  onClick={handleCalculate}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3.5 px-6 rounded-lg shadow-md transition-all duration-200 text-base mt-2"
+                >
+                  Calculate My ROI
+                </button>
               </div>
             </motion.div>
 
@@ -238,52 +176,42 @@ export default function ROICalculatorPage() {
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
                 Potential Revenue
               </h2>
-              
+
               <div className="space-y-5">
-                {/* Total New Customers */}
+                {/* Recovered Customers */}
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Total New Customers
+                    Recovered Customers
                   </label>
                   <div className="bg-gray-100 text-gray-900 px-4 py-4 rounded-lg border border-gray-200 shadow-sm">
-                    <span className="text-2xl md:text-3xl font-bold">{totalNewCustomers.toLocaleString()}</span>
+                    <span className="text-2xl md:text-3xl font-bold">
+                      {showResults ? results.recoveredCustomers.toLocaleString() : '—'}
+                    </span>
                   </div>
                 </div>
 
-                {/* Monthly Revenue Potential */}
+                {/* Monthly $$$ Left on Table */}
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Monthly Revenue Potential
+                    Monthly $$$ Left on Table
                   </label>
                   <div className="bg-gray-100 text-gray-900 px-4 py-4 rounded-lg border border-gray-200 shadow-sm">
-                    <span className="text-lg md:text-xl font-semibold">{formatCurrency(monthlyRevenuePotential)}</span>
+                    <span className="text-lg md:text-xl font-semibold">
+                      {showResults ? formatCurrency(results.monthlyLeftOnTable) : '—'}
+                    </span>
                   </div>
                 </div>
 
-                {/* Gross Monthly Profit */}
+                {/* We Charge */}
                 <div>
                   <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Gross Monthly Profit
+                    We Charge
                   </label>
                   <div className="bg-gray-100 text-gray-900 px-4 py-4 rounded-lg border border-gray-200 shadow-sm">
-                    <span className="text-lg md:text-xl font-semibold">{formatCurrency(grossMonthlyProfit)}</span>
+                    <span className="text-lg md:text-xl font-semibold">
+                      {formatCurrency(MONTHLY_CHARGE)}/month
+                    </span>
                   </div>
-                </div>
-
-                {/* Monthly Investment */}
-                <div>
-                  <label className="block text-gray-700 font-medium text-sm mb-2">
-                    Monthly Investment
-                  </label>
-                  <input
-                    type="number"
-                    value={monthlyInvestment}
-                    onChange={handleMonthlyInvestmentChange}
-                    min="0"
-                    max="999999999"
-                    step="1"
-                    className="w-full bg-white text-gray-900 px-4 py-3.5 rounded-lg border border-gray-300 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-base"
-                  />
                 </div>
 
                 {/* Net Monthly Profit */}
@@ -292,7 +220,9 @@ export default function ROICalculatorPage() {
                     Net Monthly Profit
                   </label>
                   <div className="bg-blue-600 text-white px-4 py-5 rounded-lg border border-blue-500 shadow-lg">
-                    <span className="text-2xl md:text-3xl font-bold">{formatCurrency(netMonthlyProfit)}</span>
+                    <span className="text-2xl md:text-3xl font-bold">
+                      {showResults ? formatCurrency(results.netMonthlyProfit) : '—'}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -300,6 +230,11 @@ export default function ROICalculatorPage() {
           </div>
         </div>
       </section>
+
+      <CTA
+        title="Ready to Stop Losing Customers?"
+        description="Let's set up Missed Call Text Back for your business and start recovering lost revenue today."
+      />
 
       <Footer />
     </main>
