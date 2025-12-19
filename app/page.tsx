@@ -13,6 +13,7 @@ import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
 import TradesWeServe from '@/components/TradesWeServe';
+import WhyUs from '@/components/WhyUs';
 import { pageTransition } from '@/lib/animations';
 
 export default function Home() {
@@ -117,6 +118,7 @@ export default function Home() {
       <TradesWeServe />
 
       <ProcessTimeline />
+      <WhyUs />
       <FAQ />
       
       <CTA
