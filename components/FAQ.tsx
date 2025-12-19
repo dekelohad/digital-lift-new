@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef } from 'react';
 import Section from './Section';
-import { ChevronDown } from 'lucide-react';
-import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
+import { ChevronDown, HelpCircle } from 'lucide-react';
+import { staggerContainer } from '@/lib/animations';
+import AnimatedText from './AnimatedText';
 
 interface FAQItem {
   question: string;
@@ -39,44 +39,96 @@ const faqs: FAQItem[] = [
   }
 ];
 
-function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string | string[]; isOpen: boolean; onToggle: () => void }) {
+function FAQItemComponent({ 
+  question, 
+  answer, 
+  isOpen, 
+  onToggle,
+  index,
+  isInView
+}: { 
+  question: string; 
+  answer: string | string[]; 
+  isOpen: boolean; 
+  onToggle: () => void;
+  index: number;
+  isInView: boolean;
+}) {
   const answerContent = Array.isArray(answer) ? answer : [answer];
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div 
-      className={`bg-white rounded-lg border transition-all duration-200 ${
-        isOpen ? 'border-blue-600 shadow-md' : 'border-gray-200 shadow-sm hover:shadow-md'
+    <motion.div 
+      className={`bg-white rounded-xl border overflow-hidden ${
+        isOpen ? 'border-blue-500 shadow-lg shadow-blue-500/10' : 'border-gray-200 shadow-sm'
       }`}
+      initial={{ opacity: 0, y: 30, scale: 0.95 }}
+      animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      whileHover={{ scale: isOpen ? 1 : 1.01 }}
     >
-      <button
-        className={`w-full py-5 px-6 text-left flex items-center justify-between gap-4 rounded-lg transition-colors ${
+      <motion.button
+        className={`w-full py-5 px-6 text-left flex items-center justify-between gap-4 transition-colors ${
           isOpen ? 'bg-blue-50' : 'bg-white hover:bg-gray-50'
         }`}
         onClick={onToggle}
+        whileTap={{ scale: 0.99 }}
       >
-        <span className="text-base sm:text-lg font-semibold text-gray-900 pr-4 leading-snug">{question}</span>
-        <ChevronDown 
-          className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
-          }`} 
-        />
-      </button>
-      <div 
-        className={`grid transition-all duration-200 ease-in-out ${
-          isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-        }`}
-      >
-        <div className="overflow-hidden">
-          <div className="px-6 pb-5 text-gray-600 text-base leading-relaxed">
-            {answerContent.map((paragraph, index) => (
-              <p key={index} className={paragraph === '' ? 'h-2' : ''}>
-                {paragraph}
-              </p>
-            ))}
-          </div>
+        <div className="flex items-center gap-3">
+          <motion.div
+            animate={{ 
+              rotate: isOpen ? 360 : 0,
+              backgroundColor: isOpen ? 'rgb(59 130 246)' : 'rgb(229 231 235)'
+            }}
+            transition={{ duration: 0.3 }}
+            className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0"
+          >
+            <HelpCircle className={`w-4 h-4 ${isOpen ? 'text-white' : 'text-gray-500'}`} />
+          </motion.div>
+          <span className="text-base sm:text-lg font-semibold text-gray-900 leading-snug">
+            {question}
+          </span>
         </div>
-      </div>
-    </div>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        >
+          <ChevronDown className="w-5 h-5 text-gray-600 flex-shrink-0" />
+        </motion.div>
+      </motion.button>
+      
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.div 
+              className="px-6 pb-5 text-gray-600 text-base leading-relaxed"
+              initial={{ y: -10 }}
+              animate={{ y: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              {answerContent.map((paragraph, idx) => (
+                <motion.p 
+                  key={idx} 
+                  className={paragraph === '' ? 'h-2' : ''}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                >
+                  {paragraph}
+                </motion.p>
+              ))}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
 
@@ -90,35 +142,101 @@ export default function FAQ() {
   };
 
   return (
-    <Section className="bg-gray-50">
+    <Section className="bg-gray-50 relative overflow-hidden">
+      {/* Background decorations */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          className="absolute top-10 left-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-40"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 30, 0],
+          }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute bottom-10 right-10 w-80 h-80 bg-purple-100 rounded-full blur-3xl opacity-40"
+          animate={{
+            scale: [1, 1.3, 1],
+            y: [0, -30, 0],
+          }}
+          transition={{ duration: 12, repeat: Infinity }}
+        />
+        
+        {/* Question marks floating */}
+        {[...Array(6)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-blue-200 text-4xl font-bold"
+            style={{
+              left: `${10 + Math.random() * 80}%`,
+              top: `${10 + Math.random() * 80}%`,
+            }}
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.4, 0.2],
+              rotate: [0, 10, -10, 0],
+            }}
+            transition={{
+              duration: 4 + Math.random() * 2,
+              repeat: Infinity,
+              delay: Math.random() * 2,
+            }}
+          >
+            ?
+          </motion.div>
+        ))}
+      </div>
+
       <motion.div 
         ref={ref}
-        className="text-center mb-12"
-        variants={fadeInUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        className="text-center mb-12 relative z-10"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <AnimatedText 
+          variant="split" 
+          className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 inline-block"
+        >
           Frequently Asked Questions
-        </h2>
+        </AnimatedText>
+        
+        {/* Animated underline */}
+        <div className="flex justify-center">
+          <motion.svg 
+            className="w-48 sm:w-64" 
+            viewBox="0 0 400 12" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.path 
+              d="M2 8C80 2 320 2 398 8" 
+              stroke="#3B82F6" 
+              strokeWidth="5" 
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+              transition={{ duration: 1.5, delay: 0.5 }}
+            />
+          </motion.svg>
+        </div>
       </motion.div>
+      
       <motion.div 
-        className="max-w-4xl mx-auto px-4 space-y-4"
+        className="max-w-4xl mx-auto px-4 space-y-4 relative z-10"
         variants={staggerContainer}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
         {faqs.map((faq, index) => (
-          <FAQItem
+          <FAQItemComponent
             key={index}
             question={faq.question}
             answer={faq.answer}
             isOpen={openIndex === index}
             onToggle={() => toggleFAQ(index)}
+            index={index}
+            isInView={isInView}
           />
         ))}
       </motion.div>
     </Section>
   );
 }
-

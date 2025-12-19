@@ -5,7 +5,8 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import Section from './Section';
 import TestimonialCard from './TestimonialCard';
-import { fadeInUp, staggerContainer } from '@/lib/animations';
+import AnimatedText from './AnimatedText';
+import { staggerContainer } from '@/lib/animations';
 
 const testimonials = [
   {
@@ -69,28 +70,73 @@ export default function Testimonials() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <Section id="testimonials" className="bg-gray-50">
+    <Section id="testimonials" className="bg-gray-50 relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full opacity-50 blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            x: [0, 30, 0],
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+        />
+        <motion.div
+          className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 rounded-full opacity-50 blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            y: [0, -30, 0],
+          }}
+          transition={{ duration: 10, repeat: Infinity }}
+        />
+      </div>
+
       <motion.div 
         ref={ref}
-        className="text-center mb-10 sm:mb-14 px-4"
-        variants={fadeInUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        className="text-center mb-10 sm:mb-14 px-4 relative z-10"
+        initial={{ opacity: 0, y: 30 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+        transition={{ duration: 0.5 }}
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+        <AnimatedText 
+          variant="split" 
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight inline-block"
+        >
           Real Results From Real Clients
-        </h2>
+        </AnimatedText>
+        
+        {/* Animated underline */}
         <div className="flex justify-center mb-6">
-          <svg className="w-64 sm:w-80 md:w-96" viewBox="0 0 400 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 8C80 2 320 2 398 8" stroke="#3B82F6" strokeWidth="5" strokeLinecap="round"/>
-          </svg>
+          <motion.svg 
+            className="w-64 sm:w-80 md:w-96" 
+            viewBox="0 0 400 12" 
+            fill="none" 
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <motion.path 
+              d="M2 8C80 2 320 2 398 8" 
+              stroke="#3B82F6" 
+              strokeWidth="5" 
+              strokeLinecap="round"
+              initial={{ pathLength: 0 }}
+              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+            />
+          </motion.svg>
         </div>
-        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+        
+        <motion.p 
+          className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ delay: 0.5 }}
+        >
           Don't take our word for it. Hear directly from contractors who use our systems and see the results firsthand.
-        </p>
+        </motion.p>
       </motion.div>
+      
       <motion.div 
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4 relative z-10"
         variants={staggerContainer}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
@@ -102,25 +148,41 @@ export default function Testimonials() {
             role={testimonial.role}
             company={testimonial.company}
             quote={testimonial.quote}
+            index={index}
           />
         ))}
       </motion.div>
 
-      {/* View All Button */}
+      {/* View All Button with enhanced animation */}
       <motion.div 
-        className="text-center mt-10 sm:mt-12"
-        variants={fadeInUp}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
+        className="text-center mt-10 sm:mt-12 relative z-10"
+        initial={{ opacity: 0, y: 25 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+        transition={{ delay: 0.8 }}
       >
-        <Link 
-          href="/testimonials"
-          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all duration-200"
-        >
-          View All Testimonials
+        <Link href="/testimonials">
+          <motion.button
+            className="group relative inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md overflow-hidden"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {/* Shimmer effect */}
+            <motion.div
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full"
+              animate={{ x: ['-100%', '200%'] }}
+              transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+            />
+            <span className="relative z-10">View All Testimonials</span>
+            <motion.span
+              className="relative z-10"
+              animate={{ x: [0, 5, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              →
+            </motion.span>
+          </motion.button>
         </Link>
       </motion.div>
     </Section>
   );
 }
-

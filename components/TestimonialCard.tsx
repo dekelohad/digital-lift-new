@@ -1,22 +1,27 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Check, Star } from 'lucide-react';
-import { cardHover } from '@/lib/animations';
 
 interface TestimonialCardProps {
   name: string;
   role?: string;
   company?: string;
   quote: string;
+  index?: number;
 }
 
 export default function TestimonialCard({ 
   name, 
   role, 
   company, 
-  quote
+  quote,
+  index = 0
 }: TestimonialCardProps) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+  
   // Generate initials for avatar placeholder
   const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
   
@@ -36,12 +41,15 @@ export default function TestimonialCard({
 
   return (
     <motion.div 
+      ref={ref}
       className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
-      whileHover={cardHover}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-50px' }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      initial={{ opacity: 0, y: 25 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+      transition={{ 
+        duration: 0.45, 
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1] 
+      }}
     >
       {/* Header: Avatar + Name/Role */}
       <div className="flex items-start gap-3 mb-3">
@@ -82,7 +90,7 @@ export default function TestimonialCard({
       </div>
 
       {/* Quote */}
-      <p className="text-gray-700 text-sm leading-relaxed mb-4">{quote}</p>
+      <p className="text-gray-700 text-sm leading-relaxed mb-4">"{quote}"</p>
 
       {/* Verified Badge */}
       <div className="flex items-center gap-1.5 text-green-600">
