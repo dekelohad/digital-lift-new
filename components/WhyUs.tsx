@@ -59,9 +59,14 @@ export default function WhyUs() {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-2">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
             Why contractors choose us...
           </h2>
+          <div className="flex justify-center mb-4">
+            <svg className="w-64 sm:w-80 md:w-96" viewBox="0 0 400 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 8C80 2 320 2 398 8" stroke="#3B82F6" strokeWidth="5" strokeLinecap="round"/>
+            </svg>
+          </div>
           <p className="text-xl sm:text-2xl text-gray-400">
             (and actually stay)
           </p>

@@ -85,14 +85,19 @@ export default function Testimonials() {
     <Section id="testimonials" className="bg-gray-50">
       <motion.div 
         ref={ref}
-        className="text-center mb-8 sm:mb-12 px-4"
+        className="text-center mb-10 sm:mb-14 px-4"
         variants={fadeInUp}
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
           Real Results From Real Clients
         </h2>
+        <div className="flex justify-center mb-6">
+          <svg className="w-64 sm:w-80 md:w-96" viewBox="0 0 400 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 8C80 2 320 2 398 8" stroke="#3B82F6" strokeWidth="5" strokeLinecap="round"/>
+          </svg>
+        </div>
         <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
           Don't take our word for it. Hear directly from contractors who use our systems and see the results firsthand.
         </p>
