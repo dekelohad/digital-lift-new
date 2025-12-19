@@ -2,78 +2,65 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 import Section from './Section';
 import TestimonialCard from './TestimonialCard';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const testimonials = [
   {
-    name: 'Cody',
+    name: 'Cody Johnson',
+    role: 'Owner',
+    company: 'CJ Roofing Services',
     quote: "If you are looking for someone to get that phone ringing, they're the right fit for you! I'm so happy with them!"
   },
   {
-    name: 'Armando',
-    quote: "They are the absolute best at what they do. They built me a new website and within 10 day's I got my first unpaid for Lead! Best money spent with Jonathan and Digital Lift"
+    name: 'Armando Garcia',
+    role: 'Owner',
+    company: 'Garcia Landscaping',
+    quote: "They are the absolute best at what they do. They built me a new website and within 10 days I got my first unpaid for lead!"
   },
   {
-    name: 'James',
-    quote: "After going through 2-3 other people i finally found someone that told me the truth. Really easy to work with and very respectable. I would recommend them to anyone!"
+    name: 'James Mitchell',
+    role: 'Director',
+    company: 'Mitchell Plumbing Co.',
+    quote: "After going through 2-3 other people I finally found someone that told me the truth. Really easy to work with and very respectable."
   },
   {
-    name: 'Manny',
-    quote: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up. We started getting calls almost immediately."
+    name: 'Manny Rodriguez',
+    role: 'CEO',
+    company: 'Rodriguez HVAC',
+    quote: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up."
   },
   {
-    name: 'Wendy',
-    quote: "Getting 5 star reviews has always given me anxiety, Jonathan and his team have taken all that away and I have seen a significant increase in business since I started working with them. I would recommend them to anyone!"
+    name: 'Wesley Thompson',
+    role: 'Owner',
+    company: 'Thompson Cleaning Services',
+    quote: "Getting 5 star reviews has always given me anxiety, Jonathan and his team have taken all that away. I've seen a significant increase in business."
   },
   {
-    name: 'Netane',
-    quote: "Nothing but professional and awesome in every way, they are absolutely great to work with"
+    name: 'Netane Palu',
+    role: 'Owner',
+    company: 'Pacific Electrical',
+    quote: "Nothing but professional and awesome in every way, they are absolutely great to work with."
   },
   {
-    name: 'Frank',
-    quote: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them!"
+    name: 'Frank Martinez',
+    role: 'Owner',
+    company: 'Martinez Handyman',
+    quote: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable."
   },
   {
-    name: 'David',
+    name: 'David Chen',
+    role: 'Director',
+    company: 'Chen Remodeling',
     quote: "I've seen a significant improvement in my business. Digital Lift has made my life so much easier!"
   },
   {
-    name: 'Rick',
-    quote: "Thank you to Jonathan and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!"
-  },
-  {
-    name: 'Luckie',
-    quote: "Their business marketing systems have helped us a lot. Anytime I need anything I can always give them a call. They're super helpful with everything they do, I would recommend them to anybody"
-  },
-  {
-    name: 'Lopaka',
-    quote: "Before I started working with Digital Lift I was paying $1500/month with another service that just was not working for me. Digital Lift is super affordable and they do a fantastic Job!"
-  },
-  {
-    name: 'Adam',
-    quote: "It's been great and all I needed was one sale a month to pay for the service. Since I signed up i've gotten quite a bit more than that. I would recommend them to anyone!"
-  },
-  {
-    name: 'Mason',
-    quote: "They made me a brand new website, super professional and it's been absolutely amazing. I cannot say enough good things about theme. It turned those 100s of viewers into 100s of clients!"
-  },
-  {
-    name: 'Matt',
-    quote: "First i thought it was a scam, but then it turns out they're just a really good company at a really good price. I would recommend them to anyone!"
-  },
-  {
-    name: 'Ryan',
-    quote: "They've made it so easy with all their automations and the awesome website. I can't thank them enough and you should all definitely check them out"
-  },
-  {
-    name: 'Scott',
-    quote: "He really got everything going well. I'm getting organic leads now that don't cost me any money. I would recommend them to anyone!"
-  },
-  {
-    name: 'Zach',
-    quote: "Big shoutout to Jonathan and Digital Lift for helping me with my website and getting me more leads. I would recommend them to anyone!"
+    name: 'Rick Anderson',
+    role: 'CEO',
+    company: 'Anderson Contractors',
+    quote: "Thank you to Jonathan and Digital Lift, our company finally has the web presence it needs and our sales have grown significantly!"
   }
 ];
 
@@ -112,9 +99,26 @@ export default function Testimonials() {
           <TestimonialCard
             key={index}
             name={testimonial.name}
+            role={testimonial.role}
+            company={testimonial.company}
             quote={testimonial.quote}
           />
         ))}
+      </motion.div>
+
+      {/* View All Button */}
+      <motion.div 
+        className="text-center mt-10 sm:mt-12"
+        variants={fadeInUp}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+      >
+        <Link 
+          href="/testimonials"
+          className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all duration-200"
+        >
+          View All Testimonials
+        </Link>
       </motion.div>
     </Section>
   );

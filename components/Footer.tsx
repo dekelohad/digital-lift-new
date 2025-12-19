@@ -81,16 +81,15 @@ export default function Footer() {
               <ul className="space-y-2 text-gray-400 text-sm sm:text-base">
                 {section.items.map((item, itemIndex) => (
                   <li key={itemIndex}>
-                    <motion.a 
+                    <a 
                       href={item.href} 
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="hover:text-white transition-colors inline-block"
-                      whileHover={{ x: 4 }}
-                      transition={{ duration: 0.2 }}
+                      className="relative hover:text-white transition-colors inline-block group"
                     >
                       {item.text}
-                    </motion.a>
+                      <span className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </a>
                   </li>
                 ))}
               </ul>
@@ -108,9 +107,10 @@ export default function Footer() {
                 <br />
                 <a
                   href="tel:+17379376612"
-                  className="hover:text-white transition-colors inline-block"
+                  className="relative hover:text-white transition-colors inline-block group"
                 >
                   +1 (737) 937-6612
+                  <span className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               </div>
               <div>
@@ -118,9 +118,10 @@ export default function Footer() {
                 <br />
                 <a
                   href="mailto:info@digitalLift.io"
-                  className="hover:text-white transition-colors inline-block"
+                  className="relative hover:text-white transition-colors inline-block group"
                 >
                   info@digitalLift.io
+                  <span className="absolute left-0 -bottom-0.5 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               </div>
               <div>
@@ -134,6 +135,13 @@ export default function Footer() {
             </div>
           </motion.div>
         </motion.div>
+
+        {/* Copyright Section */}
+        <div className="border-t border-gray-800 pt-8 mt-8">
+          <p className="text-center text-gray-400 text-sm">
+            © Copyright {new Date().getFullYear()} Digital Lift, All Rights Reserved
+          </p>
+        </div>
       </div>
     </footer>
   );
