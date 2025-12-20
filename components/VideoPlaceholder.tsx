@@ -2,11 +2,43 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 export default function VideoPlaceholder() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
   const [isHovered, setIsHovered] = useState(false);
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <div 
+        ref={ref}
+        className="w-full aspect-video bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center shadow-lg border border-gray-200 overflow-hidden relative cursor-pointer"
+      >
+        {/* Play button overlay */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl shadow-blue-600/30">
+            <svg 
+              className="w-8 h-8 sm:w-10 sm:h-10 text-white ml-1" 
+              fill="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Video label */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-medium text-gray-600">
+          <span className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-red-500 rounded-full" />
+            Watch Demo
+          </span>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div 

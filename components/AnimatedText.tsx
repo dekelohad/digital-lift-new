@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, ReactNode } from 'react';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 interface AnimatedTextProps {
   children: ReactNode;
@@ -18,8 +19,14 @@ export default function AnimatedText({
 }: AnimatedTextProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isMobile = useIsMobile();
   
   const text = typeof children === 'string' ? children : '';
+
+  // On mobile, just render static text
+  if (isMobile) {
+    return <span ref={ref} className={className}>{children}</span>;
+  }
 
   if (variant === 'typewriter' && typeof children === 'string') {
     return (

@@ -3,6 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Check, Star } from 'lucide-react';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 interface TestimonialCardProps {
   name: string;
@@ -21,6 +22,7 @@ export default function TestimonialCard({
 }: TestimonialCardProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
+  const isMobile = useIsMobile();
   
   // Generate initials for avatar placeholder
   const initials = name.split(' ').map(n => n[0]).join('').slice(0, 2);
@@ -39,18 +41,8 @@ export default function TestimonialCard({
   const colorIndex = name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;
   const avatarColor = colors[colorIndex];
 
-  return (
-    <motion.div 
-      ref={ref}
-      className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
-      initial={{ opacity: 0, y: 25 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-      transition={{ 
-        duration: 0.45, 
-        delay: index * 0.07,
-        ease: [0.22, 1, 0.36, 1] 
-      }}
-    >
+  const content = (
+    <>
       {/* Header: Avatar + Name/Role */}
       <div className="flex items-start gap-3 mb-3">
         {/* Avatar */}
@@ -97,6 +89,33 @@ export default function TestimonialCard({
         <Check className="w-4 h-4" />
         <span className="text-sm font-medium">Verified Review</span>
       </div>
+    </>
+  );
+
+  if (isMobile) {
+    return (
+      <div 
+        ref={ref}
+        className="bg-white p-6 rounded-xl shadow-md border border-gray-200"
+      >
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <motion.div 
+      ref={ref}
+      className="bg-white p-6 rounded-xl shadow-md border border-gray-200 hover:shadow-lg transition-shadow"
+      initial={{ opacity: 0, y: 25 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+      transition={{ 
+        duration: 0.45, 
+        delay: index * 0.07,
+        ease: [0.22, 1, 0.36, 1] 
+      }}
+    >
+      {content}
     </motion.div>
   );
 }

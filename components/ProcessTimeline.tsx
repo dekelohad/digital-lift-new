@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import Section from './Section';
 import { staggerContainer } from '@/lib/animations';
 import AnimatedText from './AnimatedText';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 const steps = [
   {
@@ -30,51 +31,54 @@ const steps = [
 export default function ProcessTimeline() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isMobile = useIsMobile();
 
   return (
     <Section className="bg-gray-50 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-20 right-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 20, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 left-20 w-48 h-48 bg-purple-100 rounded-full blur-3xl opacity-50"
-          animate={{
-            scale: [1, 1.3, 1],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        
-        {/* Floating shapes */}
-        {[...Array(8)].map((_, i) => (
+      {/* Background decorations - desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 pointer-events-none">
           <motion.div
-            key={i}
-            className="absolute w-3 h-3 bg-blue-200 rounded-full"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-            }}
+            className="absolute top-20 right-20 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50"
             animate={{
-              y: [0, -20, 0],
-              opacity: [0.3, 0.7, 0.3],
+              scale: [1, 1.2, 1],
+              x: [0, 20, 0],
             }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
+            transition={{ duration: 8, repeat: Infinity }}
           />
-        ))}
-      </div>
+          <motion.div
+            className="absolute bottom-20 left-20 w-48 h-48 bg-purple-100 rounded-full blur-3xl opacity-50"
+            animate={{
+              scale: [1, 1.3, 1],
+              y: [0, -20, 0],
+            }}
+            transition={{ duration: 10, repeat: Infinity }}
+          />
+          
+          {/* Floating shapes */}
+          {[...Array(8)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-3 h-3 bg-blue-200 rounded-full"
+              style={{
+                left: `${10 + Math.random() * 80}%`,
+                top: `${10 + Math.random() * 80}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.3, 0.7, 0.3],
+              }}
+              transition={{
+                duration: 3 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+      )}
 
-      <motion.div 
+      <div 
         ref={ref}
         className="text-center mb-16 relative z-10"
       >
@@ -86,36 +90,49 @@ export default function ProcessTimeline() {
         </AnimatedText>
         
         {/* Animated underline */}
-        <div className="flex justify-center">
-          <motion.svg 
-            className="w-64 sm:w-80 md:w-96" 
-            viewBox="0 0 400 12" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.path 
-              d="M2 8C80 2 320 2 398 8" 
-              stroke="#3B82F6" 
-              strokeWidth="5" 
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: 1.5, delay: 0.5 }}
-            />
-          </motion.svg>
-        </div>
-      </motion.div>
+        {!isMobile ? (
+          <div className="flex justify-center">
+            <motion.svg 
+              className="w-64 sm:w-80 md:w-96" 
+              viewBox="0 0 400 12" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <motion.path 
+                d="M2 8C80 2 320 2 398 8" 
+                stroke="#3B82F6" 
+                strokeWidth="5" 
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+              />
+            </motion.svg>
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <svg 
+              className="w-64 sm:w-80 md:w-96" 
+              viewBox="0 0 400 12" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M2 8C80 2 320 2 398 8" 
+                stroke="#3B82F6" 
+                strokeWidth="5" 
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+        )}
+      </div>
 
-      <motion.div 
-        className="max-w-3xl mx-auto px-4 relative z-10"
-        variants={staggerContainer}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+      <div className="max-w-3xl mx-auto px-4 relative z-10">
         {steps.map((step, index) => (
-          <TimelineStep key={index} step={step} index={index} isInView={isInView} isLast={index === steps.length - 1} />
+          <TimelineStep key={index} step={step} index={index} isInView={isInView} isLast={index === steps.length - 1} isMobile={isMobile} />
         ))}
-      </motion.div>
+      </div>
     </Section>
   );
 }
@@ -124,14 +141,52 @@ function TimelineStep({
   step, 
   index, 
   isInView,
-  isLast
+  isLast,
+  isMobile
 }: { 
   step: typeof steps[0]; 
   index: number; 
   isInView: boolean;
   isLast: boolean;
+  isMobile: boolean;
 }) {
   const [isHovered, setIsHovered] = useState(false);
+
+  if (isMobile) {
+    return (
+      <div className="relative flex gap-6 sm:gap-8">
+        {/* Timeline line */}
+        <div className="flex flex-col items-center">
+          {/* Number circle */}
+          <div className="relative w-14 h-14 sm:w-16 sm:h-16 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-xl sm:text-2xl shadow-lg shadow-blue-600/30 z-10">
+            {step.icon}
+          </div>
+          
+          {/* Connecting line */}
+          {!isLast && (
+            <div className="w-1 flex-1 min-h-[100px] bg-blue-300 rounded-full" />
+          )}
+        </div>
+
+        {/* Content card */}
+        <div className={`flex-1 ${!isLast ? 'pb-12' : ''}`}>
+          <div className="bg-white rounded-xl p-6 shadow-md border border-gray-100">
+            <div className="flex flex-wrap items-baseline gap-2 sm:gap-3 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900">
+                {step.title}
+              </h3>
+              <span className="bg-blue-100 text-blue-600 font-semibold text-sm sm:text-base px-3 py-1 rounded-full">
+                {step.duration}
+              </span>
+            </div>
+            <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div 

@@ -1,7 +1,8 @@
 'use client';
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { ReactNode, useRef } from 'react';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -15,6 +16,7 @@ export default function MagneticButton({
   onClick 
 }: MagneticButtonProps) {
   const ref = useRef<HTMLButtonElement>(null);
+  const isMobile = useIsMobile();
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -24,7 +26,7 @@ export default function MagneticButton({
   const springY = useSpring(y, springConfig);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (!ref.current) return;
+    if (!ref.current || isMobile) return;
     
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -41,6 +43,19 @@ export default function MagneticButton({
     x.set(0);
     y.set(0);
   };
+
+  // Simple button on mobile
+  if (isMobile) {
+    return (
+      <button
+        ref={ref}
+        className={`relative overflow-hidden ${className}`}
+        onClick={onClick}
+      >
+        <span className="relative z-10">{children}</span>
+      </button>
+    );
+  }
 
   return (
     <motion.button

@@ -7,6 +7,7 @@ import { ReactNode } from 'react';
 import { slideInLeft, slideInRight, staggerContainer } from '@/lib/animations';
 import { BadgeCheck } from 'lucide-react';
 import VideoPlaceholder from './VideoPlaceholder';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 interface Feature {
   title: string;
@@ -32,96 +33,80 @@ export default function ProductFeature({
 }: ProductFeatureProps) {
   const isImageRight = imageSide === 'right';
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const contentRef = useRef(null);
-  const imageRef = useRef(null);
-  const contentInView = useInView(contentRef, { once: true, margin: '-50px' });
-  const imageInView = useInView(imageRef, { once: true, margin: '-50px' });
+  const isMobile = useIsMobile();
 
   return (
     <Section className={`${background === 'gray' ? 'bg-gray-50' : 'bg-white'} relative overflow-hidden`}>
-      {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none opacity-30">
-        <motion.div
-          className={`absolute ${isImageRight ? 'right-0' : 'left-0'} top-1/4 w-96 h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl`}
-          animate={{
-            scale: [1, 1.1, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity }}
-        />
-      </div>
+      {/* Background decorations - desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          <motion.div
+            className={`absolute ${isImageRight ? 'right-0' : 'left-0'} top-1/4 w-96 h-96 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full blur-3xl`}
+            animate={{
+              scale: [1, 1.1, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+        </div>
+      )}
 
       <div 
         ref={ref}
         className={`flex flex-col ${isImageRight ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 relative z-10`}
       >
         {/* Content */}
-        <motion.div 
-          ref={contentRef}
-          className="flex-1 px-4 sm:px-0"
-          variants={isImageRight ? slideInLeft : slideInRight}
-          initial="hidden"
-          animate={contentInView ? "visible" : "hidden"}
-        >
-          {/* Title with reveal animation */}
-          <motion.h2 
-            className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight"
-            initial={{ opacity: 0, y: 25 }}
-            animate={contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
-            transition={{ duration: 0.5 }}
-          >
+        <div className="flex-1 px-4 sm:px-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 leading-tight">
             {title}
-          </motion.h2>
+          </h2>
           
           {subtitle && (
-            <motion.p 
-              className="text-base sm:text-lg text-gray-700 mb-6 italic leading-relaxed"
-              initial={{ opacity: 0, y: 20 }}
-              animate={contentInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-            >
+            <p className="text-base sm:text-lg text-gray-700 mb-6 italic leading-relaxed">
               {subtitle}
-            </motion.p>
+            </p>
           )}
           
-          <motion.ul 
-            className="space-y-4 sm:space-y-5"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={contentInView ? "visible" : "hidden"}
-          >
+          <ul className="space-y-4 sm:space-y-5">
             {features.map((feature, index) => (
-              <FeatureItem key={index} feature={feature} index={index} isInView={contentInView} />
+              <FeatureItem key={index} feature={feature} index={index} isMobile={isMobile} />
             ))}
-          </motion.ul>
-        </motion.div>
+          </ul>
+        </div>
 
-        {/* Video Placeholder with enhanced animation */}
-        <motion.div 
-          ref={imageRef}
-          className="flex-1 px-4 sm:px-0"
-          initial={{ opacity: 0, x: isImageRight ? 60 : -60, scale: 0.95 }}
-          animate={imageInView ? { opacity: 1, x: 0, scale: 1 } : { opacity: 0, x: isImageRight ? 60 : -60, scale: 0.95 }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            {children || <VideoPlaceholder />}
-          </motion.div>
-        </motion.div>
+        {/* Video Placeholder */}
+        <div className="flex-1 px-4 sm:px-0">
+          {children || <VideoPlaceholder />}
+        </div>
       </div>
     </Section>
   );
 }
 
-function FeatureItem({ feature, index, isInView }: { feature: Feature; index: number; isInView: boolean }) {
+function FeatureItem({ feature, index, isMobile }: { feature: Feature; index: number; isMobile: boolean }) {
   const [isHovered, setIsHovered] = useState(false);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+  if (isMobile) {
+    return (
+      <li ref={ref} className="flex items-start">
+        <BadgeCheck className="text-blue-600 mr-3 w-5 h-5 sm:w-6 sm:h-6 mt-1 flex-shrink-0" />
+        <div>
+          <h3 className="text-base sm:text-lg font-semibold text-blue-600 mb-1">
+            {feature.title}
+          </h3>
+          <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
+            {feature.description}
+          </p>
+        </div>
+      </li>
+    );
+  }
 
   return (
     <motion.li 
+      ref={ref}
       className="flex items-start group"
       initial={{ opacity: 0, x: -25 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -25 }}

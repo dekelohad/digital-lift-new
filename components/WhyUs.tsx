@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import { Zap, DollarSign, FileX, Shield, TrendingUp, Headphones } from 'lucide-react';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 import AnimatedText from './AnimatedText';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 const reasons = [
   {
@@ -48,67 +49,70 @@ const reasons = [
 export default function WhyUs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isMobile = useIsMobile();
 
   return (
     <section className="relative py-16 sm:py-20 md:py-28 bg-slate-900 overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        {/* Floating orbs */}
-        <motion.div
-          className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            x: [0, 50, 0],
-            y: [0, 30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, -30, 0],
-            y: [0, -50, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-        
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="whyus-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#whyus-grid)" />
-          </svg>
-        </div>
-
-        {/* Floating stars */}
-        {[...Array(20)].map((_, i) => (
+      {/* Animated background elements - desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating orbs */}
           <motion.div
-            key={i}
-            className="absolute text-white/20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              fontSize: `${8 + Math.random() * 12}px`,
-            }}
+            className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"
             animate={{
-              opacity: [0.1, 0.5, 0.1],
-              scale: [0.8, 1.2, 0.8],
+              scale: [1, 1.3, 1],
+              x: [0, 50, 0],
+              y: [0, 30, 0],
             }}
-            transition={{
-              duration: 2 + Math.random() * 3,
-              repeat: Infinity,
-              delay: Math.random() * 2,
+            transition={{ duration: 10, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-20 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              x: [0, -30, 0],
+              y: [0, -50, 0],
             }}
-          >
-            ✦
-          </motion.div>
-        ))}
-      </div>
+            transition={{ duration: 12, repeat: Infinity }}
+          />
+          
+          {/* Grid pattern */}
+          <div className="absolute inset-0 opacity-5">
+            <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="whyus-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#whyus-grid)" />
+            </svg>
+          </div>
+
+          {/* Floating stars */}
+          {[...Array(20)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-white/20"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                fontSize: `${8 + Math.random() * 12}px`,
+              }}
+              animate={{
+                opacity: [0.1, 0.5, 0.1],
+                scale: [0.8, 1.2, 0.8],
+              }}
+              transition={{
+                duration: 2 + Math.random() * 3,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            >
+              ✦
+            </motion.div>
+          ))}
+        </div>
+      )}
 
       {/* Top wave */}
       <div className="absolute top-0 left-0 right-0">
@@ -118,7 +122,7 @@ export default function WhyUs() {
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
-        <motion.div
+        <div
           ref={ref}
           className="text-center mb-12 sm:mb-16"
         >
@@ -130,45 +134,53 @@ export default function WhyUs() {
           </AnimatedText>
           
           {/* Animated underline */}
-          <div className="flex justify-center mb-4">
-            <motion.svg 
-              className="w-64 sm:w-80 md:w-96" 
-              viewBox="0 0 400 12" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <motion.path 
-                d="M2 8C80 2 320 2 398 8" 
-                stroke="#3B82F6" 
-                strokeWidth="5" 
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-              />
-            </motion.svg>
-          </div>
+          {!isMobile ? (
+            <div className="flex justify-center mb-4">
+              <motion.svg 
+                className="w-64 sm:w-80 md:w-96" 
+                viewBox="0 0 400 12" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <motion.path 
+                  d="M2 8C80 2 320 2 398 8" 
+                  stroke="#3B82F6" 
+                  strokeWidth="5" 
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                  transition={{ duration: 1.5, delay: 0.5 }}
+                />
+              </motion.svg>
+            </div>
+          ) : (
+            <div className="flex justify-center mb-4">
+              <svg 
+                className="w-64 sm:w-80 md:w-96" 
+                viewBox="0 0 400 12" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path 
+                  d="M2 8C80 2 320 2 398 8" 
+                  stroke="#3B82F6" 
+                  strokeWidth="5" 
+                  strokeLinecap="round"
+                />
+              </svg>
+            </div>
+          )}
           
-          <motion.p 
-            className="text-xl sm:text-2xl text-gray-400"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.8 }}
-          >
+          <p className="text-xl sm:text-2xl text-gray-400">
             (and actually stay)
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={staggerContainer}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((reason, index) => (
-            <ReasonCard key={index} reason={reason} index={index} isInView={isInView} />
+            <ReasonCard key={index} reason={reason} index={index} isInView={isInView} isMobile={isMobile} />
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Bottom wave */}
@@ -184,14 +196,33 @@ export default function WhyUs() {
 function ReasonCard({ 
   reason, 
   index, 
-  isInView 
+  isInView,
+  isMobile
 }: { 
   reason: typeof reasons[0]; 
   index: number; 
   isInView: boolean;
+  isMobile: boolean;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const IconComponent = reason.icon;
+
+  if (isMobile) {
+    return (
+      <div className="relative bg-slate-800 border border-slate-700 rounded-xl p-6 sm:p-8">
+        {/* Icon with gradient background */}
+        <div className={`w-12 h-12 bg-gradient-to-br ${reason.color} rounded-lg flex items-center justify-center mb-4`}>
+          <IconComponent className="w-6 h-6 text-white" />
+        </div>
+        
+        <h3 className="text-xl font-bold text-white mb-2">
+          {reason.title}
+        </h3>
+        
+        <p className="text-gray-400 leading-relaxed">{reason.description}</p>
+      </div>
+    );
+  }
 
   return (
     <motion.div

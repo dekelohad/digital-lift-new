@@ -6,6 +6,7 @@ import Section from './Section';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { staggerContainer } from '@/lib/animations';
 import AnimatedText from './AnimatedText';
+import { useIsMobile } from '@/lib/useIsMobile';
 
 interface FAQItem {
   question: string;
@@ -45,7 +46,8 @@ function FAQItemComponent({
   isOpen, 
   onToggle,
   index,
-  isInView
+  isInView,
+  isMobile
 }: { 
   question: string; 
   answer: string | string[]; 
@@ -53,9 +55,48 @@ function FAQItemComponent({
   onToggle: () => void;
   index: number;
   isInView: boolean;
+  isMobile: boolean;
 }) {
   const answerContent = Array.isArray(answer) ? answer : [answer];
-  const [isHovered, setIsHovered] = useState(false);
+
+  if (isMobile) {
+    return (
+      <div 
+        className={`bg-white rounded-xl border overflow-hidden ${
+          isOpen ? 'border-blue-500 shadow-lg shadow-blue-500/10' : 'border-gray-200 shadow-sm'
+        }`}
+      >
+        <button
+          className={`w-full py-5 px-6 text-left flex items-center justify-between gap-4 transition-colors ${
+            isOpen ? 'bg-blue-50' : 'bg-white'
+          }`}
+          onClick={onToggle}
+        >
+          <div className="flex items-center gap-3">
+            <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
+              isOpen ? 'bg-blue-500' : 'bg-gray-200'
+            }`}>
+              <HelpCircle className={`w-4 h-4 ${isOpen ? 'text-white' : 'text-gray-500'}`} />
+            </div>
+            <span className="text-base sm:text-lg font-semibold text-gray-900 leading-snug">
+              {question}
+            </span>
+          </div>
+          <ChevronDown className={`w-5 h-5 text-gray-600 flex-shrink-0 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        </button>
+        
+        {isOpen && (
+          <div className="px-6 pb-5 text-gray-600 text-base leading-relaxed">
+            {answerContent.map((paragraph, idx) => (
+              <p key={idx} className={paragraph === '' ? 'h-2' : ''}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  }
 
   return (
     <motion.div 
@@ -65,8 +106,6 @@ function FAQItemComponent({
       initial={{ opacity: 0, y: 30, scale: 0.95 }}
       animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
       whileHover={{ scale: isOpen ? 1 : 1.01 }}
     >
       <motion.button
@@ -136,6 +175,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isMobile = useIsMobile();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -143,51 +183,53 @@ export default function FAQ() {
 
   return (
     <Section className="bg-gray-50 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-10 left-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-40"
-          animate={{
-            scale: [1, 1.2, 1],
-            x: [0, 30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute bottom-10 right-10 w-80 h-80 bg-purple-100 rounded-full blur-3xl opacity-40"
-          animate={{
-            scale: [1, 1.3, 1],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 12, repeat: Infinity }}
-        />
-        
-        {/* Question marks floating */}
-        {[...Array(6)].map((_, i) => (
+      {/* Background decorations - desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 pointer-events-none">
           <motion.div
-            key={i}
-            className="absolute text-blue-200 text-4xl font-bold"
-            style={{
-              left: `${10 + Math.random() * 80}%`,
-              top: `${10 + Math.random() * 80}%`,
-            }}
+            className="absolute top-10 left-10 w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-40"
             animate={{
-              y: [0, -20, 0],
-              opacity: [0.2, 0.4, 0.2],
-              rotate: [0, 10, -10, 0],
+              scale: [1, 1.2, 1],
+              x: [0, 30, 0],
             }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
+            transition={{ duration: 10, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute bottom-10 right-10 w-80 h-80 bg-purple-100 rounded-full blur-3xl opacity-40"
+            animate={{
+              scale: [1, 1.3, 1],
+              y: [0, -30, 0],
             }}
-          >
-            ?
-          </motion.div>
-        ))}
-      </div>
+            transition={{ duration: 12, repeat: Infinity }}
+          />
+          
+          {/* Question marks floating */}
+          {[...Array(6)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute text-blue-200 text-4xl font-bold"
+              style={{
+                left: `${10 + Math.random() * 80}%`,
+                top: `${10 + Math.random() * 80}%`,
+              }}
+              animate={{
+                y: [0, -20, 0],
+                opacity: [0.2, 0.4, 0.2],
+                rotate: [0, 10, -10, 0],
+              }}
+              transition={{
+                duration: 4 + Math.random() * 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            >
+              ?
+            </motion.div>
+          ))}
+        </div>
+      )}
 
-      <motion.div 
+      <div 
         ref={ref}
         className="text-center mb-12 relative z-10"
       >
@@ -199,32 +241,45 @@ export default function FAQ() {
         </AnimatedText>
         
         {/* Animated underline */}
-        <div className="flex justify-center">
-          <motion.svg 
-            className="w-48 sm:w-64" 
-            viewBox="0 0 400 12" 
-            fill="none" 
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <motion.path 
-              d="M2 8C80 2 320 2 398 8" 
-              stroke="#3B82F6" 
-              strokeWidth="5" 
-              strokeLinecap="round"
-              initial={{ pathLength: 0 }}
-              animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
-              transition={{ duration: 1.5, delay: 0.5 }}
-            />
-          </motion.svg>
-        </div>
-      </motion.div>
+        {!isMobile ? (
+          <div className="flex justify-center">
+            <motion.svg 
+              className="w-48 sm:w-64" 
+              viewBox="0 0 400 12" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <motion.path 
+                d="M2 8C80 2 320 2 398 8" 
+                stroke="#3B82F6" 
+                strokeWidth="5" 
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+              />
+            </motion.svg>
+          </div>
+        ) : (
+          <div className="flex justify-center">
+            <svg 
+              className="w-48 sm:w-64" 
+              viewBox="0 0 400 12" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M2 8C80 2 320 2 398 8" 
+                stroke="#3B82F6" 
+                strokeWidth="5" 
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+        )}
+      </div>
       
-      <motion.div 
-        className="max-w-4xl mx-auto px-4 space-y-4 relative z-10"
-        variants={staggerContainer}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-      >
+      <div className="max-w-4xl mx-auto px-4 space-y-4 relative z-10">
         {faqs.map((faq, index) => (
           <FAQItemComponent
             key={index}
@@ -234,9 +289,10 @@ export default function FAQ() {
             onToggle={() => toggleFAQ(index)}
             index={index}
             isInView={isInView}
+            isMobile={isMobile}
           />
         ))}
-      </motion.div>
+      </div>
     </Section>
   );
 }
