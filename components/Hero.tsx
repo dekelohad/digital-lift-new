@@ -101,11 +101,15 @@ export default function Hero() {
                     />
                   ))}
                 </div>
-                <Link href="/contact">
+                <a 
+                  href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
                     Book A Call →
                   </button>
-                </Link>
+                </a>
               </div>
             ) : (
               <motion.div 
@@ -129,7 +133,11 @@ export default function Hero() {
                   ))}
                 </div>
                 
-                <Link href="/contact">
+                <a 
+                  href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <MagneticButton className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
                     <span className="flex items-center gap-2">
                       Book A Call
@@ -141,7 +149,7 @@ export default function Hero() {
                       </motion.span>
                     </span>
                   </MagneticButton>
-                </Link>
+                </a>
               </motion.div>
             )}
 

@@ -419,9 +419,15 @@ export default function AIReceptionistCalendarBookingPage() {
               <p className="text-base sm:text-lg md:text-xl text-gray-700 mb-6 sm:mb-10 leading-relaxed max-w-2xl mx-auto md:mx-0">
                 See everything we do to help you grow your business so you can implement it yourself or let us do it for you.
               </p>
-              <button className="bg-blue-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
-                Book A Call
-              </button>
+              <a 
+                href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button className="bg-blue-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
+                  Book A Call
+                </button>
+              </a>
             </div>
             <div className="flex-1 flex justify-center md:justify-end w-full md:w-auto">
               <div className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 bg-gradient-to-br from-blue-300 via-blue-400 to-blue-500 rounded-full flex items-center justify-center shadow-2xl relative">

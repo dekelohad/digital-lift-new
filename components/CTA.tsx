@@ -160,7 +160,11 @@ export default function CTA({
           )}
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href="/contact">
+            <a 
+              href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {isMobile ? (
                 <button className="bg-white text-blue-600 font-bold text-lg sm:text-xl px-8 sm:px-10 py-4 sm:py-5 rounded-xl shadow-2xl shadow-blue-900/30 flex items-center gap-3">
                   <Calendar className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -193,7 +197,7 @@ export default function CTA({
                   </motion.div>
                 </motion.button>
               )}
-            </Link>
+            </a>
           </div>
         </div>
       </div>
