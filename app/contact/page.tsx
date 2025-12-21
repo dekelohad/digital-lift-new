@@ -81,6 +81,20 @@ export default function ContactPage() {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
 
+  // Handle scroll to booking section from sessionStorage
+  useEffect(() => {
+    const shouldScroll = sessionStorage.getItem('scrollToBooking');
+    if (shouldScroll) {
+      sessionStorage.removeItem('scrollToBooking');
+      setTimeout(() => {
+        const bookingSection = document.getElementById('booking');
+        if (bookingSection) {
+          bookingSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://api.digitallift.io/js/form_embed.js';
@@ -235,7 +249,7 @@ export default function ContactPage() {
       </section>
 
       {/* Booking Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section id="booking" className="py-16 md:py-24 bg-gray-50 scroll-mt-20">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

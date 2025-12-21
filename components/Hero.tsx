@@ -102,9 +102,8 @@ export default function Hero() {
                   ))}
                 </div>
                 <a 
-                  href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact"
+                  onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
                 >
                   <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
                     Book A Call →
@@ -134,9 +133,8 @@ export default function Hero() {
                 </div>
                 
                 <a 
-                  href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact"
+                  onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
                 >
                   <MagneticButton className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
                     <span className="flex items-center gap-2">

@@ -203,9 +203,8 @@ export default function Header() {
               <span className="absolute left-4 right-4 -bottom-0 h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
             </a>
             <a 
-              href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
+              onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
             >
               <Button variant="primary" className="whitespace-nowrap">Book A Call</Button>
             </a>
@@ -302,10 +301,9 @@ export default function Header() {
                 transition={{ delay: 0.3, duration: 0.3 }}
               >
                 <a 
-                  href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact" 
                   className="block"
+                  onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
                 >
                   <Button variant="primary" className="w-full mt-2">Book A Call</Button>
                 </a>

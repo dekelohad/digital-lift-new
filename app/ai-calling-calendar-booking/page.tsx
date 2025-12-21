@@ -420,9 +420,8 @@ export default function AIReceptionistCalendarBookingPage() {
                 See everything we do to help you grow your business so you can implement it yourself or let us do it for you.
               </p>
               <a 
-                href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
+                onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
               >
                 <button className="bg-blue-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-lg font-semibold text-base sm:text-lg hover:bg-blue-700 transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1">
                   Book A Call

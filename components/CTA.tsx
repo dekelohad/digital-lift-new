@@ -161,9 +161,8 @@ export default function CTA({
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
-              href="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
+              onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
             >
               {isMobile ? (
                 <button className="bg-white text-blue-600 font-bold text-lg sm:text-xl px-8 sm:px-10 py-4 sm:py-5 rounded-xl shadow-2xl shadow-blue-900/30 flex items-center gap-3">
