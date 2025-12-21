@@ -1,9 +1,10 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
-import Testimonials from '@/components/Testimonials';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 import ContactSection from '@/components/ContactSection';
 import ProductIntro from '@/components/ProductIntro';
 import ProductFeature from '@/components/ProductFeature';
@@ -13,7 +14,100 @@ import CTA from '@/components/CTA';
 import Footer from '@/components/Footer';
 import TradesWeServe from '@/components/TradesWeServe';
 import WhyUs from '@/components/WhyUs';
+import Section from '@/components/Section';
+import AnimatedText from '@/components/AnimatedText';
+import { useIsMobile } from '@/lib/useIsMobile';
 import { pageTransition } from '@/lib/animations';
+
+function TestimonialsSection() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isMobile = useIsMobile();
+
+  return (
+    <Section id="testimonials" className="bg-gray-50 relative overflow-hidden">
+      {/* Background decoration - desktop only */}
+      {!isMobile && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <motion.div
+            className="absolute -top-40 -right-40 w-80 h-80 bg-blue-100 rounded-full opacity-50 blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              x: [0, 30, 0],
+            }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+          <motion.div
+            className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-100 rounded-full opacity-50 blur-3xl"
+            animate={{
+              scale: [1, 1.3, 1],
+              y: [0, -30, 0],
+            }}
+            transition={{ duration: 10, repeat: Infinity }}
+          />
+        </div>
+      )}
+
+      <div 
+        ref={ref}
+        className="text-center mb-10 sm:mb-14 px-4 relative z-10"
+      >
+        <AnimatedText 
+          variant="split" 
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight inline-block"
+        >
+          Real Results From Real Clients
+        </AnimatedText>
+        
+        {/* Animated underline - desktop only */}
+        {!isMobile ? (
+          <div className="flex justify-center mb-6">
+            <motion.svg 
+              className="w-64 sm:w-80 md:w-96" 
+              viewBox="0 0 400 12" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <motion.path 
+                d="M2 8C80 2 320 2 398 8" 
+                stroke="#3B82F6" 
+                strokeWidth="5" 
+                strokeLinecap="round"
+                initial={{ pathLength: 0 }}
+                animate={isInView ? { pathLength: 1 } : { pathLength: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              />
+            </motion.svg>
+          </div>
+        ) : (
+          <div className="flex justify-center mb-6">
+            <svg 
+              className="w-64 sm:w-80 md:w-96" 
+              viewBox="0 0 400 12" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path 
+                d="M2 8C80 2 320 2 398 8" 
+                stroke="#3B82F6" 
+                strokeWidth="5" 
+                strokeLinecap="round"
+              />
+            </svg>
+          </div>
+        )}
+        
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          Don't take our word for it. Hear directly from contractors who use our systems and see the results firsthand.
+        </p>
+      </div>
+      
+      <div className="relative z-10 max-w-6xl mx-auto">
+        <TestimonialCarousel />
+      </div>
+    </Section>
+  );
+}
 
 export default function Home() {
   return (
@@ -26,7 +120,10 @@ export default function Home() {
     >
       <Header />
       <Hero />
-      <Testimonials />
+      
+      {/* Video Testimonials Carousel */}
+      <TestimonialsSection />
+
       <ProductIntro />
       
       <section id="services">
@@ -119,13 +216,27 @@ export default function Home() {
       <ProcessTimeline />
       <WhyUs />
       <FAQ />
-      
+
       <CTA
         title="Want to schedule a time to talk?"
         description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
       />
       
       <ContactSection />
+
+      {/* Video Testimonials Carousel */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
+            Don't take our word for it
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-10">
+            Hear directly from contractors who use our systems
+          </p>
+          <TestimonialCarousel />
+        </div>
+      </section>
+
       <Footer />
     </motion.main>
   );

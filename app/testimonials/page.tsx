@@ -6,7 +6,65 @@ import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import TestimonialCard from '@/components/TestimonialCard';
 import { motion } from 'framer-motion';
-import { Loader2 } from 'lucide-react';
+import { Loader2, Star } from 'lucide-react';
+
+// Video testimonials data
+const videoTestimonials = [
+  { id: 1, name: 'Frank', quote: "I would highly recommend going with them, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally with any questions about them, thank you!" },
+  { id: 2, name: 'Rick', quote: "Our company finally has the web presence it needs and our sales and profits have grown significantly! We look forward to working with them for many years to come!" },
+  { id: 3, name: 'Zach', quote: "Big shoutout for helping me with my website and getting me more leads. I would recommend them to anyone!" },
+  { id: 4, name: 'Ryan', quote: "They've made it so easy with all their automations and the awesome website. I can't thank them enough and you should all definitely check them out" },
+  { id: 5, name: 'Armando', quote: "They are the absolute best at what they do. They built me a new website and within 10 days I got my first unpaid for lead! Best money I've ever spent." },
+  { id: 6, name: 'James', quote: "They really helped my business grow and I highly recommend the service they provide." },
+  { id: 7, name: 'Manny', quote: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up. We started getting calls almost immediately." },
+  { id: 8, name: 'David', quote: "I've seen a significant improvement in my business. They've made my life so much easier!" },
+  { id: 9, name: 'Netane', quote: "I've been very happy with their services. They're always available, have a quick response and are continuously upgrading their services. I would highly recommend them to anyone that's looking to grow their business!" },
+  { id: 10, name: 'Jose', quote: "We've gotten a lot of compliments about it and there's a lot of activity going on. They keep us updated and they have very good prices. I really recommend them!" },
+  { id: 11, name: 'Jason', quote: "They did a great job on our website. The website makes it super easy for our customers to leave us their information. If you need a good website, hit them up!" },
+  { id: 12, name: 'Steve', quote: "I've been through the ringer with these companies man, trying to find a legit company. I can tell you... these guys are the truth, spot on, communication is amazing, give these guys a try" },
+];
+
+// Video testimonial card component
+function VideoTestimonialCard({ video }: { video: typeof videoTestimonials[0] }) {
+  const handleLoadedMetadata = (e: React.SyntheticEvent<HTMLVideoElement>) => {
+    // Force show first frame immediately
+    e.currentTarget.currentTime = 0.001;
+  };
+
+  return (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+      {/* Video */}
+      <div className="relative aspect-video bg-gray-900">
+        <video
+          src={`/testmionals/${video.id}.mp4`}
+          className="w-full h-full object-contain"
+          controls
+          playsInline
+          preload="auto"
+          onLoadedMetadata={handleLoadedMetadata}
+        />
+      </div>
+      
+      {/* Content */}
+      <div className="p-5">
+        {/* Stars */}
+        <div className="flex gap-1 mb-3">
+          {[1, 2, 3, 4, 5].map((star) => (
+            <Star key={star} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+          ))}
+        </div>
+        
+        {/* Quote */}
+        <p className="text-gray-700 text-sm leading-relaxed mb-4">
+          "{video.quote}"
+        </p>
+        
+        {/* Name */}
+        <p className="font-semibold text-gray-900">-{video.name}</p>
+      </div>
+    </div>
+  );
+}
 
 const testimonials = [
   // Original testimonials
@@ -434,10 +492,13 @@ const testimonials = [
 ];
 
 const ITEMS_PER_PAGE = 12;
+const VIDEOS_INITIAL = 3;
 
 export default function TestimonialsPage() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const [visibleVideos, setVisibleVideos] = useState(VIDEOS_INITIAL);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadingVideos, setIsLoadingVideos] = useState(false);
 
   const handleLoadMore = () => {
     setIsLoading(true);
@@ -448,13 +509,23 @@ export default function TestimonialsPage() {
     }, 800);
   };
 
+  const handleLoadMoreVideos = () => {
+    setIsLoadingVideos(true);
+    setTimeout(() => {
+      setVisibleVideos(videoTestimonials.length);
+      setIsLoadingVideos(false);
+    }, 300);
+  };
+
   const visibleTestimonials = testimonials.slice(0, visibleCount);
   const hasMore = visibleCount < testimonials.length;
+  const hasMoreVideos = visibleVideos < videoTestimonials.length;
 
   return (
     <main className="min-h-screen">
       <Header />
       
+      {/* Hero Section */}
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12 sm:mb-16 px-4">
@@ -464,12 +535,50 @@ export default function TestimonialsPage() {
             <p className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
               Don't take our word for it. Hear directly from contractors who use our systems and see the results firsthand.
             </p>
-            <p className="text-sm text-gray-500 mt-4">
-              Showing {visibleTestimonials.length} of {testimonials.length} reviews
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 px-4">
+          {/* Video Testimonials Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {videoTestimonials.slice(0, visibleVideos).map((video, index) => (
+              <motion.div
+                key={video.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <VideoTestimonialCard video={video} />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Load More Videos Button */}
+          {hasMoreVideos && (
+            <div className="text-center mt-10">
+              <button
+                onClick={handleLoadMoreVideos}
+                disabled={isLoadingVideos}
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-8 rounded-lg shadow-md transition-all duration-200"
+              >
+                {isLoadingVideos ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Loading...
+                  </>
+                ) : (
+                  <>
+                    See All Video Reviews
+                  </>
+                )}
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Text Testimonials Section */}
+      <section className="pt-0 pb-16 md:pb-24 bg-white -mt-8 md:-mt-12">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {visibleTestimonials.map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -512,7 +621,7 @@ export default function TestimonialsPage() {
           {/* All loaded message */}
           {!hasMore && (
             <div className="text-center mt-10 sm:mt-12">
-              <p className="text-gray-500">You've seen all {testimonials.length} reviews!</p>
+              <p className="text-gray-500">You've seen all {testimonials.length} written reviews!</p>
             </div>
           )}
         </div>

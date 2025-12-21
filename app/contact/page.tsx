@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Mail, Phone, MapPin, ChevronDown } from 'lucide-react';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
@@ -295,6 +296,19 @@ export default function ContactPage() {
               />
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* Video Testimonials Carousel */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
+            Don't take our word for it
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-10">
+            Hear directly from contractors who use our systems
+          </p>
+          <TestimonialCarousel />
         </div>
       </section>
 

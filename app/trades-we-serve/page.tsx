@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 
 const featuredTrades = [
   { name: "Landscapers", image: "/tradesWeServe/Landscapers.webp" },
@@ -311,10 +312,10 @@ export default function TradesWeServePage() {
             transition={{ duration: 0.5 }}
           >
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-2">
-              The proof is in the pudding...
+              Don't take our word for it
             </h2>
             <p className="text-xl text-gray-600">
-              Let's see what our clients have to say
+              Hear directly from contractors who use our systems
             </p>
           </motion.div>
 
@@ -357,9 +358,27 @@ export default function TradesWeServePage() {
         </div>
       </section>
 
+      <CTA
+        title="Want to schedule a time to talk?"
+        description="See everything we do to help you grow your business so you can implement it yourself or let us do it for you."
+      />
+
+      {/* Video Testimonials Carousel */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
+            Don't take our word for it
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-10">
+            Hear directly from contractors who use our systems
+          </p>
+          <TestimonialCarousel />
+        </div>
+      </section>
 
       <Footer />
     </main>
   );
 }
+
 

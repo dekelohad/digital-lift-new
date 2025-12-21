@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
+import TestimonialCarousel from '@/components/TestimonialCarousel';
 import { motion } from 'framer-motion';
 import { fadeInUp } from '@/lib/animations';
 
@@ -235,6 +236,19 @@ export default function ROICalculatorPage() {
         title="Ready to Stop Losing Customers?"
         description="Let's set up Missed Call Text Back for your business and start recovering lost revenue today."
       />
+
+      {/* Video Testimonials Carousel */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
+            Don't take our word for it
+          </h2>
+          <p className="text-lg text-gray-600 text-center mb-10">
+            Hear directly from contractors who use our systems
+          </p>
+          <TestimonialCarousel />
+        </div>
+      </section>
 
       <Footer />
     </main>
