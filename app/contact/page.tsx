@@ -1,11 +1,10 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
-import CTA from '@/components/CTA';
 import { Mail, Phone, MapPin, ChevronDown } from 'lucide-react';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
@@ -81,6 +80,18 @@ export default function ContactPage() {
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://api.digitallift.io/js/form_embed.js';
+    script.type = 'text/javascript';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <motion.main 
@@ -223,8 +234,27 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Booking Section */}
       <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Prefer to Schedule a Call?
+            </h2>
+            <p className="text-lg text-gray-700">
+              Book a time that works for you and we'll walk you through how Digital Lift can help grow your business.
+            </p>
+          </div>
+          <iframe 
+              src="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
+              style={{ width: '100%', height: '700px', border: 'none' }}
+              id="jpGifmdOeIbfiftmjQ2w_1766339559949"
+            />
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.h2 
             ref={faqRef}
@@ -253,11 +283,6 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </section>
-
-      <CTA
-        title="Prefer to schedule a call?"
-        description="Book a time that works for you and we'll walk you through how Digital Lift can help grow your business."
-      />
 
       <Footer />
     </motion.main>
