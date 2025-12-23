@@ -16,6 +16,7 @@ import TradesWeServe from '@/components/TradesWeServe';
 import WhyUs from '@/components/WhyUs';
 import Section from '@/components/Section';
 import AnimatedText from '@/components/AnimatedText';
+import VideoPlayer from '@/components/VideoPlayer';
 import { useIsMobile } from '@/lib/useIsMobile';
 import { pageTransition } from '@/lib/animations';
 
@@ -139,7 +140,9 @@ export default function Home() {
         ]}
         imageSide="right"
         background="white"
-      />
+      >
+        <VideoPlayer videoSrc="/features/functional%20websites%20last%20.mp4" />
+      </ProductFeature>
 
       {/* 5-Star Magic Review Funnel */}
       <ProductFeature
@@ -153,7 +156,9 @@ export default function Home() {
         ]}
         imageSide="left"
         background="gray"
-      />
+      >
+        <VideoPlayer videoSrc="/features/5starworks.mp4" />
+      </ProductFeature>
 
       {/* Missed Call Text Back */}
       <ProductFeature
@@ -167,7 +172,9 @@ export default function Home() {
         ]}
         imageSide="right"
         background="white"
-      />
+      >
+        <VideoPlayer videoSrc="/features/text-messaged-back.mp4" />
+      </ProductFeature>
 
       {/* One-Click Marketing Campaigns */}
       <ProductFeature
@@ -181,7 +188,9 @@ export default function Home() {
         ]}
         imageSide="left"
         background="gray"
-      />
+      >
+        <VideoPlayer videoSrc="/features/One-Click%20Marketing%20Campaigns.mp4" />
+      </ProductFeature>
 
       {/* Local SEO */}
       <ProductFeature
@@ -194,7 +203,9 @@ export default function Home() {
         ]}
         imageSide="right"
         background="white"
-      />
+      >
+        <VideoPlayer videoSrc="/features/localSeo.mp4" />
+      </ProductFeature>
 
       {/* AI Receptionist with Calendar Booking */}
       <ProductFeature
