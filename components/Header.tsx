@@ -16,7 +16,7 @@ const services = [
   { href: '/all-in-one-inbox', text: 'All-In-One Inbox' },
   { href: '/business-phone', text: 'Business Phone' },
   { href: '/local-seo', text: 'Local SEO' },
-  { href: '/ai-receptionist-calendar-booking', text: 'AI Receptionist with Calendar Booking' }
+  // { href: '/ai-receptionist-calendar-booking', text: 'AI Receptionist with Calendar Booking' }
 ];
 
 const aboutItems = [
