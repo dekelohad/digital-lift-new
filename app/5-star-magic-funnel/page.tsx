@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
+import VideoPlayer from '@/components/VideoPlayer';
 import { Star, RefreshCw, MousePointerClick, Zap } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -78,31 +79,7 @@ export default function FiveStarMagicFunnelPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               See a short demo below
             </h2>
-            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl aspect-video flex items-center justify-center shadow-2xl border-2 border-gray-300 overflow-hidden relative">
-              <div className="absolute inset-0 bg-white m-4 rounded-lg shadow-inner">
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="text-xl font-bold text-gray-900">Review Request</div>
-                    <div className="flex gap-1">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="bg-yellow-50 p-4 rounded-lg mb-4">
-                    <p className="text-sm text-gray-600">How was your experience?</p>
-                    <p className="text-gray-900 font-semibold mt-2">Leave us a 5-star review!</p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-20 hover:bg-opacity-30 transition-all cursor-pointer group">
-                <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform">
-                  <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
+            <VideoPlayer videoSrc="/features/5starsLasts.mp4" />
           </div>
         </div>
       </section>
