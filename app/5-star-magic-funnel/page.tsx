@@ -79,7 +79,7 @@ export default function FiveStarMagicFunnelPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               See a short demo below
             </h2>
-            <VideoPlayer videoSrc="/features/5starsLasts.mp4" />
+            <VideoPlayer videoSrc="/features/5starworks.mp4" />
           </div>
         </div>
       </section>
