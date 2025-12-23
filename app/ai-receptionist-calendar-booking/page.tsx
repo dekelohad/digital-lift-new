@@ -153,6 +153,8 @@ export default function AIReceptionistCalendarBookingPage() {
 
   return (
     <main className="min-h-screen">
+      {/* AI Receptionist page temporarily commented out */}
+      {/*
       <Header />
       
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
@@ -430,7 +432,10 @@ export default function AIReceptionistCalendarBookingPage() {
       </section>
 
       <Footer />
-    </main>
+    </main> */}
+    <div className="min-h-screen flex items-center justify-center">
+      <p className="text-gray-600">This page is temporarily unavailable.</p>
+    </div>
   );
 }
 

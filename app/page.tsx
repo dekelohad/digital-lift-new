@@ -208,7 +208,7 @@ export default function Home() {
       </ProductFeature>
 
       {/* AI Receptionist with Calendar Booking */}
-      <ProductFeature
+      {/* <ProductFeature
         title="AI Receptionist with Calendar Booking That Never Misses an Opportunity"
         subtitle="Your AI assistant answers calls, qualifies leads, and books appointments directly into your calendar. Never miss a call or lose a booking opportunity, even when you're busy on a job site."
         features={[
@@ -219,7 +219,7 @@ export default function Home() {
         ]}
         imageSide="left"
         background="gray"
-      />
+      /> */}
       </section>
 
       <TradesWeServe />
