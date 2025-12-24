@@ -131,13 +131,13 @@ export default function ContactPage() {
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
               variants={fadeInUp}
             >
-              Get in Touch
+              Get Your System Live
             </motion.h1>
             <motion.p 
               className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
               variants={fadeInUp}
             >
-              Have questions? Want to learn more? We're here to help you grow your business.
+              Book a demo and see how we turn missed calls into booked jobs.
             </motion.p>
           </motion.div>
 
@@ -202,38 +202,43 @@ export default function ContactPage() {
                 Let's Talk About Growing Your Business
               </h2>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                We're not here to give you a sales pitch. We want to understand your business, 
-                your challenges, and figure out if we're the right fit to help you grow.
+                We're not here to give you a sales pitch. We want to understand your business, your challenges, and figure out if we're the right fit to help you grow.
               </p>
               
-              <div className="space-y-6">
+              <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 font-bold">1</span>
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    1
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Quick Response</h3>
-                    <p className="text-gray-600">We respond within 24 hours. Usually much faster.</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Quick Response</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      We respond within 24 hours. Usually much faster.
+                    </p>
                   </div>
                 </div>
-
+                
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 font-bold">2</span>
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    2
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Honest Advice</h3>
-                    <p className="text-gray-600">If we're not the right fit, we'll tell you. No hard sales tactics.</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Honest Advice</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      If we're not the right fit, we'll tell you. No hard sales tactics.
+                    </p>
                   </div>
                 </div>
-
+                
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-blue-600 font-bold">3</span>
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                    3
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">No Obligation</h3>
-                    <p className="text-gray-600">Getting in touch doesn't mean you have to buy anything. Ever.</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">No Obligation</h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      Getting in touch doesn't mean you have to buy anything. Ever.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -241,8 +246,8 @@ export default function ContactPage() {
 
             {/* Right Side - Contact Form */}
             <motion.div variants={fadeInUp}>
-              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Send us a message</h2>
-              <p className="text-gray-600 mb-6 sm:mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Quick Contact</h2>
+              <p className="text-gray-600 mb-6 sm:mb-8">Fill out the form and we'll get back to you quickly.</p>
               <ContactForm />
             </motion.div>
           </motion.div>
@@ -254,10 +259,10 @@ export default function ContactPage() {
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-10">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Prefer to Schedule a Call?
+              Book Your Demo
             </h2>
             <p className="text-lg text-gray-700">
-              Book a time that works for you and we'll walk you through how Digital Lift can help grow your business.
+              Schedule a time that works for you. We'll show you how our system books jobs automatically.
             </p>
           </div>
           <iframe 
@@ -268,49 +273,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-white to-gray-50">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <motion.h2 
-            ref={faqRef}
-            className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12"
-            variants={fadeInUp}
-            initial="hidden"
-            animate={faqInView ? "visible" : "hidden"}
-          >
-            Frequently Asked Questions
-          </motion.h2>
-          <motion.div 
-            className="space-y-4"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={faqInView ? "visible" : "hidden"}
-          >
-            {contactFaqs.map((item, index) => (
-              <FAQItem
-                key={index}
-                question={item.question}
-                answer={item.answer}
-                isOpen={openFaqIndex === index}
-                onToggle={() => toggleFaq(index)}
-              />
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Video Testimonials Carousel */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
-            Don't take our word for it
-          </h2>
-          <p className="text-lg text-gray-600 text-center mb-10">
-            Hear directly from contractors who use our systems
-          </p>
-          <TestimonialCarousel />
-        </div>
-      </section>
 
       <Footer />
     </motion.main>

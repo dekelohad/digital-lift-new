@@ -62,20 +62,17 @@ export default function Hero() {
             className="text-left"
           >
             <div className="mb-6">
-              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white">
-                Website Design &
+              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white block">
+                Never Miss
               </AnimatedText>
-              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white" delay={0.15}>
-                Marketing Systems
-              </AnimatedText>
-              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white" delay={0.3}>
-                For Contractors
+              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white block" delay={0.15}>
+                Another Job.
               </AnimatedText>
             </div>
             
             {isMobile ? (
               <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
-                Marketing isn't magic and there's no miracle solution. Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
+                Your AI receptionist answers every call, chats with visitors, and books appointments automatically — even when you're working jobs.
               </p>
             ) : (
               <motion.p 
@@ -84,7 +81,7 @@ export default function Hero() {
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
                 transition={{ duration: 0.5, delay: 0.45 }}
               >
-                Marketing isn't magic and there's no miracle solution. Any agency promising instant results is selling hype. We build proven marketing systems that generate real opportunities, but lasting growth comes from commitment and consistency.
+                Your AI receptionist answers every call, chats with visitors, and books appointments automatically — even when you're working jobs.
               </motion.p>
             )}
 
@@ -106,7 +103,7 @@ export default function Hero() {
                   onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
                 >
                   <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
-                    Book A Call →
+                    Book Demo
                   </button>
                 </a>
               </div>
@@ -138,7 +135,7 @@ export default function Hero() {
                 >
                   <MagneticButton className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
                     <span className="flex items-center gap-2">
-                      Book A Call
+                      Book Demo
                       <motion.span
                         animate={{ x: [0, 5, 0] }}
                         transition={{ duration: 1.5, repeat: Infinity }}

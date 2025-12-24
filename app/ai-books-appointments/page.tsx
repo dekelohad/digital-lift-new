@@ -4,49 +4,49 @@ import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import VideoPlayer from '@/components/VideoPlayer';
-import { Star, RefreshCw, MousePointerClick, Zap } from 'lucide-react';
+import { Calendar, CheckCircle2, Shield, Bell } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "5-Star Review Funnel - Automated Review System for Contractors | Digital Lift",
-  description: "Automated 5-star review funnel that works on autopilot. Generate more positive reviews, send automated follow-ups, and protect your online reputation. One-click review requests included.",
+  title: "AI Calendar Booking - See Booked Jobs in Your Calendar | Digital Lift",
+  description: "AI books appointments directly into your calendar. Qualified leads book automatically. No back-and-forth texts. Just booked jobs in your calendar.",
 };
 
-export default function FiveStarMagicFunnelPage() {
+export default function AIBooksAppointmentsPage() {
   const stats = [
     {
-      percentage: "97%",
-      description: "of people read reviews before choosing a business."
+      percentage: "100%",
+      description: "automated booking means no scheduling headaches or missed opportunities."
     },
     {
-      percentage: "72%",
-      description: "use Google reviews to find local services."
+      percentage: "90%",
+      description: "of qualified leads book appointments when they can schedule directly."
     },
     {
-      percentage: "2.7x",
-      description: "more sales for businesses with more reviews."
+      percentage: "0",
+      description: "back-and-forth texts needed. Jobs land in your calendar automatically."
     }
   ];
 
   const features = [
     {
-      icon: Star,
-      title: "Generate More 5 Star Reviews",
-      description: "Customers receive a custom review link. If they leave less than four stars, they are redirected to private feedback so issues can be resolved before becoming public."
+      icon: Calendar,
+      title: "Open Your Calendar. See Booked Jobs.",
+      description: "Qualified leads book appointments directly into your calendar automatically. No phone calls, no texts, no scheduling headaches. Just open your calendar and see the jobs that are booked."
     },
     {
-      icon: RefreshCw,
-      title: "Automated Follow Up Reminders",
-      description: "We automatically send polite follow up messages over several weeks to remind customers to leave a review. The timing is spaced out to maximize responses without annoying them."
+      icon: Shield,
+      title: "Only Qualified Leads Get Booked",
+      description: "The AI qualifies every lead before booking. It asks the right questions to separate real opportunities from tire-kickers. You only get booked appointments from serious prospects ready to hire."
     },
     {
-      icon: MousePointerClick,
-      title: "One Click Review Requests",
-      description: "Send a review request in seconds. Enter the customer's name and phone number and the system handles everything else."
+      icon: Bell,
+      title: "Instant Notifications",
+      description: "You get notified immediately when a job is booked. All the details are included: name, phone, address, service needed. You show up and get paid."
     },
     {
-      icon: Zap,
-      title: "Contractor Review Injector",
-      description: "Already have a list of past customers? We gradually request reviews from previous clients, helping you build a strong review profile over time."
+      icon: CheckCircle2,
+      title: "No More Scheduling Headaches",
+      description: "No more back-and-forth texts trying to find a time that works. No more double-bookings. No more missed scheduling opportunities. The AI handles it all automatically."
     }
   ];
 
@@ -74,14 +74,14 @@ export default function FiveStarMagicFunnelPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              5 Star Review Funnel That Builds Trust Automatically
+              AI Books Appointments Into Your Calendar
             </h1>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16 px-4">
             {stats.map((stat, index) => (
               <div key={index} className="bg-white p-6 sm:p-8 rounded-xl shadow-lg border border-gray-200 text-center hover:shadow-xl transition-shadow">
-                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-blue-600 mb-3 sm:mb-4">
+                <div className="text-5xl sm:text-6xl md:text-7xl font-bold text-orange-600 mb-3 sm:mb-4">
                   {stat.percentage}
                 </div>
                 <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed font-medium">
@@ -95,7 +95,7 @@ export default function FiveStarMagicFunnelPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               See a short demo below
             </h2>
-            <VideoPlayer videoSrc="/features/5starworks.mp4" />
+            <VideoPlayer videoSrc="/features/calendar-booking.mp4" />
           </div>
         </div>
       </section>
@@ -103,10 +103,10 @@ export default function FiveStarMagicFunnelPage() {
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 px-4">
-            What Is the 5 Star Review Funnel?
+            What Is AI Calendar Booking?
           </h2>
-          <p className="text-lg md:text-xl text-center text-gray-300 mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
-            The 5 Star Review Funnel helps you collect more positive reviews while protecting your online reputation. Happy customers are guided to leave public reviews, while negative feedback is handled privately.
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-12 sm:mb-16 max-w-3xl mx-auto">
+            AI Calendar Booking automatically books qualified leads directly into your calendar. No back-and-forth texts, no scheduling headaches. Just open your calendar and see the jobs that are booked.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
@@ -116,8 +116,8 @@ export default function FiveStarMagicFunnelPage() {
                 <div key={index} className="bg-white text-gray-900 p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl hover:shadow-3xl transition-all transform hover:-translate-y-1">
                   <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-100 rounded-xl flex items-center justify-center shadow-lg">
-                        <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-600" />
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-orange-100 rounded-xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-orange-600" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -154,4 +154,3 @@ export default function FiveStarMagicFunnelPage() {
     </main>
   );
 }
-

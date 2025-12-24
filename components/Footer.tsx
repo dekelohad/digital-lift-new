@@ -2,7 +2,9 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import Link from 'next/link';
 import Logo from './Logo';
+import Button from './Button';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 export default function Footer() {
@@ -37,8 +39,8 @@ export default function Footer() {
               title: 'Quick Links',
               items: [
                 { href: '/pricing', text: 'Pricing' },
-                { href: '/testimonials', text: 'Testimonials' },
-                { href: '/roi-calculator', text: 'ROI Calculator' },
+                { href: '/results', text: 'Testimonials' },
+                { href: '/contact', text: 'Contact' },
                 { href: 'https://app.digitallift.io/', text: 'Log in', external: true }
               ]
             },
@@ -46,23 +48,9 @@ export default function Footer() {
               title: 'About',
               items: [
                 { href: '/about', text: 'About Us' },
-                { href: '/our-work', text: 'Our Work' },
                 { href: '/our-process', text: 'Our Process' },
-                { href: '/trades-we-serve', text: 'Trades We Serve' }
-              ]
-            },
-            {
-              title: 'Services',
-              items: [
-                { href: '/functional-website', text: 'Functional Website' },
-                { href: '/missed-call-text-back', text: 'Missed Call Text Back' },
-                { href: '/5-star-magic-funnel', text: '5 Star Magic Funnel' },
-                { href: '/automated-lead-follow-up', text: 'Automated Lead Follow Up' },
-                { href: '/one-click-marketing-campaigns', text: 'One-Click Marketing Campaigns' },
-                { href: '/all-in-one-inbox', text: 'All-In-One Inbox' },
-                { href: '/business-phone', text: 'Business Phone' },
-                { href: '/local-seo', text: 'Local SEO' },
-                { href: '/ai-receptionist-calendar-booking', text: 'AI Receptionist with Calendar Booking' }
+                { href: '/trades-we-serve', text: 'Trades We Serve' },
+                { href: '/roi-calculator', text: 'ROI Calculator' }
               ]
             },
             {
@@ -70,6 +58,16 @@ export default function Footer() {
               items: [
                 { href: '/terms', text: 'Terms & Conditions' },
                 { href: '/privacy', text: 'Privacy Policy' }
+              ]
+            },
+            {
+              title: 'Products',
+              items: [
+                { href: '/functional-website', text: 'Functional Website' },
+                { href: '/answers-calls-24-7', text: 'Answers Calls 24/7' },
+                { href: '/texts-missed-callers-instantly', text: 'Texts Missed Callers Instantly' },
+                { href: '/books-jobs-from-website', text: 'Books Jobs From Website' },
+                { href: '/ai-books-appointments', text: 'AI Books Appointments' }
               ]
             }
           ].map((section, sectionIndex) => (
@@ -134,6 +132,26 @@ export default function Footer() {
               </div>
             </div>
           </motion.div>
+        </motion.div>
+
+        {/* CTA Section */}
+        <motion.div 
+          className="border-t border-gray-800 pt-12 mt-12 text-center"
+          variants={fadeInUp}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
+            Stop Losing Jobs. Let Your System Book Them For You — 24/7.
+          </h3>
+          <p className="text-gray-400 mb-6 text-lg max-w-2xl mx-auto">
+            Book a demo and see how we turn missed calls into booked appointments.
+          </p>
+          <Link href="/contact" onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}>
+            <Button variant="primary" className="text-lg px-8 py-4">
+              Book Demo
+            </Button>
+          </Link>
         </motion.div>
 
         {/* Copyright Section */}

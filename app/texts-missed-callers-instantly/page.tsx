@@ -4,49 +4,49 @@ import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import VideoPlayer from '@/components/VideoPlayer';
-import { Star, RefreshCw, MousePointerClick, Zap } from 'lucide-react';
+import { Phone, Clock, Moon, Heart } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "5-Star Review Funnel - Automated Review System for Contractors | Digital Lift",
-  description: "Automated 5-star review funnel that works on autopilot. Generate more positive reviews, send automated follow-ups, and protect your online reputation. One-click review requests included.",
+  title: "Missed Call Text Back - Never Lose a Lead | Digital Lift",
+  description: "Automatically text back missed calls instantly. Stand out from competitors, capture more leads, and show customers you care. Available 24/7 to keep your business responsive.",
 };
 
-export default function FiveStarMagicFunnelPage() {
+export default function TextsMissedCallersInstantlyPage() {
   const stats = [
     {
-      percentage: "97%",
-      description: "of people read reviews before choosing a business."
+      percentage: "85%",
+      description: "of customers appreciate receiving a text after a missed call."
     },
     {
       percentage: "72%",
-      description: "use Google reviews to find local services."
+      description: "more customers respond to texts compared to voicemails."
     },
     {
-      percentage: "2.7x",
-      description: "more sales for businesses with more reviews."
+      percentage: "69%",
+      description: "of businesses gain more customers by using missed call text back."
     }
   ];
 
   const features = [
     {
-      icon: Star,
-      title: "Generate More 5 Star Reviews",
-      description: "Customers receive a custom review link. If they leave less than four stars, they are redirected to private feedback so issues can be resolved before becoming public."
+      icon: Phone,
+      title: "Stand Out From Your Competition",
+      description: "Most contractors miss calls and never follow up. We send a personalized text immediately after a missed call, acknowledging the customer and directing them to your quote form so the conversation continues."
     },
     {
-      icon: RefreshCw,
-      title: "Automated Follow Up Reminders",
-      description: "We automatically send polite follow up messages over several weeks to remind customers to leave a review. The timing is spaced out to maximize responses without annoying them."
+      icon: Clock,
+      title: "No More Lost Leads",
+      description: "When customers are ready to hire, speed matters. If a call goes unanswered, they move on. We start the conversation instantly to keep the lead engaged and prevent lost opportunities."
     },
     {
-      icon: MousePointerClick,
-      title: "One Click Review Requests",
-      description: "Send a review request in seconds. Enter the customer's name and phone number and the system handles everything else."
+      icon: Heart,
+      title: "Show Customers You Care",
+      description: "A quick response builds trust. Customers feel acknowledged and are far more likely to move forward when they know you value their time and are ready to help."
     },
     {
-      icon: Zap,
-      title: "Contractor Review Injector",
-      description: "Already have a list of past customers? We gradually request reviews from previous clients, helping you build a strong review profile over time."
+      icon: Moon,
+      title: "Available 24/7",
+      description: "Your system works around the clock. Every missed call receives a prompt response, even after hours, so no inquiry is ever ignored and your business stays responsive at all times."
     }
   ];
 
@@ -74,7 +74,7 @@ export default function FiveStarMagicFunnelPage() {
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-8 sm:mb-12 px-4">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-              5 Star Review Funnel That Builds Trust Automatically
+              Missed Call Text Back That Captures More Leads
             </h1>
           </div>
 
@@ -95,7 +95,7 @@ export default function FiveStarMagicFunnelPage() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               See a short demo below
             </h2>
-            <VideoPlayer videoSrc="/features/5starworks.mp4" />
+            <VideoPlayer videoSrc="/features/text-messaged-back.mp4" />
           </div>
         </div>
       </section>
@@ -103,10 +103,10 @@ export default function FiveStarMagicFunnelPage() {
       <section className="py-20 md:py-28 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 text-white">
         <div className="container mx-auto px-4 max-w-7xl">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-8 px-4">
-            What Is the 5 Star Review Funnel?
+            What Is Missed Call Text Back?
           </h2>
-          <p className="text-lg md:text-xl text-center text-gray-300 mb-12 sm:mb-16 max-w-3xl mx-auto px-4">
-            The 5 Star Review Funnel helps you collect more positive reviews while protecting your online reputation. Happy customers are guided to leave public reviews, while negative feedback is handled privately.
+          <p className="text-lg md:text-xl text-center text-gray-300 mb-12 sm:mb-16 max-w-3xl mx-auto">
+            Missed call text back automatically responds to unanswered calls with an instant text message, letting potential customers know you received their call and guiding them to take the next step.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8 px-4">
@@ -116,8 +116,8 @@ export default function FiveStarMagicFunnelPage() {
                 <div key={index} className="bg-white text-gray-900 p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl hover:shadow-3xl transition-all transform hover:-translate-y-1">
                   <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-yellow-100 rounded-xl flex items-center justify-center shadow-lg">
-                        <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-yellow-600" />
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-blue-100 rounded-xl flex items-center justify-center shadow-lg">
+                        <IconComponent className="w-8 h-8 sm:w-10 sm:h-10 text-blue-600" />
                       </div>
                     </div>
                     <div className="flex-1">
@@ -154,4 +154,3 @@ export default function FiveStarMagicFunnelPage() {
     </main>
   );
 }
-

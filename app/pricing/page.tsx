@@ -2,12 +2,17 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import TestimonialCarousel from '@/components/TestimonialCarousel';
 import { Check, ChevronDown } from 'lucide-react';
 import { fadeInUp, staggerContainer, staggerItem, scaleIn } from '@/lib/animations';
+import Button from '@/components/Button';
+import AnimatedText from '@/components/AnimatedText';
+import { useIsMobile } from '@/lib/useIsMobile';
+import Section from '@/components/Section';
 
 function FAQItem({ question, answer, isOpen, onToggle }: { question: string; answer: string; isOpen: boolean; onToggle: () => void }) {
   return (
@@ -52,6 +57,7 @@ export default function PricingPage() {
   const faqRef = useRef(null);
   const faqInView = useInView(faqRef, { once: true, margin: '-100px' });
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
@@ -59,53 +65,51 @@ export default function PricingPage() {
 
   const plans = [
     {
-      name: "Essential",
+      name: "Starter",
       price: "$297",
       period: "per month",
-      description: "Perfect for getting started",
+      description: "Recover the jobs you're missing every week",
       paymentLink: "https://api.digitallift.io/payment-link/6942cc7bb17a074c60f75284",
+      popular: false,
+      gradient: 'from-gray-500 to-gray-600',
       features: [
-        "Functional Website",
-        "Basic SEO Setup",
-        "Missed Call Text Back",
-        "5 Star Magic Funnel",
-        "Automated Lead Follow Up",
-        "One-Click Marketing Campaigns",
-        "All-In-One Inbox",
-        "Business Phone"
-      ],
-      popular: false
+        "Website that turns visitors into leads",
+        "Instant text when you miss a call",
+        "Website chat bot captures new customers",
+        "Real-time lead alerts to your phone"
+      ]
     },
     {
-      name: "Complete",
+      name: "Pro",
       price: "$497",
       period: "per month",
-      description: "Most popular for growing businesses",
+      description: "We book jobs for you",
       paymentLink: "https://api.digitallift.io/payment-link/6943ca052024d407e2273b0b",
+      popular: true,
+      gradient: 'from-blue-500 to-cyan-500',
       features: [
-        "Everything in Essential",
-        "AI Receptionist with Calendar Booking",
-        "Priority Support",
-        "Local SEO Optimization"
-      ],
-      popular: true
+        "Everything in Starter, plus:",
+        "AI answers missed calls for you",
+        "AI books appointments into your calendar",
+        "Chat bot books jobs directly from your website",
+        "Automatic appointment reminders"
+      ]
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      period: "pricing",
-      description: "For larger operations",
+      name: "Scale",
+      price: "$697",
+      period: "per month",
+      description: "Your business on autopilot",
       contactLink: "/contact",
+      popular: false,
+      gradient: 'from-purple-500 to-pink-500',
       features: [
-        "Everything in Complete",
-        "Multiple Locations",
-        "Custom Integrations",
-        "Dedicated Account Manager",
-        "White-Label Options",
-        "Custom Development",
-        "24/7 Support"
-      ],
-      popular: false
+        "Everything in Pro, plus:",
+        "Multiple users & locations",
+        "Custom call flows per service",
+        "After-hours & emergency routing",
+        "Dedicated setup & support"
+      ]
     }
   ];
 
@@ -137,102 +141,141 @@ export default function PricingPage() {
     >
       <Header />
       
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4 max-w-7xl">
+      <Section className="py-20 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white relative overflow-hidden">
+        {/* Background decorations */}
+        {!isMobile && (
+          <div className="absolute inset-0 pointer-events-none">
           <motion.div 
+              className="absolute top-20 left-20 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+              transition={{ duration: 8, repeat: Infinity }}
+            />
+          </div>
+        )}
+
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
+          <div 
             ref={heroRef}
-            className="text-center mb-12 sm:mb-16 px-4"
-            variants={staggerContainer}
-            initial="hidden"
-            animate={heroInView ? "visible" : "hidden"}
+            className="text-center mb-16"
           >
-            <motion.h1 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight"
-              variants={fadeInUp}
+            <motion.span
+              className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-6"
+              initial={{ scale: 0 }}
+              animate={heroInView ? { scale: 1 } : { scale: 0 }}
+              transition={{ delay: 0.2, type: "spring" }}
+          >
+              Pricing
+            </motion.span>
+            <AnimatedText 
+              variant="split" 
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 inline-block"
             >
-              Simple, Affordable Pricing
-            </motion.h1>
-            <motion.p 
-              className="text-lg sm:text-xl md:text-2xl text-gray-700 max-w-3xl mx-auto leading-relaxed"
-              variants={fadeInUp}
-            >
-              No hidden fees. No long-term contracts. Just honest pricing that works.
-            </motion.p>
-          </motion.div>
+              Choose Your Plan
+            </AnimatedText>
+            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+              Simple pricing that works. No hidden fees, no surprises.
+            </p>
+          </div>
 
           <motion.div 
             ref={plansRef}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16"
-            variants={staggerContainer}
+            className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start"
             initial="hidden"
             animate={plansInView ? "visible" : "hidden"}
+            variants={staggerContainer}
           >
             {plans.map((plan, index) => (
               <motion.div
                 key={index}
-                className={`bg-white rounded-xl shadow-lg border-2 ${
-                  plan.popular
-                    ? 'border-blue-600 md:transform md:scale-105'
-                    : 'border-gray-200'
-                } overflow-hidden relative`}
-                variants={scaleIn}
-                whileHover={{ y: -8, scale: plan.popular ? 1.08 : 1.02 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                className="relative group h-full"
+                initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                animate={plansInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 50, scale: 0.95 }}
+                transition={{ duration: 0.6, delay: index * 0.15, type: "spring" }}
+                whileHover={{ y: plan.popular ? -12 : -8, scale: 1.02 }}
               >
                 {plan.popular && (
                   <motion.div 
-                    className="absolute top-0 left-0 right-0 bg-blue-600 text-white text-center py-2 text-xs sm:text-sm font-semibold"
-                    initial={{ y: -20 }}
-                    animate={plansInView ? { y: 0 } : { y: -20 }}
-                    transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
+                    className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg z-20"
+                    initial={{ scale: 0, y: -20 }}
+                    animate={plansInView ? { scale: 1, y: 0 } : { scale: 0, y: -20 }}
+                    transition={{ delay: index * 0.15 + 0.3, type: "spring" }}
                   >
                     Most Popular
                   </motion.div>
                 )}
-                <div className={`p-6 sm:p-8 ${plan.popular ? 'pt-10 sm:pt-12' : ''}`}>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
-                  <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">{plan.description}</p>
-                  <div className="mb-4 sm:mb-6">
-                    <span className="text-4xl sm:text-5xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-sm sm:text-base text-gray-600 ml-2">{plan.period}</span>
+                
+                <div className={`bg-white rounded-2xl p-8 shadow-2xl border-2 ${
+                  plan.popular 
+                    ? 'border-blue-500 shadow-blue-500/20' 
+                    : 'border-gray-200 hover:border-gray-300'
+                } transition-all duration-300 h-full relative overflow-hidden flex flex-col`}>
+                  {/* Gradient overlay */}
+                  <motion.div
+                    className={`absolute inset-0 bg-gradient-to-br ${plan.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+                  />
+                  
+                  <div className="relative z-10 flex flex-col flex-grow">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                    <div className="mb-4">
+                      <span className={`text-5xl font-black bg-gradient-to-r ${plan.gradient} bg-clip-text text-transparent`}>
+                        {plan.price}
+                      </span>
+                      <span className="text-gray-600 ml-2 text-lg">/month</span>
+                    </div>
+                    <p className="text-gray-700 mb-6 text-lg font-medium">{plan.description}</p>
+                    
+                    {/* Features list */}
+                    <div className="flex-grow mb-6">
+                      <ul className="space-y-3">
+                        {plan.features.map((feature, featureIndex) => {
+                          const isHeader = feature.includes("Everything in");
+                          return (
+                            <motion.li
+                              key={featureIndex}
+                              className={`flex items-start gap-3 ${isHeader ? 'font-semibold' : ''}`}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={plansInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
+                              transition={{ delay: index * 0.15 + featureIndex * 0.05 }}
+                            >
+                              {!isHeader && (
+                                <Check className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
+                                  plan.popular ? 'text-blue-600' : 'text-gray-400'
+                                }`} />
+                              )}
+                              <span className={`text-gray-700 text-sm leading-relaxed ${isHeader ? 'text-gray-900' : ''}`}>
+                                {feature}
+                              </span>
+                            </motion.li>
+                          );
+                        })}
+                      </ul>
                   </div>
+                    
                   <motion.a
                     href={plan.paymentLink || plan.contactLink || "#"}
                     target={plan.paymentLink ? "_blank" : undefined}
                     rel={plan.paymentLink ? "noopener noreferrer" : undefined}
-                    className={`w-full py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all block text-center ${
-                      plan.popular
-                        ? 'bg-blue-600 text-white hover:bg-blue-700'
-                        : 'bg-gray-200 text-gray-900 hover:bg-gray-300'
-                    }`}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                      className="mt-auto"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                   >
-                    Get Started
-                  </motion.a>
-                  <motion.ul 
-                    className="mt-6 sm:mt-8 space-y-3 sm:space-y-4"
-                    variants={staggerContainer}
-                    initial="hidden"
-                    animate={plansInView ? "visible" : "hidden"}
-                  >
-                    {plan.features.map((feature, featureIndex) => (
-                      <motion.li 
-                        key={featureIndex} 
-                        className="flex items-start"
-                        variants={staggerItem}
+                      <Button 
+                        variant={plan.popular ? "primary" : "secondary"} 
+                        className="w-full text-lg py-4"
                       >
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm sm:text-base text-gray-700">{feature}</span>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
+                        Get Started
+                      </Button>
+                    </motion.a>
+                  </div>
+                  
+                  {/* Decorative elements */}
+                  <div className={`absolute -top-8 -right-8 w-32 h-32 bg-gradient-to-br ${plan.gradient} rounded-full opacity-10 blur-2xl`} />
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
-      </section>
+      </Section>
 
       <section className="py-20 md:py-28 bg-gray-50">
         <div className="container mx-auto px-4 max-w-4xl">

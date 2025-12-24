@@ -15,28 +15,28 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
   {
-    question: 'When am I going to start seeing results?',
-    answer: "This will completely depend on what else you're doing for advertising, how long you've been in business, the quality of your work, and of course that you commit to using our system. If you think you're going to close your eyes and pay us $297/month to solve all your problems, we're probably not the right fit for you. We cannot stress this enough... you have to be doing multiple forms of advertising. Digital Lift is meant to provide you a simple, yet extremely effective foundational marketing system to help grow and expand your business. We're here to build your online business foundation, not perform miracles."
+    question: 'Will I actually book more jobs?',
+    answer: "Yes. Our system answers every call, even when you're on a job site. Every missed call gets an instant text response. Website visitors can book appointments directly. The result? You stop losing leads to competitors and start booking jobs 24/7."
   },
   {
-    question: 'How exactly do you help me grow my business?',
-    answer: "We help you get more 5-star reviews to attract more customers. We build you a professional website that actually converts leads into paying customers. We instantly follow up with incoming leads so you look more professional. We put your customers into automated re-marketing campaigns so they're more likely to work with you again. We help you get more referrals by offering discounts for friends of past customers. And we use automation and AI to free you from repeating the same basic tasks, giving you more time for other things. If you believe any of those things can grow your business, that's exactly what we help you with."
+    question: 'How quickly will I see booked appointments?',
+    answer: "Most contractors see their first booked appointment within the first week. The AI starts answering calls and booking appointments immediately after setup. You'll get notifications for every booking so you know exactly what's coming."
   },
   {
-    question: 'Why is your pricing so affordable?',
-    answer: "Our only interest is keeping you for 10+ years. We believe the best way to do that is to be priced affordably. We believe if we don't overcharge and provide you with excellent service, you'll never have a reason to leave."
+    question: 'What happens when I\'m on a job and can\'t answer?',
+    answer: "That's exactly when our system works best. The AI answers every call, qualifies the lead, and books the appointment directly into your calendar. You get a notification, and the customer gets confirmation. No missed opportunities."
   },
   {
-    question: 'What happens if I decide to cancel my membership with Digital Lift?',
-    answer: "We'll be extremely sad to see you go, but after a good cry we'll bounce back. However, you will lose access to all the features we set up for you."
+    question: 'Do I need to be tech-savvy to use this?',
+    answer: "Not at all. Once it's set up, the system runs automatically. The AI answers calls, texts missed callers, and books appointments without you doing anything. You just show up to the jobs that get booked."
   },
   {
-    question: 'Can people find my website on Google?',
-    answer: "We make sure every Digital Lift website is set up for Google with the best SEO practices. This includes keyword research, adding alt tags, meta tags, and header titles, securing an SSL certificate, optimizing for a high Google Speed test score, and providing regular updates. Your Google ranking will depend on how long your site's been live, local competition, and factors like your Google My Business reviews. We also offer blogging to boost your content. While we don't handle off-page backlinks beyond your social media, our ongoing updates keep your site in great shape—unlike some developers who set up your site and then forget about it."
+    question: 'Can I cancel if it doesn\'t work for me?',
+    answer: "Yes, you can cancel anytime. No long-term contracts. But most contractors see the value immediately — they stop missing calls and start booking jobs they would have lost before."
   },
   {
-    question: 'Why should I spend on a website when word of mouth is already pulling in business?',
-    answer: "We might be a bit biased, but here's the deal: if each of your customers brings in about $500 a year, getting just 2-4 new customers from your website will pay off. We know you'll see great value from your site. It will help you attract new customers, make it easier for existing customers to refer you, allow you to run ads if you want, and attract bigger clients who value professionalism."
+    question: 'How much money am I leaving on the table from missed calls?',
+    answer: "If you're missing even 5-10 calls per month and your average job is $500, that's $2,500-$5,000 in lost revenue every month. Our system recovers those leads and books those jobs automatically."
   }
 ];
 

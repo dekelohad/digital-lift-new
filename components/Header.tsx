@@ -7,71 +7,28 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Button from './Button';
 import Logo from './Logo';
 
-const services = [
-  { href: '/functional-website', text: 'Functional Website' },
-  { href: '/missed-call-text-back', text: 'Missed Call Text Back' },
-  { href: '/5-star-magic-funnel', text: '5 Star Magic Funnel' },
-  { href: '/automated-lead-follow-up', text: 'Automated Lead Follow Up' },
-  { href: '/one-click-marketing-campaigns', text: 'One-Click Marketing Campaigns' },
-  { href: '/all-in-one-inbox', text: 'All-In-One Inbox' },
-  { href: '/business-phone', text: 'Business Phone' },
-  { href: '/local-seo', text: 'Local SEO' },
-  // { href: '/ai-receptionist-calendar-booking', text: 'AI Receptionist with Calendar Booking' }
-];
-
 const aboutItems = [
   { href: '/about', text: 'About Us' },
-  { href: '/our-work', text: 'Our Work' },
   { href: '/our-process', text: 'Our Process' },
-  { href: '/trades-we-serve', text: 'Trades We Serve' }
+  { href: '/trades-we-serve', text: 'Trades We Serve' },
+  { href: '/roi-calculator', text: 'ROI Calculator' }
+];
+
+const whatYouGetItems = [
+  { href: '/functional-website', text: 'Functional Website' },
+  { href: '/answers-calls-24-7', text: 'Answers Calls 24/7' },
+  { href: '/texts-missed-callers-instantly', text: 'Texts Missed Callers Instantly' },
+  { href: '/books-jobs-from-website', text: 'Books Jobs From Website' },
+  { href: '/ai-books-appointments', text: 'AI Books Appointments' }
 ];
 
 export default function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [servicesHovered, setServicesHovered] = useState(false);
   const [aboutHovered, setAboutHovered] = useState(false);
-
-  const scrollToServices = (e: React.MouseEvent) => {
-    e.preventDefault();
-    
-    if (pathname === '/') {
-      // Already on homepage, just scroll
-      const servicesSection = document.getElementById('services');
-      if (servicesSection) {
-        const headerHeight = 80; // Account for sticky header
-        const elementPosition = servicesSection.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-        
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    } else {
-      // Navigate to homepage first, then scroll after page loads
-      router.push('/');
-      // Use a combination of timeout and checking for element existence
-      const checkAndScroll = () => {
-        const servicesSection = document.getElementById('services');
-        if (servicesSection) {
-          const headerHeight = 80;
-          const elementPosition = servicesSection.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-          
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        } else {
-          // If element not found yet, try again
-          setTimeout(checkAndScroll, 50);
-        }
-      };
-      setTimeout(checkAndScroll, 100);
-    }
-  };
+  const [whatYouGetHovered, setWhatYouGetHovered] = useState(false);
+  const [mobileWhatYouGetOpen, setMobileWhatYouGetOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
@@ -84,111 +41,78 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {/* Services Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setServicesHovered(true)}
-              onMouseLeave={() => setServicesHovered(false)}
-            >
-              <button
-                onClick={scrollToServices}
-                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1 cursor-pointer bg-transparent border-none group"
-              >
-                Services
-                <ChevronDown 
-                  size={16} 
-                  className={`transition-transform duration-200 ${servicesHovered ? 'rotate-180' : ''}`}
-                />
-                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-              </button>
-              
-              <AnimatePresence>
-                {servicesHovered && (
-                  <motion.div
-                    className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    {services.map((service) => (
-                      <a
-                        key={service.href}
-                        href={service.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm"
-                      >
-                        {service.text}
-                      </a>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Other Navigation Items */}
+            {/* Navigation Items */}
             {[
+              { 
+                label: 'Products', 
+                href: '#',
+                isDropdown: true,
+                items: whatYouGetItems
+              },
               { label: 'Pricing', href: '/pricing' },
-              { label: 'Testimonials', href: '/testimonials' }
-            ].map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap group"
-              >
-                {item.label}
-                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-              </a>
-            ))}
-
-            {/* About Dropdown */}
-            <div
-              className="relative"
-              onMouseEnter={() => setAboutHovered(true)}
-              onMouseLeave={() => setAboutHovered(false)}
-            >
-              <a
-                href="/about"
-                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap flex items-center gap-1 group"
-              >
-                About
-                <ChevronDown 
-                  size={16} 
-                  className={`transition-transform duration-200 ${aboutHovered ? 'rotate-180' : ''}`}
-                />
-                <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-              </a>
-              
-              <AnimatePresence>
-                {aboutHovered && (
-                  <motion.div
-                    className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
+              { label: 'Testimonials', href: '/results' },
+              { 
+                label: 'About', 
+                href: '#',
+                isDropdown: true,
+                items: aboutItems
+              },
+              { label: 'Contact', href: '/contact' }
+            ].map((item: any) => {
+              if (item.isDropdown) {
+                const isProducts = item.label === 'Products';
+                const isAbout = item.label === 'About';
+                const hoverState = isProducts ? whatYouGetHovered : (isAbout ? aboutHovered : false);
+                const setHoverState = isProducts ? setWhatYouGetHovered : (isAbout ? setAboutHovered : () => {});
+                
+                return (
+                  <div
+                    key={item.label}
+                    className="relative"
+                    onMouseEnter={() => setHoverState(true)}
+                    onMouseLeave={() => setHoverState(false)}
                   >
-                    {aboutItems.map((item) => (
-                      <a
-                        key={item.href}
-                        href={item.href}
-                        className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm"
-                      >
-                        {item.text}
-                      </a>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                    <button className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap group flex items-center gap-1">
+                      {item.label}
+                      <ChevronDown className={`w-4 h-4 transition-transform ${hoverState ? 'rotate-180' : ''}`} />
+                      <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    </button>
+                    <AnimatePresence>
+                      {hoverState && (
+                        <motion.div
+                          className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50"
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {item.items?.map((dropdownItem: any, index: number) => (
+                            <a
+                              key={index}
+                              href={dropdownItem.href}
+                              className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors text-sm"
+                            >
+                              {dropdownItem.text}
+                            </a>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap group"
+                >
+                  {item.label}
+                  <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                </a>
+              );
+            })}
 
-            {/* Contact */}
-            <a
-              href="/contact"
-              className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors whitespace-nowrap group"
-            >
-              Contact
-              <span className="absolute left-0 -bottom-1 w-full h-0.5 bg-blue-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-            </a>
           </div>
 
           {/* Desktop CTA Buttons */}
@@ -231,59 +155,80 @@ export default function Header() {
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             >
               {[
+                { 
+                  label: 'Products', 
+                  href: '#',
+                  isDropdown: true,
+                  items: whatYouGetItems
+                },
                 { label: 'Pricing', href: '/pricing' },
-                { label: 'Testimonials', href: '/testimonials' }
-              ].map((item, index) => (
-                <motion.a
-                  key={item.label}
-                  href={item.href}
-                  className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.05, duration: 0.3 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
-              <motion.button
-                onClick={(e) => {
-                  setMobileMenuOpen(false);
-                  scrollToServices(e);
-                }}
-                className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base w-full text-left bg-transparent border-none cursor-pointer"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1, duration: 0.3 }}
-              >
-                Services
-              </motion.button>
-              
-              {/* About Section in Mobile */}
-              <div className="border-t border-gray-200 pt-2 mt-2">
-                <div className="text-gray-700 font-medium py-2 text-base">About</div>
-                {aboutItems.map((item, index) => (
+                { label: 'Testimonials', href: '/results' },
+                { 
+                  label: 'About', 
+                  href: '#',
+                  isDropdown: true,
+                  items: aboutItems
+                },
+                { label: 'Contact', href: '/contact' }
+              ].map((item: any, index: number) => {
+                if (item.isDropdown) {
+                  const isProducts = item.label === 'Products';
+                  const isAbout = item.label === 'About';
+                  const mobileOpenState = isProducts ? mobileWhatYouGetOpen : (isAbout ? mobileAboutOpen : false);
+                  const setMobileOpenState = isProducts ? setMobileWhatYouGetOpen : (isAbout ? setMobileAboutOpen : () => {});
+                  
+                  return (
+                    <div key={item.label}>
+                      <motion.button
+                        className="w-full flex items-center justify-between text-gray-700 hover:text-gray-900 font-medium py-2 text-base"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05, duration: 0.3 }}
+                        onClick={() => setMobileOpenState(!mobileOpenState)}
+                      >
+                        {item.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileOpenState ? 'rotate-180' : ''}`} />
+                      </motion.button>
+                      <AnimatePresence>
+                        {mobileOpenState && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            {item.items?.map((dropdownItem: any, subIndex: number) => (
+                              <motion.a
+                                key={subIndex}
+                                href={dropdownItem.href}
+                                className="block pl-6 py-2 text-gray-600 hover:text-gray-900 text-sm"
+                                initial={{ opacity: 0, x: -10 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: subIndex * 0.05 }}
+                              >
+                                {dropdownItem.text}
+                              </motion.a>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+                return (
                   <motion.a
-                    key={item.href}
+                    key={item.label}
                     href={item.href}
-                    className="block text-gray-600 hover:text-gray-900 font-medium py-2 pl-4 text-sm"
+                    className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: (3 + index) * 0.05, duration: 0.3 }}
+                    transition={{ delay: index * 0.05, duration: 0.3 }}
                   >
-                    {item.text}
+                    {item.label}
                   </motion.a>
-                ))}
-              </div>
-              
-              <motion.a
-                href="/contact"
-                className="block text-gray-700 hover:text-gray-900 font-medium py-2 text-base"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.15, duration: 0.3 }}
-              >
-                Contact
-              </motion.a>
+                );
+              })}
               <motion.a 
                 href="https://app.digitallift.io/" 
                 target="_blank"

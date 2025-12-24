@@ -153,9 +153,23 @@ export default function AIReceptionistCalendarBookingPage() {
 
   return (
     <main className="min-h-screen">
-      {/* AI Receptionist page temporarily commented out */}
-      {/*
       <Header />
+      
+      {/* Feature Banner */}
+      <section className="py-8 bg-blue-600 text-white">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center">
+            <p className="text-lg md:text-xl font-semibold mb-4">
+              This feature is included in our booking system
+            </p>
+            <a href="/how-it-works">
+              <button className="bg-white text-blue-600 font-bold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors text-lg">
+                See How It Books Jobs
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
       
       <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4 max-w-7xl">
@@ -432,10 +446,7 @@ export default function AIReceptionistCalendarBookingPage() {
       </section>
 
       <Footer />
-    </main> */}
-    <div className="min-h-screen flex items-center justify-center">
-      <p className="text-gray-600">This page is temporarily unavailable.</p>
-    </div>
+    </main>
   );
 }
 
