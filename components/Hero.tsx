@@ -3,7 +3,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Link from 'next/link';
-import { Star } from 'lucide-react';
+import { Star, Phone, MessageSquare, Calendar, ArrowRight } from 'lucide-react';
 import { staggerContainer } from '@/lib/animations';
 import { useIsMobile } from '@/lib/useIsMobile';
 import AnimatedText from './AnimatedText';
@@ -54,7 +54,7 @@ export default function Hero() {
       )}
       
       <div className="container mx-auto px-4 max-w-7xl relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[600px] py-16 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[600px] pt-8 pb-16 lg:pt-12 lg:pb-24">
           
           {/* Left Column - Text Content */}
           <div 
@@ -62,89 +62,164 @@ export default function Hero() {
             className="text-left"
           >
             <div className="mb-6">
-              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white block">
-                Never Miss
-              </AnimatedText>
-              <AnimatedText variant="split" className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-white block" delay={0.15}>
-                Another Job.
+              <AnimatedText variant="split" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white block whitespace-nowrap">
+                Never Miss Another Job.
               </AnimatedText>
             </div>
             
             {isMobile ? (
-              <p className="text-gray-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed">
-                Your AI receptionist answers every call, chats with visitors, and books appointments automatically — even when you're working jobs.
+              <p className="text-gray-300 text-lg md:text-xl mb-6 max-w-xl leading-relaxed">
+                While you're on the job, your phone keeps ringing. Our AI answers missed calls, texts the customer back instantly, and books the job for you — automatically.
               </p>
             ) : (
               <motion.p 
-                className="text-gray-300 text-lg md:text-xl mb-8 max-w-xl leading-relaxed"
+                className="text-gray-300 text-lg md:text-xl mb-6 max-w-xl leading-relaxed"
                 initial={{ opacity: 0, y: 25 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
                 transition={{ duration: 0.5, delay: 0.45 }}
               >
-                Your AI receptionist answers every call, chats with visitors, and books appointments automatically — even when you're working jobs.
+                While you're on the job, your phone keeps ringing. Our AI answers missed calls, texts the customer back instantly, and books the job for you — automatically.
+              </motion.p>
+            )}
+
+            {/* Money-based proof line */}
+            {isMobile ? (
+              <p className="text-green-400 text-base font-semibold mb-8 max-w-xl">
+                Contractors stop missing important calls within days of setup.
+              </p>
+            ) : (
+              <motion.p 
+                className="text-green-400 text-base font-semibold mb-8 max-w-xl"
+                initial={{ opacity: 0, y: 25 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
+                transition={{ duration: 0.5, delay: 0.55 }}
+              >
+                Contractors stop missing important calls within days of setup.
               </motion.p>
             )}
 
             {/* CTA with avatars */}
             {isMobile ? (
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10">
-                <div className="flex -space-x-3">
-                  {['Jonathan', 'Marcus', 'David'].map((name) => (
-                    <img 
-                      key={name}
-                      src={`/team/${name}.png`}
-                      alt={name}
-                      className="w-10 h-10 rounded-full border-2 border-gray-900 object-cover"
-                    />
-                  ))}
+              <div className="flex flex-col items-center gap-3 mb-10">
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-3">
+                    {['Jonathan', 'Marcus', 'David'].map((name) => (
+                      <img 
+                        key={name}
+                        src={`/team/${name}.png`}
+                        alt={name}
+                        className="w-10 h-10 rounded-full border-2 border-gray-900 object-cover"
+                      />
+                    ))}
+                  </div>
+                  <a 
+                    href="/contact"
+                    onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
+                  >
+                    <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all flex items-center gap-2">
+                      Book A Call
+                      <ArrowRight className="w-5 h-5" />
+                    </button>
+                  </a>
                 </div>
-                <a 
-                  href="/contact"
-                  onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
-                >
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
-                    Book Demo
-                  </button>
-                </a>
+                <p className="text-gray-400 text-sm text-center">
+                  Free setup call. No contracts. Cancel anytime.
+                </p>
               </div>
             ) : (
               <motion.div 
-                className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-10"
+                className="flex flex-col items-start gap-3 mb-10"
                 initial={{ opacity: 0, y: 25 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 25 }}
                 transition={{ duration: 0.5, delay: 0.55 }}
               >
-                <div className="flex -space-x-3">
-                  {['Jonathan', 'Marcus', 'David'].map((name, index) => (
-                    <motion.img 
-                      key={name}
-                      src={`/team/${name}.png`}
-                      alt={name}
-                      className="w-10 h-10 rounded-full border-2 border-gray-900 object-cover"
-                      initial={{ opacity: 0, scale: 0, x: -15 }}
-                      animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0, x: -15 }}
-                      transition={{ duration: 0.4, delay: 0.55 + index * 0.08 }}
-                      whileHover={{ scale: 1.2, zIndex: 10 }}
-                    />
-                  ))}
+                <div className="flex items-center gap-3">
+                  <div className="flex -space-x-3">
+                    {['Jonathan', 'Marcus', 'David'].map((name, index) => (
+                      <motion.img 
+                        key={name}
+                        src={`/team/${name}.png`}
+                        alt={name}
+                        className="w-10 h-10 rounded-full border-2 border-gray-900 object-cover"
+                        initial={{ opacity: 0, scale: 0, x: -10 }}
+                        animate={isInView ? { opacity: 1, scale: 1, x: 0 } : { opacity: 0, scale: 0, x: -10 }}
+                        transition={{ duration: 0.4, delay: 0.55 + index * 0.08 }}
+                        whileHover={{ scale: 1.2, zIndex: 10 }}
+                      />
+                    ))}
+                  </div>
+                  <a 
+                    href="/contact"
+                    onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
+                  >
+                    <motion.button 
+                      className="relative overflow-hidden bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/50 transition-all"
+                      initial={{ opacity: 0, y: 25 }}
+                      animate={isInView ? { 
+                        opacity: 1, 
+                        y: 0,
+                        boxShadow: [
+                          "0 10px 25px -5px rgba(59, 130, 246, 0.25)",
+                          "0 10px 40px -5px rgba(59, 130, 246, 0.4)",
+                          "0 10px 25px -5px rgba(59, 130, 246, 0.25)"
+                        ]
+                      } : { opacity: 0, y: 25 }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: 0.65,
+                        boxShadow: { duration: 2, repeat: Infinity, repeatDelay: 0.5 }
+                      }}
+                      whileHover={{ 
+                        scale: 1.05,
+                        y: -2,
+                        boxShadow: "0 15px 50px -5px rgba(59, 130, 246, 0.5)"
+                      }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {/* Shine effect */}
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full"
+                        animate={{ x: ['-100%', '100%'] }}
+                        transition={{
+                          duration: 1.5,
+                          repeat: Infinity,
+                          repeatDelay: 2,
+                          ease: 'easeInOut',
+                        }}
+                      />
+                      {/* Pulsing glow ring */}
+                      <motion.div
+                        className="absolute inset-0 rounded-lg border-2 border-blue-400/50"
+                        animate={{
+                          opacity: [0.5, 0.8, 0.5],
+                          scale: [1, 1.05, 1],
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: 'easeInOut',
+                        }}
+                      />
+                      <span className="relative z-10 flex items-center gap-2">
+                        Book A Call
+                        <motion.span
+                          animate={{ x: [0, 3, 0] }}
+                          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <ArrowRight className="w-5 h-5" />
+                        </motion.span>
+                      </span>
+                    </motion.button>
+                  </a>
                 </div>
-                
-                <a 
-                  href="/contact"
-                  onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}
+                <motion.p 
+                  className="text-gray-400 text-sm"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
                 >
-                  <MagneticButton className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all">
-                    <span className="flex items-center gap-2">
-                      Book Demo
-                      <motion.span
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
-                      >
-                        →
-                      </motion.span>
-                    </span>
-                  </MagneticButton>
-                </a>
+                  Free setup call. No contracts. Cancel anytime.
+                </motion.p>
               </motion.div>
             )}
 
@@ -291,12 +366,45 @@ export default function Hero() {
             )}
           </div>
 
-          {/* Right Column - Big Rocket */}
+          {/* Right Column - Flow Visualization */}
           {isMobile ? (
-            <div className="relative flex items-center justify-center lg:justify-end">
-              <div className="absolute w-96 h-96 bg-blue-500/30 rounded-full blur-3xl" />
-              <div className="relative z-10 text-[200px] sm:text-[280px] md:text-[320px] lg:text-[380px] leading-none select-none">
-                🚀
+            <div className="relative flex items-center justify-center lg:justify-end py-8">
+              <div className="flex items-center gap-4">
+                <motion.div
+                  className="flex flex-col items-center gap-2"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center border-2 border-red-500">
+                    <Phone className="w-8 h-8 text-red-400" />
+                  </div>
+                  <p className="text-xs text-gray-400 text-center">Missed Call</p>
+                </motion.div>
+                <ArrowRight className="w-6 h-6 text-gray-500" />
+                <motion.div
+                  className="flex flex-col items-center gap-2"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
+                  <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center border-2 border-green-500">
+                    <MessageSquare className="w-8 h-8 text-green-400" />
+                  </div>
+                  <p className="text-xs text-gray-400 text-center">Instant Text</p>
+                </motion.div>
+                <ArrowRight className="w-6 h-6 text-gray-500" />
+                <motion.div
+                  className="flex flex-col items-center gap-2"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: 0.7 }}
+                >
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center border-2 border-blue-500">
+                    <Calendar className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <p className="text-xs text-gray-400 text-center">Job Booked</p>
+                </motion.div>
               </div>
             </div>
           ) : (
@@ -306,184 +414,96 @@ export default function Hero() {
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
               transition={{ duration: 0.6, delay: 0.25 }}
             >
-              {/* Multiple animated glow effects */}
+              {/* Background glow effects */}
               <motion.div 
-                className="absolute w-96 h-96 bg-blue-500/30 rounded-full blur-3xl"
+                className="absolute w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
                 animate={{ 
                   scale: [1, 1.2, 1],
-                  opacity: [0.3, 0.5, 0.3],
+                  opacity: [0.2, 0.4, 0.2],
                 }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              <motion.div 
-                className="absolute w-64 h-64 bg-purple-500/20 rounded-full blur-3xl translate-x-20 -translate-y-10"
-                animate={{ 
-                  scale: [1, 1.3, 1],
-                  x: [80, 100, 80],
-                }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.div 
-                className="absolute w-48 h-48 bg-cyan-400/20 rounded-full blur-2xl -translate-x-10 translate-y-20"
-                animate={{ 
-                  scale: [1, 1.4, 1],
-                  y: [80, 60, 80],
-                }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              />
               
-              {/* Rocket with enhanced animation */}
-              <motion.div 
-                className="relative z-10 text-[200px] sm:text-[280px] md:text-[320px] lg:text-[380px] leading-none select-none"
-                animate={{ 
-                  y: [0, -30, 0],
-                  rotate: [0, 3, -3, 0],
-                }}
-                transition={{ 
-                  duration: 5, 
-                  repeat: Infinity, 
-                  ease: "easeInOut" 
-                }}
-              >
-                <motion.span
-                  style={{ display: 'inline-block' }}
-                  whileHover={{ 
-                    scale: 1.1,
-                    rotate: 15,
-                    transition: { type: "spring", stiffness: 300 }
-                  }}
-                >
-                  🚀
-                </motion.span>
-              </motion.div>
-
-              {/* Star particles with stagger */}
-              {[...Array(12)].map((_, i) => (
+              {/* Flow visualization */}
+              <div className="relative z-10 flex items-center gap-6 lg:gap-8">
+                {/* Missed Call */}
                 <motion.div
-                  key={`star-${i}`}
-                  className="absolute text-white"
-                  style={{
-                    top: `${10 + Math.random() * 80}%`,
-                    left: `${Math.random() * 100}%`,
-                    fontSize: `${8 + Math.random() * 16}px`,
-                  }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{
-                    opacity: [0.2, 1, 0.2],
-                    scale: [0.8, 1.2, 0.8],
-                    rotate: [0, 180, 360],
-                  }}
-                  transition={{
-                    duration: 1.5 + Math.random() * 2,
-                    repeat: Infinity,
-                    delay: Math.random() * 2,
-                  }}
+                  className="flex flex-col items-center gap-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  whileHover={{ scale: 1.1 }}
                 >
-                  ✦
+                  <motion.div 
+                    className="w-24 h-24 bg-red-500/20 rounded-full flex items-center justify-center border-2 border-red-500 shadow-lg shadow-red-500/30"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Phone className="w-12 h-12 text-red-400" />
+                  </motion.div>
+                  <p className="text-sm font-semibold text-gray-300 text-center">Missed Call</p>
                 </motion.div>
-              ))}
 
-              {/* Floating dots - Blue */}
-              <motion.div 
-                className="absolute top-[5%] right-[15%] w-3 h-3 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50"
-                animate={{ y: [0, -20, 0], opacity: [0.4, 1, 0.4], scale: [1, 1.5, 1] }}
-                transition={{ duration: 3, repeat: Infinity, delay: 0 }}
-              />
-              <motion.div 
-                className="absolute top-[15%] right-[5%] w-2 h-2 bg-blue-300 rounded-full shadow-lg shadow-blue-300/50"
-                animate={{ y: [0, -15, 0], opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 2.5, repeat: Infinity, delay: 0.3 }}
-              />
-              <motion.div 
-                className="absolute top-[25%] left-[5%] w-4 h-4 bg-blue-500 rounded-full shadow-lg shadow-blue-500/50"
-                animate={{ y: [0, -25, 0], opacity: [0.5, 1, 0.5], rotate: [0, 360] }}
-                transition={{ duration: 3.5, repeat: Infinity, delay: 0.6 }}
-              />
+                {/* Arrow */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                  <ArrowRight className="w-8 h-8 text-blue-400" />
+                </motion.div>
 
-              {/* Floating dots - Yellow/Orange */}
-              <motion.div 
-                className="absolute bottom-[25%] left-[10%] w-3 h-3 bg-yellow-400 rounded-full shadow-lg shadow-yellow-400/50"
-                animate={{ y: [0, -18, 0], opacity: [0.4, 1, 0.4] }}
-                transition={{ duration: 2.8, repeat: Infinity, delay: 0.2 }}
-              />
-              <motion.div 
-                className="absolute bottom-[40%] right-[8%] w-2 h-2 bg-orange-400 rounded-full shadow-lg shadow-orange-400/50"
-                animate={{ y: [0, -12, 0], opacity: [0.3, 1, 0.3], x: [0, 10, 0] }}
-                transition={{ duration: 2.2, repeat: Infinity, delay: 0.8 }}
-              />
-              <motion.div 
-                className="absolute top-[40%] right-[25%] w-2.5 h-2.5 bg-amber-300 rounded-full shadow-lg shadow-amber-300/50"
-                animate={{ y: [0, -15, 0], opacity: [0.4, 1, 0.4] }}
-                transition={{ duration: 3.2, repeat: Infinity, delay: 1.1 }}
-              />
+                {/* Instant Text */}
+                <motion.div
+                  className="flex flex-col items-center gap-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <motion.div 
+                    className="w-24 h-24 bg-green-500/20 rounded-full flex items-center justify-center border-2 border-green-500 shadow-lg shadow-green-500/30"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+                  >
+                    <MessageSquare className="w-12 h-12 text-green-400" />
+                  </motion.div>
+                  <p className="text-sm font-semibold text-gray-300 text-center">Instant Text</p>
+                </motion.div>
 
-              {/* Floating dots - Purple/Pink */}
-              <motion.div 
-                className="absolute top-[10%] left-[20%] w-2 h-2 bg-purple-400 rounded-full shadow-lg shadow-purple-400/50"
-                animate={{ y: [0, -14, 0], opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 2.6, repeat: Infinity, delay: 0.4 }}
-              />
-              <motion.div 
-                className="absolute bottom-[15%] right-[20%] w-3 h-3 bg-pink-400 rounded-full shadow-lg shadow-pink-400/50"
-                animate={{ y: [0, -20, 0], opacity: [0.4, 1, 0.4], scale: [1, 1.3, 1] }}
-                transition={{ duration: 3.3, repeat: Infinity, delay: 0.9 }}
-              />
-              <motion.div 
-                className="absolute top-[50%] left-[0%] w-2 h-2 bg-fuchsia-400 rounded-full shadow-lg shadow-fuchsia-400/50"
-                animate={{ y: [0, -16, 0], opacity: [0.3, 1, 0.3] }}
-                transition={{ duration: 2.9, repeat: Infinity, delay: 1.4 }}
-              />
+                {/* Arrow */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                >
+                  <ArrowRight className="w-8 h-8 text-blue-400" />
+                </motion.div>
 
-              {/* Floating dots - Cyan/Green */}
-              <motion.div 
-                className="absolute top-[60%] right-[0%] w-2.5 h-2.5 bg-cyan-400 rounded-full shadow-lg shadow-cyan-400/50"
-                animate={{ y: [0, -18, 0], opacity: [0.4, 1, 0.4] }}
-                transition={{ duration: 3.1, repeat: Infinity, delay: 0.7 }}
-              />
-              <motion.div 
-                className="absolute bottom-[35%] left-[25%] w-2 h-2 bg-green-400 rounded-full shadow-lg shadow-green-400/50"
-                animate={{ y: [0, -12, 0], opacity: [0.3, 1, 0.3], x: [0, -8, 0] }}
-                transition={{ duration: 2.4, repeat: Infinity, delay: 1.2 }}
-              />
-              <motion.div 
-                className="absolute top-[35%] left-[15%] w-3 h-3 bg-teal-400 rounded-full shadow-lg shadow-teal-400/50"
-                animate={{ y: [0, -22, 0], opacity: [0.5, 1, 0.5] }}
-                transition={{ duration: 3.6, repeat: Infinity, delay: 0.5 }}
-              />
-
-              {/* Extra small sparkle dots */}
-              <motion.div 
-                className="absolute top-[20%] right-[30%] w-1.5 h-1.5 bg-white rounded-full"
-                animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 0.5] }}
-                transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
-              />
-              <motion.div 
-                className="absolute top-[70%] left-[30%] w-1.5 h-1.5 bg-white rounded-full"
-                animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 0.5] }}
-                transition={{ duration: 1.8, repeat: Infinity, delay: 0.6 }}
-              />
-              <motion.div 
-                className="absolute top-[45%] right-[10%] w-1 h-1 bg-white rounded-full"
-                animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 0.5] }}
-                transition={{ duration: 1.3, repeat: Infinity, delay: 1.2 }}
-              />
-              <motion.div 
-                className="absolute bottom-[50%] left-[5%] w-1 h-1 bg-white rounded-full"
-                animate={{ opacity: [0, 1, 0], scale: [0.5, 2, 0.5] }}
-                transition={{ duration: 1.6, repeat: Infinity, delay: 0.3 }}
-              />
-
-              {/* Orbiting ring effect */}
-              <motion.div
-                className="absolute w-[300px] h-[300px] border border-blue-500/20 rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              />
-              <motion.div
-                className="absolute w-[400px] h-[400px] border border-purple-500/10 rounded-full"
-                animate={{ rotate: -360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              />
+                {/* Job Booked */}
+                <motion.div
+                  className="flex flex-col items-center gap-3"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <motion.div 
+                    className="w-24 h-24 bg-blue-500/20 rounded-full flex items-center justify-center border-2 border-blue-500 shadow-lg shadow-blue-500/30"
+                    animate={{ 
+                      scale: [1, 1.05, 1],
+                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: 0.6 }}
+                  >
+                    <Calendar className="w-12 h-12 text-blue-400" />
+                  </motion.div>
+                  <p className="text-sm font-semibold text-gray-300 text-center">Job Booked</p>
+                </motion.div>
+              </div>
             </motion.div>
           )}
         </div>
