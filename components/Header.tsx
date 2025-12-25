@@ -29,6 +29,7 @@ export default function Header() {
   const [aboutHovered, setAboutHovered] = useState(false);
   const [whatYouGetHovered, setWhatYouGetHovered] = useState(false);
   const [mobileWhatYouGetOpen, setMobileWhatYouGetOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm border-b border-gray-200">
