@@ -265,3 +265,4 @@ function TradeCard({
     </motion.div>
   );
 }
+

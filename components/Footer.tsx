@@ -2,9 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import Link from 'next/link';
 import Logo from './Logo';
-import Button from './Button';
 import { fadeInUp, staggerContainer, staggerItem } from '@/lib/animations';
 
 export default function Footer() {
@@ -132,26 +130,6 @@ export default function Footer() {
               </div>
             </div>
           </motion.div>
-        </motion.div>
-
-        {/* CTA Section */}
-        <motion.div 
-          className="border-t border-gray-800 pt-12 mt-12 text-center"
-          variants={fadeInUp}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-            Stop Losing Jobs. Let Your System Book Them For You — 24/7.
-          </h3>
-          <p className="text-gray-400 mb-6 text-lg max-w-2xl mx-auto">
-            Book a demo and see how we turn missed calls into booked appointments.
-          </p>
-          <Link href="/contact" onClick={() => sessionStorage.setItem('scrollToBooking', 'true')}>
-            <Button variant="primary" className="text-lg px-8 py-4">
-              Book Demo
-            </Button>
-          </Link>
         </motion.div>
 
         {/* Copyright Section */}

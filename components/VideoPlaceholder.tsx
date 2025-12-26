@@ -185,3 +185,4 @@ export default function VideoPlaceholder() {
     </motion.div>
   );
 }
+
