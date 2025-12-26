@@ -107,10 +107,10 @@ export default function PrivacyPage() {
               <p className="text-gray-700 leading-relaxed">
                 If you have any questions about this Privacy Policy, You can contact us via email at{' '}
                 <a
-                  href="mailto:support@digitallift.io"
+                  href="mailto:info@digitallift.io"
                   className="text-blue-600 hover:text-blue-700 underline"
                 >
-                  support@digitallift.io
+                  info@digitallift.io
                 </a>
               </p>
             </section>

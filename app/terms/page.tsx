@@ -104,15 +104,11 @@ export default function TermsPage() {
             <section>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Subscription Plans and Billing</h2>
               <p className="text-gray-700 leading-relaxed mb-4">
-                Digital Lift LLC offers two primary subscription plans:
+                Digital Lift LLC offers a subscription plan:
               </p>
               <ul className="list-disc list-inside text-gray-700 space-y-2 ml-4 mb-4">
-                <li><strong>$297/month:</strong> Includes a fully built website, access to the Digital Lift platform (web and mobile app), a business phone number for texting and calling, CRM access, automations, remarketing, and customer review tools.</li>
-                <li><strong>$750/month:</strong> Includes all features from the $297 plan plus full management and optimization of Google Local Service Ads.</li>
+                <li><strong>$497/month:</strong> Includes a fully built website, access to the Digital Lift platform (web and mobile app), a business phone number for texting and calling, CRM access, automations, remarketing, and customer review tools.</li>
               </ul>
-              <p className="text-gray-700 leading-relaxed">
-                Subscriptions are available on a month-to-month basis or a prepaid 3-month commitment, the latter including a complimentary Google My Business optimization (valued at $400).
-              </p>
             </section>
 
             <section>
@@ -222,10 +218,10 @@ export default function TermsPage() {
               <p className="text-gray-700 leading-relaxed">
                 For any queries or concerns regarding these Terms and Conditions, please contact Digital Lift LLC at{' '}
                 <a
-                  href="mailto:support@digitallift.io"
+                  href="mailto:info@digitallift.io"
                   className="text-blue-600 hover:text-blue-700 underline"
                 >
-                  support@digitallift.io
+                  info@digitallift.io
                 </a>
               </p>
             </section>
