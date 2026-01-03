@@ -266,9 +266,9 @@ export default function ContactPage() {
             </p>
           </div>
           <iframe 
-              src="https://api.digitallift.io/widget/booking/jpGifmdOeIbfiftmjQ2w" 
+              src="https://api.digitallift.io/widget/bookings/launch-call-digital-lift" 
               style={{ width: '100%', height: '700px', border: 'none' }}
-              id="jpGifmdOeIbfiftmjQ2w_1766339559949"
+              id="launch-call-digital-lift"
             />
         </div>
       </section>
