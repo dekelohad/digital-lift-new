@@ -62,9 +62,7 @@ export default function Footer() {
               items: [
                 { href: '/functional-website', text: 'Functional Website' },
                 { href: '/answers-calls-24-7', text: 'Answers Calls 24/7' },
-                { href: '/texts-missed-callers-instantly', text: 'Texts Missed Callers Instantly' },
-                { href: '/books-jobs-from-website', text: 'Books Jobs From Website' },
-                { href: '/ai-books-appointments', text: 'AI Books Appointments' }
+                { href: '/texts-missed-callers-instantly', text: 'Texts Missed Callers Instantly' }
               ]
             }
           ].map((section, sectionIndex) => (

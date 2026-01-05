@@ -257,13 +257,6 @@ function SolutionSection() {
       href: '/functional-website'
     },
     {
-      icon: Bot,
-      title: 'AI chatbot answers questions 24/7',
-      text: 'Your website chatbot engages visitors instantly, answers questions, and captures leads even when you\'re busy on a job site.',
-      gradient: 'from-teal-500 to-cyan-500',
-      href: '/books-jobs-from-website'
-    },
-    {
       icon: Phone,
       title: 'Never miss a call — even when you\'re on a job site',
       text: 'Your AI receptionist answers every call, 24/7. It qualifies leads so you only talk to serious prospects ready to book.',
@@ -276,13 +269,6 @@ function SolutionSection() {
       text: 'Every missed call gets an instant text response. Customers feel acknowledged and are far more likely to move forward.',
       gradient: 'from-green-500 to-emerald-500',
       href: '/texts-missed-callers-instantly'
-    },
-    {
-      icon: Calendar,
-      title: 'Open your calendar. See booked jobs.',
-      text: 'AI qualifies leads and books directly into your calendar. No back-and-forth texts, no missed opportunities.',
-      gradient: 'from-purple-500 to-pink-500',
-      href: '/ai-books-appointments'
     },
     {
       icon: Star,
