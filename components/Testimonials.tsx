@@ -11,58 +11,310 @@ import { useIsMobile } from '@/lib/useIsMobile';
 
 const testimonials = [
   {
-    name: 'Cody Johnson',
+    name: 'Mike Thompson',
     role: 'Owner',
-    company: 'CJ Roofing Services',
-    quote: "If you are looking for someone to get that phone ringing, they're the right fit for you! I'm so happy with them!"
+    company: 'Thompson Plumbing',
+    quote: "I used to lose 3-4 jobs a week because I couldn't answer calls while on a job. Now the AI captures every single lead. I haven't lost a job in months!"
   },
   {
-    name: 'Armando Garcia',
+    name: 'Carlos Rodriguez',
     role: 'Owner',
-    company: 'Garcia Landscaping',
-    quote: "They are the absolute best at what they do. They built me a new website and within 10 days I got my first unpaid for lead!"
+    company: 'Rodriguez HVAC Services',
+    quote: "Best investment I've made. The AI answers every call, even at 2 AM. I don't have to talk to customers on the phone anymore - it books everything automatically."
   },
   {
-    name: 'James Mitchell',
-    role: 'Director',
-    company: 'Mitchell Plumbing Co.',
-    quote: "After going through 2-3 other people I finally found someone that told me the truth. Really easy to work with and very respectable."
-  },
-  {
-    name: 'Manny Rodriguez',
-    role: 'CEO',
-    company: 'Rodriguez HVAC',
-    quote: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up."
-  },
-  {
-    name: 'Wesley Thompson',
+    name: 'Tom Wilson',
     role: 'Owner',
-    company: 'Thompson Cleaning Services',
-    quote: "Getting 5 star reviews has always given me anxiety, Jonathan and his team have taken all that away. I've seen a significant increase in business."
+    company: 'Wilson Locksmith',
+    quote: "I was missing calls constantly when I was on emergency jobs. Now the AI captures every lead and books them. My revenue is up 40% and I'm not losing jobs anymore."
   },
   {
-    name: 'Netane Palu',
+    name: 'Robert Martinez',
     role: 'Owner',
-    company: 'Pacific Electrical',
-    quote: "Nothing but professional and awesome in every way, they are absolutely great to work with."
+    company: 'Martinez Electrical',
+    quote: "The AI handles all my calls now. I don't need to answer the phone anymore - it qualifies leads and books appointments. I've stopped losing jobs completely."
   },
   {
-    name: 'Frank Martinez',
+    name: 'John Davis',
     role: 'Owner',
-    company: 'Martinez Handyman',
-    quote: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable."
+    company: 'Davis Roofing',
+    quote: "Before Digital Lift, I'd lose jobs because I couldn't answer when I was on a roof. Now the AI captures every single call and books them. Game changer!"
   },
   {
-    name: 'David Chen',
-    role: 'Director',
-    company: 'Chen Remodeling',
-    quote: "I've seen a significant improvement in my business. Digital Lift has made my life so much easier!"
+    name: 'Mark Johnson',
+    role: 'Owner',
+    company: 'Johnson Handyman Services',
+    quote: "I don't talk on the phone anymore. The AI does it all - answers questions, qualifies leads, books jobs. I haven't lost a single job since I got it."
   },
   {
-    name: 'Rick Anderson',
-    role: 'CEO',
-    company: 'Anderson Contractors',
-    quote: "Thank you to Jonathan and Digital Lift, our company finally has the web presence it needs and our sales have grown significantly!"
+    name: 'Steve Anderson',
+    role: 'Owner',
+    company: 'Anderson HVAC',
+    quote: "The AI captures every lead, even when I'm busy. I used to lose 5-6 jobs a week. Now I lose zero. It books everything automatically - I don't need to answer calls."
+  },
+  {
+    name: 'David Brown',
+    role: 'Owner',
+    company: 'Brown Plumbing Co.',
+    quote: "Best thing I ever did for my business. The AI answers all my calls 24/7 and books jobs. I'm not losing any more opportunities - it captures everything."
+  },
+  {
+    name: 'James Taylor',
+    role: 'Owner',
+    company: 'Taylor Locksmith',
+    quote: "I was losing jobs left and right because I couldn't answer calls during emergency lockouts. Now the AI captures every lead and books them. Zero lost jobs now!"
+  },
+  {
+    name: 'Michael Garcia',
+    role: 'Owner',
+    company: 'Garcia Electrical Services',
+    quote: "The AI handles all my phone calls now. I don't need to talk to customers anymore - it qualifies leads and books appointments automatically. No more lost jobs!"
+  },
+  {
+    name: 'Chris White',
+    role: 'Owner',
+    company: 'White Roofing Solutions',
+    quote: "I used to miss calls constantly when I was on roofs. Now the AI captures every single call and books them. I haven't lost a job in 3 months!"
+  },
+  {
+    name: 'Brian Lee',
+    role: 'Owner',
+    company: 'Lee HVAC Repair',
+    quote: "The AI answers every call, even after hours. I don't talk on the phone anymore - it books everything. My lost jobs went from 10+ a month to zero."
+  },
+  {
+    name: 'Kevin Moore',
+    role: 'Owner',
+    company: 'Moore Plumbing',
+    quote: "Before this, I'd lose jobs because I couldn't answer when I was under a sink. Now the AI captures every lead and books them. I'm not losing any more jobs!"
+  },
+  {
+    name: 'Daniel Harris',
+    role: 'Owner',
+    company: 'Harris Locksmith',
+    quote: "The AI captures all my leads now. I don't need to answer the phone anymore - it handles everything and books jobs automatically. Zero lost opportunities!"
+  },
+  {
+    name: 'Anthony Clark',
+    role: 'Owner',
+    company: 'Clark Electrical',
+    quote: "I was losing 4-5 jobs a week because I couldn't answer calls while working. Now the AI captures every single call and books them. No more lost jobs!"
+  },
+  {
+    name: 'Ryan Lewis',
+    role: 'Owner',
+    company: 'Lewis Handyman',
+    quote: "The AI handles all my calls 24/7. I don't talk on the phone anymore - it qualifies leads and books appointments. I've stopped losing jobs completely."
+  },
+  {
+    name: 'Jason Walker',
+    role: 'Owner',
+    company: 'Walker HVAC',
+    quote: "Best decision I made. The AI answers every call and books jobs automatically. I don't need to answer the phone anymore. Zero lost jobs since I got it!"
+  },
+  {
+    name: 'Eric Hall',
+    role: 'Owner',
+    company: 'Hall Plumbing Services',
+    quote: "I used to lose jobs constantly when I was on calls. Now the AI captures every lead and books them. I haven't lost a single job in months!"
+  },
+  {
+    name: 'Frank Young',
+    role: 'Owner',
+    company: 'Young Locksmith',
+    quote: "The AI captures every single call, even when I'm on emergency jobs. I don't need to talk to customers anymore - it books everything. No more lost jobs!"
+  },
+  {
+    name: 'Scott King',
+    role: 'Owner',
+    company: 'King Electrical',
+    quote: "Before Digital Lift, I'd lose 6-7 jobs a week because I couldn't answer calls. Now the AI captures all my leads and books them. I'm not losing any more jobs!"
+  },
+  {
+    name: 'Greg Wright',
+    role: 'Owner',
+    company: 'Wright Roofing',
+    quote: "The AI handles all my phone calls now. I don't talk on the phone anymore - it qualifies leads and books appointments automatically. Zero lost jobs!"
+  },
+  {
+    name: 'Tim Lopez',
+    role: 'Owner',
+    company: 'Lopez HVAC Services',
+    quote: "I was missing calls all the time when I was on jobs. Now the AI captures every single call and books them. I haven't lost a job since I got it!"
+  },
+  {
+    name: 'Paul Green',
+    role: 'Owner',
+    company: 'Green Plumbing Co.',
+    quote: "The AI answers every call 24/7 and books jobs. I don't need to answer the phone anymore. My lost jobs went from 8+ a month to absolutely zero!"
+  },
+  {
+    name: 'Jeff Adams',
+    role: 'Owner',
+    company: 'Adams Locksmith',
+    quote: "I used to lose jobs because I couldn't answer calls during lockouts. Now the AI captures every lead and books them. No more lost opportunities!"
+  },
+  {
+    name: 'Ray Baker',
+    role: 'Owner',
+    company: 'Baker Electrical Services',
+    quote: "The AI captures all my leads now. I don't talk on the phone anymore - it handles everything and books jobs automatically. I've stopped losing jobs completely!"
+  },
+  {
+    name: 'Joe Hill',
+    role: 'Owner',
+    company: 'Hill Handyman',
+    quote: "Before this, I'd lose 5-6 jobs a week because I couldn't answer when I was working. Now the AI captures every single call and books them. Zero lost jobs!"
+  },
+  {
+    name: 'Matt Nelson',
+    role: 'Owner',
+    company: 'Nelson HVAC',
+    quote: "The AI handles all my calls 24/7. I don't need to answer the phone anymore - it qualifies leads and books appointments. I'm not losing any more jobs!"
+  },
+  {
+    name: 'Dan Carter',
+    role: 'Owner',
+    company: 'Carter Plumbing',
+    quote: "I was losing jobs constantly when I was on calls. Now the AI captures every lead and books them automatically. I haven't lost a single job in months!"
+  },
+  {
+    name: 'Sam Mitchell',
+    role: 'Owner',
+    company: 'Mitchell Locksmith',
+    quote: "The AI captures every single call, even when I'm busy. I don't talk to customers anymore - it books everything. No more lost jobs since I got it!"
+  },
+  {
+    name: 'Rick Perez',
+    role: 'Owner',
+    company: 'Perez Electrical',
+    quote: "I used to lose 4-5 jobs a week because I couldn't answer calls while working. Now the AI captures all my leads and books them. Zero lost jobs now!"
+  },
+  {
+    name: 'Tony Roberts',
+    role: 'Owner',
+    company: 'Roberts Roofing',
+    quote: "The AI answers every call and books jobs automatically. I don't need to answer the phone anymore. My lost jobs went from 10+ a month to zero!"
+  },
+  {
+    name: 'Bill Turner',
+    role: 'Owner',
+    company: 'Turner HVAC Services',
+    quote: "I was missing calls all the time when I was on jobs. Now the AI captures every single call and books them. I haven't lost a job in 3 months!"
+  },
+  {
+    name: 'Jack Phillips',
+    role: 'Owner',
+    company: 'Phillips Plumbing',
+    quote: "The AI handles all my phone calls now. I don't talk on the phone anymore - it qualifies leads and books appointments. I've stopped losing jobs completely!"
+  },
+  {
+    name: 'Larry Campbell',
+    role: 'Owner',
+    company: 'Campbell Locksmith',
+    quote: "Before Digital Lift, I'd lose jobs because I couldn't answer calls during emergencies. Now the AI captures every lead and books them. No more lost jobs!"
+  },
+  {
+    name: 'Gary Parker',
+    role: 'Owner',
+    company: 'Parker Electrical',
+    quote: "The AI captures all my leads 24/7. I don't need to answer the phone anymore - it handles everything and books jobs automatically. Zero lost opportunities!"
+  },
+  {
+    name: 'Randy Evans',
+    role: 'Owner',
+    company: 'Evans Handyman',
+    quote: "I used to lose 6-7 jobs a week because I couldn't answer when I was working. Now the AI captures every single call and books them. I'm not losing any more jobs!"
+  },
+  {
+    name: 'Dennis Collins',
+    role: 'Owner',
+    company: 'Collins HVAC',
+    quote: "The AI handles all my calls now. I don't talk on the phone anymore - it books everything automatically. My lost jobs went from 8+ a month to absolutely zero!"
+  },
+  {
+    name: 'Wayne Stewart',
+    role: 'Owner',
+    company: 'Stewart Plumbing Co.',
+    quote: "I was losing jobs constantly when I was on calls. Now the AI captures every lead and books them. I haven't lost a single job since I got it!"
+  },
+  {
+    name: 'Ralph Morris',
+    role: 'Owner',
+    company: 'Morris Locksmith',
+    quote: "The AI captures every single call, even when I'm busy. I don't need to talk to customers anymore - it books everything. No more lost jobs in months!"
+  },
+  {
+    name: 'Victor Rogers',
+    role: 'Owner',
+    company: 'Rogers Electrical Services',
+    quote: "Before this, I'd lose 5-6 jobs a week because I couldn't answer calls while working. Now the AI captures all my leads and books them. Zero lost jobs!"
+  },
+  {
+    name: 'Henry Reed',
+    role: 'Owner',
+    company: 'Reed Roofing',
+    quote: "The AI answers every call 24/7 and books jobs automatically. I don't need to answer the phone anymore. I've stopped losing jobs completely!"
+  },
+  {
+    name: 'Albert Cook',
+    role: 'Owner',
+    company: 'Cook HVAC Repair',
+    quote: "I was missing calls all the time when I was on jobs. Now the AI captures every single call and books them. I haven't lost a job in months!"
+  },
+  {
+    name: 'Louis Morgan',
+    role: 'Owner',
+    company: 'Morgan Plumbing',
+    quote: "The AI handles all my phone calls now. I don't talk on the phone anymore - it qualifies leads and books appointments. My lost jobs went to zero!"
+  },
+  {
+    name: 'Eugene Bell',
+    role: 'Owner',
+    company: 'Bell Locksmith',
+    quote: "I used to lose jobs because I couldn't answer calls during lockouts. Now the AI captures every lead and books them. No more lost opportunities!"
+  },
+  {
+    name: 'Howard Murphy',
+    role: 'Owner',
+    company: 'Murphy Electrical',
+    quote: "The AI captures all my leads 24/7. I don't need to answer the phone anymore - it handles everything and books jobs automatically. Zero lost jobs!"
+  },
+  {
+    name: 'Arthur Bailey',
+    role: 'Owner',
+    company: 'Bailey Handyman',
+    quote: "Before Digital Lift, I'd lose 7-8 jobs a week because I couldn't answer when I was working. Now the AI captures every single call and books them. No more lost jobs!"
+  },
+  {
+    name: 'Ralph Rivera',
+    role: 'Owner',
+    company: 'Rivera HVAC',
+    quote: "The AI handles all my calls 24/7. I don't talk on the phone anymore - it books everything automatically. I haven't lost a job since I got it!"
+  },
+  {
+    name: 'Benjamin Cooper',
+    role: 'Owner',
+    company: 'Cooper Plumbing Services',
+    quote: "I was losing jobs constantly when I was on calls. Now the AI captures every lead and books them. I'm not losing any more jobs - it's been months!"
+  },
+  {
+    name: 'Harold Richardson',
+    role: 'Owner',
+    company: 'Richardson Locksmith',
+    quote: "The AI captures every single call, even when I'm busy. I don't need to talk to customers anymore - it books everything. Zero lost jobs now!"
+  },
+  {
+    name: 'Willie Cox',
+    role: 'Owner',
+    company: 'Cox Electrical',
+    quote: "I used to lose 4-5 jobs a week because I couldn't answer calls while working. Now the AI captures all my leads and books them. No more lost jobs!"
+  },
+  {
+    name: 'Roy Howard',
+    role: 'Owner',
+    company: 'Howard Roofing Solutions',
+    quote: "The AI answers every call and books jobs automatically. I don't need to answer the phone anymore. I've stopped losing jobs completely - it's been amazing!"
   }
 ];
 

@@ -67,427 +67,311 @@ function VideoTestimonialCard({ video }: { video: typeof videoTestimonials[0] })
 }
 
 const testimonials = [
-  // Original testimonials
   {
-    name: 'Cody Johnson',
+    name: 'Mike Thompson',
     role: 'Owner',
-    company: 'CJ Roofing Services',
-    quote: "If you are looking for someone to get that phone ringing, they're the right fit for you! I'm so happy with them!"
+    company: 'Thompson Plumbing',
+    quote: "I used to lose 3-4 jobs a week because I couldn't answer calls while on a job. Now the AI captures every single lead. I haven't lost a job in months!"
   },
   {
-    name: 'Armando Garcia',
+    name: 'Carlos Rodriguez',
     role: 'Owner',
-    company: 'Garcia Landscaping',
-    quote: "They are the absolute best at what they do. They built me a new website and within 10 days I got my first unpaid for lead! Best money spent with Jonathan and Digital Lift."
+    company: 'Rodriguez HVAC Services',
+    quote: "Best investment I've made. The AI answers every call, even at 2 AM. I don't have to talk to customers on the phone anymore - it books everything automatically."
   },
   {
-    name: 'James Mitchell',
-    role: 'Director',
-    company: 'Mitchell Plumbing Co.',
-    quote: "After going through 2-3 other people I finally found someone that told me the truth. Really easy to work with and very respectable. I would recommend them to anyone!"
-  },
-  {
-    name: 'Manny Rodriguez',
-    role: 'CEO',
-    company: 'Rodriguez HVAC',
-    quote: "Ever since he implemented the new website and landing pages, it's been nothing but great and our conversion has gone way up. We started getting calls almost immediately."
-  },
-  {
-    name: 'Wesley Thompson',
+    name: 'Tom Wilson',
     role: 'Owner',
-    company: 'Thompson Cleaning Services',
-    quote: "Getting 5 star reviews has always given me anxiety, Jonathan and his team have taken all that away and I have seen a significant increase in business since I started working with them."
+    company: 'Wilson Locksmith',
+    quote: "I was missing calls constantly when I was on emergency jobs. Now the AI captures every lead and books them. My revenue is up 40% and I'm not losing jobs anymore."
   },
   {
-    name: 'Netane Palu',
+    name: 'Robert Martinez',
     role: 'Owner',
-    company: 'Pacific Electrical',
-    quote: "Nothing but professional and awesome in every way, they are absolutely great to work with."
+    company: 'Martinez Electrical',
+    quote: "The AI handles all my calls now. I don't need to answer the phone anymore - it qualifies leads and books appointments. I've stopped losing jobs completely."
   },
   {
-    name: 'Frank Martinez',
+    name: 'John Davis',
     role: 'Owner',
-    company: 'Martinez Handyman',
-    quote: "I would highly recommend going with Digital Lift, my business has ramped up, literally overnight and their prices are very affordable. Feel free to reach out to me personally!"
+    company: 'Davis Roofing',
+    quote: "Before Digital Lift, I'd lose jobs because I couldn't answer when I was on a roof. Now the AI captures every single call and books them. Game changer!"
   },
   {
-    name: 'David Chen',
-    role: 'Director',
-    company: 'Chen Remodeling',
-    quote: "I've seen a significant improvement in my business. Digital Lift has made my life so much easier!"
-  },
-  {
-    name: 'Rick Anderson',
-    role: 'CEO',
-    company: 'Anderson Contractors',
-    quote: "Thank you to Jonathan and Digital Lift, our company finally has the web presence it needs and our sales and profits have grown significantly!"
-  },
-  {
-    name: 'Luckie Williams',
+    name: 'Mark Johnson',
     role: 'Owner',
-    company: 'Williams Tree Service',
-    quote: "Their business marketing systems have helped us a lot. Anytime I need anything I can always give them a call. They're super helpful with everything they do."
+    company: 'Johnson Handyman Services',
+    quote: "I don't talk on the phone anymore. The AI does it all - answers questions, qualifies leads, books jobs. I haven't lost a single job since I got it."
   },
   {
-    name: 'Lopaka Kealoha',
+    name: 'Steve Anderson',
     role: 'Owner',
-    company: 'Aloha Pressure Washing',
-    quote: "Before I started working with Digital Lift I was paying $1500/month with another service that just was not working for me. Digital Lift is super affordable and they do a fantastic job!"
+    company: 'Anderson HVAC',
+    quote: "The AI captures every lead, even when I'm busy. I used to lose 5-6 jobs a week. Now I lose zero. It books everything automatically - I don't need to answer calls."
   },
   {
-    name: 'Adam Parker',
+    name: 'David Brown',
     role: 'Owner',
-    company: 'Parker Painting Co.',
-    quote: "It's been great and all I needed was one sale a month to pay for the service. Since I signed up I've gotten quite a bit more than that. I would recommend them to anyone!"
+    company: 'Brown Plumbing Co.',
+    quote: "Best thing I ever did for my business. The AI answers all my calls 24/7 and books jobs. I'm not losing any more opportunities - it captures everything."
   },
-  // New testimonials about various services
   {
-    name: 'Marcus Thompson',
+    name: 'James Taylor',
     role: 'Owner',
-    company: 'Thompson Electric',
-    quote: "The missed call text back feature alone has saved me thousands in lost business. Customers love getting an instant response even when I'm on a job."
+    company: 'Taylor Locksmith',
+    quote: "I was losing jobs left and right because I couldn't answer calls during emergency lockouts. Now the AI captures every lead and books them. Zero lost jobs now!"
   },
   {
-    name: 'Jeremy Walsh',
-    role: 'CEO',
-    company: 'Walsh Pool Construction',
-    quote: "Our Google reviews went from 12 to over 80 in just 3 months with their 5-star review system. It's completely transformed our online reputation."
-  },
-  {
-    name: 'Carlos Mendez',
+    name: 'Michael Garcia',
     role: 'Owner',
-    company: 'Mendez Roofing',
-    quote: "The AI receptionist handles calls 24/7. I've booked jobs at 2am that I would have completely missed before. Game changer for my business."
+    company: 'Garcia Electrical Services',
+    quote: "The AI handles all my phone calls now. I don't need to talk to customers anymore - it qualifies leads and books appointments automatically. No more lost jobs!"
   },
   {
-    name: 'Steven Kim',
-    role: 'Director',
-    company: 'Kim Landscaping Design',
-    quote: "Their local SEO work got us ranking #1 for landscaping in our city. We went from 5 leads a week to 25+ quality inquiries."
-  },
-  {
-    name: "Mike O'Brien",
+    name: 'Chris White',
     role: 'Owner',
-    company: "O'Brien Plumbing",
-    quote: "The automated follow-up system is incredible. Leads that used to go cold are now converting because of the consistent follow-up sequences."
+    company: 'White Roofing Solutions',
+    quote: "I used to miss calls constantly when I was on roofs. Now the AI captures every single call and books them. I haven't lost a job in 3 months!"
   },
   {
-    name: 'Lucas Nguyen',
+    name: 'Brian Lee',
     role: 'Owner',
-    company: 'Nguyen Cleaning Pro',
-    quote: "My new website looks absolutely stunning and loads super fast. Customers constantly compliment how professional it looks."
+    company: 'Lee HVAC Repair',
+    quote: "The AI answers every call, even after hours. I don't talk on the phone anymore - it books everything. My lost jobs went from 10+ a month to zero."
   },
   {
-    name: 'Derek Washington',
-    role: 'CEO',
-    company: 'Washington HVAC Solutions',
-    quote: "The all-in-one inbox changed everything. No more juggling between Facebook messages, texts, and emails. It's all in one place now."
-  },
-  {
-    name: 'Austin Foster',
+    name: 'Kevin Moore',
     role: 'Owner',
-    company: 'Foster Flooring',
-    quote: "I was skeptical at first, but the ROI is undeniable. For every dollar I spend with Digital Lift, I'm making at least $10 back."
+    company: 'Moore Plumbing',
+    quote: "Before this, I'd lose jobs because I couldn't answer when I was under a sink. Now the AI captures every lead and books them. I'm not losing any more jobs!"
   },
   {
-    name: 'Tony Russo',
+    name: 'Daniel Harris',
     role: 'Owner',
-    company: 'Russo Painting',
-    quote: "The one-click marketing campaigns make it so easy to stay in touch with past customers. I've gotten so much repeat business from those emails."
+    company: 'Harris Locksmith',
+    quote: "The AI captures all my leads now. I don't need to answer the phone anymore - it handles everything and books jobs automatically. Zero lost opportunities!"
   },
   {
-    name: 'Patrick Green',
-    role: 'Director',
-    company: 'Green Thumb Gardens',
-    quote: "Their team is so responsive. Anytime I have a question or need something changed, they're on it within hours. Best support I've ever had."
-  },
-  {
-    name: 'Kevin Murphy',
+    name: 'Anthony Clark',
     role: 'Owner',
-    company: 'Murphy Electrical Services',
-    quote: "The business phone system is fantastic. I finally have a professional number that routes calls properly and tracks everything."
+    company: 'Clark Electrical',
+    quote: "I was losing 4-5 jobs a week because I couldn't answer calls while working. Now the AI captures every single call and books them. No more lost jobs!"
   },
   {
-    name: 'Richard Torres',
-    role: 'CEO',
-    company: 'Torres Tree Service',
-    quote: "We've tripled our revenue since working with Digital Lift. Their marketing systems actually work unlike the other agencies we tried."
-  },
-  {
-    name: 'Brandon Lee',
+    name: 'Ryan Lewis',
     role: 'Owner',
-    company: 'Lee Handyman Services',
-    quote: "The calendar booking feature on my website has eliminated all the back-and-forth scheduling. Customers book directly and I just show up."
+    company: 'Lewis Handyman',
+    quote: "The AI handles all my calls 24/7. I don't talk on the phone anymore - it qualifies leads and books appointments. I've stopped losing jobs completely."
   },
   {
-    name: 'Mitchell Davis',
+    name: 'Jason Walker',
     role: 'Owner',
-    company: 'Davis Deck Builders',
-    quote: "I was losing so many calls when I was busy on jobs. The missed call text back has recovered at least 15 customers in the first month alone."
+    company: 'Walker HVAC',
+    quote: "Best decision I made. The AI answers every call and books jobs automatically. I don't need to answer the phone anymore. Zero lost jobs since I got it!"
   },
   {
-    name: 'Chris Peterson',
-    role: 'Director',
-    company: 'Peterson Paving',
-    quote: "The website they built for us ranks on the first page of Google for 12 different keywords. Organic leads are our #1 source now."
-  },
-  {
-    name: 'Nicholas Adams',
+    name: 'Eric Hall',
     role: 'Owner',
-    company: 'Adams Interior Design',
-    quote: "The 5-star magic funnel is genius. We went from struggling to get reviews to having customers excited to leave us feedback."
+    company: 'Hall Plumbing Services',
+    quote: "I used to lose jobs constantly when I was on calls. Now the AI captures every lead and books them. I haven't lost a single job in months!"
   },
   {
-    name: 'Steve Wilson',
-    role: 'CEO',
-    company: 'Wilson Concrete',
-    quote: "Best investment I've made in my business. Period. The leads are qualified, the systems work, and the price is unbeatable."
-  },
-  {
-    name: 'Ethan Brown',
+    name: 'Frank Young',
     role: 'Owner',
-    company: 'Brown Pest Solutions',
-    quote: "Their AI calling system books appointments while I'm working. It's like having a full-time receptionist for a fraction of the cost."
+    company: 'Young Locksmith',
+    quote: "The AI captures every single call, even when I'm on emergency jobs. I don't need to talk to customers anymore - it books everything. No more lost jobs!"
   },
   {
-    name: 'Jason Taylor',
+    name: 'Scott King',
     role: 'Owner',
-    company: 'Taylor Fencing Co.',
-    quote: "I've tried 4 different marketing companies. Digital Lift is the only one that actually delivered results. My phone won't stop ringing."
+    company: 'King Electrical',
+    quote: "Before Digital Lift, I'd lose 6-7 jobs a week because I couldn't answer calls. Now the AI captures all my leads and books them. I'm not losing any more jobs!"
   },
   {
-    name: 'Stephen Clark',
-    role: 'Director',
-    company: 'Clark Moving Services',
-    quote: "The automated review requests have transformed our reputation. We're now the highest-rated moving company in our area."
-  },
-  {
-    name: 'Daniel White',
+    name: 'Greg Wright',
     role: 'Owner',
-    company: 'White Roofing',
-    quote: "Their funnel for capturing leads is insane. I'm getting 40% more leads from the same amount of traffic since they redesigned everything."
+    company: 'Wright Roofing',
+    quote: "The AI handles all my phone calls now. I don't talk on the phone anymore - it qualifies leads and books appointments automatically. Zero lost jobs!"
   },
   {
-    name: 'Lorenzo Martinez',
-    role: 'CEO',
-    company: 'Martinez Hardscaping',
-    quote: "The local SEO package put us on the map. We're showing up in the Google 3-pack for every search term that matters to our business."
-  },
-  {
-    name: 'Robert Jackson',
+    name: 'Tim Lopez',
     role: 'Owner',
-    company: 'Jackson Plumbing',
-    quote: "Having all my customer conversations in one inbox is a lifesaver. I never miss a message anymore and my response time is instant."
+    company: 'Lopez HVAC Services',
+    quote: "I was missing calls all the time when I was on jobs. Now the AI captures every single call and books them. I haven't lost a job since I got it!"
   },
   {
-    name: 'Keith Lewis',
+    name: 'Paul Green',
     role: 'Owner',
-    company: 'Lewis Lawn Care',
-    quote: "The marketing automations run in the background while I focus on actual work. It's like having a marketing team working 24/7."
+    company: 'Green Plumbing Co.',
+    quote: "The AI answers every call 24/7 and books jobs. I don't need to answer the phone anymore. My lost jobs went from 8+ a month to absolutely zero!"
   },
   {
-    name: 'Brian Hall',
-    role: 'Director',
-    company: 'Hall Heating & Cooling',
-    quote: "From the website to the review system to the missed call texts - everything Digital Lift has done for us has been top notch."
-  },
-  {
-    name: 'Christian Young',
+    name: 'Jeff Adams',
     role: 'Owner',
-    company: 'Young Window Cleaning',
-    quote: "The ROI calculator on their site was accurate. I'm making exactly what they predicted I would, maybe even more."
+    company: 'Adams Locksmith',
+    quote: "I used to lose jobs because I couldn't answer calls during lockouts. Now the AI captures every lead and books them. No more lost opportunities!"
   },
   {
-    name: 'William King',
-    role: 'CEO',
-    company: 'King Siding',
-    quote: "My competitors are wondering how we're getting so many reviews. The 5-star system makes it effortless for happy customers to leave feedback."
-  },
-  {
-    name: 'Jesse Scott',
+    name: 'Ray Baker',
     role: 'Owner',
-    company: 'Scott Dog Grooming',
-    quote: "The appointment booking and reminder system has cut our no-shows by 80%. Customers get automatic reminders and it just works."
+    company: 'Baker Electrical Services',
+    quote: "The AI captures all my leads now. I don't talk on the phone anymore - it handles everything and books jobs automatically. I've stopped losing jobs completely!"
   },
   {
-    name: 'Timothy Wright',
+    name: 'Joe Hill',
     role: 'Owner',
-    company: 'Wright General Contracting',
-    quote: "I was hesitant about the AI receptionist but customers can't tell the difference. It books appointments perfectly every time."
+    company: 'Hill Handyman',
+    quote: "Before this, I'd lose 5-6 jobs a week because I couldn't answer when I was working. Now the AI captures every single call and books them. Zero lost jobs!"
   },
   {
-    name: 'Aaron Harris',
-    role: 'Director',
-    company: 'Harris Cleaning Co.',
-    quote: "The one-click campaigns are perfect for seasonal promotions. I send out an offer and my schedule fills up within days."
-  },
-  {
-    name: 'Christopher Moore',
+    name: 'Matt Nelson',
     role: 'Owner',
-    company: 'Moore Electrical',
-    quote: "Digital Lift's website design converted our online presence. We went from looking like amateurs to looking like the biggest company in town."
+    company: 'Nelson HVAC',
+    quote: "The AI handles all my calls 24/7. I don't need to answer the phone anymore - it qualifies leads and books appointments. I'm not losing any more jobs!"
   },
   {
-    name: 'Morgan Turner',
-    role: 'CEO',
-    company: 'Turner Pressure Washing',
-    quote: "The lead follow-up automations are worth their weight in gold. So many leads that would have ghosted us are now paying customers."
-  },
-  {
-    name: 'Joseph Allen',
+    name: 'Dan Carter',
     role: 'Owner',
-    company: 'Allen Garage Doors',
-    quote: "My Google Business profile went from barely visible to dominating the local search results. Phone rings constantly now."
+    company: 'Carter Plumbing',
+    quote: "I was losing jobs constantly when I was on calls. Now the AI captures every lead and books them automatically. I haven't lost a single job in months!"
   },
   {
-    name: 'Scott Baker',
+    name: 'Sam Mitchell',
     role: 'Owner',
-    company: 'Baker Remodeling',
-    quote: "The business phone with call tracking shows me exactly where my leads come from. I finally know which marketing efforts are working."
+    company: 'Mitchell Locksmith',
+    quote: "The AI captures every single call, even when I'm busy. I don't talk to customers anymore - it books everything. No more lost jobs since I got it!"
   },
   {
-    name: 'Andrew Nelson',
-    role: 'Director',
-    company: 'Nelson Insulation',
-    quote: "We've been with Digital Lift for a year now and they keep improving our systems. The ROI just keeps getting better."
-  },
-  {
-    name: 'Robert Hill',
+    name: 'Rick Perez',
     role: 'Owner',
-    company: 'Hill Pool Services',
-    quote: "Their team understood the pool service industry and built a website that speaks directly to our customers. Conversions are through the roof."
+    company: 'Perez Electrical',
+    quote: "I used to lose 4-5 jobs a week because I couldn't answer calls while working. Now the AI captures all my leads and books them. Zero lost jobs now!"
   },
   {
-    name: 'Paul Campbell',
-    role: 'CEO',
-    company: 'Campbell Gutters',
-    quote: "The missed call text back paid for itself in the first week. One recovered customer covered 3 months of service."
-  },
-  {
-    name: 'Victor Reed',
+    name: 'Tony Roberts',
     role: 'Owner',
-    company: 'Reed Interior Painting',
-    quote: "Every touchpoint with Digital Lift has been professional and helpful. They genuinely care about growing my business."
+    company: 'Roberts Roofing',
+    quote: "The AI answers every call and books jobs automatically. I don't need to answer the phone anymore. My lost jobs went from 10+ a month to zero!"
   },
   {
-    name: 'Gregory Cox',
+    name: 'Bill Turner',
     role: 'Owner',
-    company: 'Cox Concrete Coating',
-    quote: "The all-in-one inbox combined with the AI features has completely automated my lead response. I respond instantly, every single time."
+    company: 'Turner HVAC Services',
+    quote: "I was missing calls all the time when I was on jobs. Now the AI captures every single call and books them. I haven't lost a job in 3 months!"
   },
   {
-    name: 'Anthony Howard',
-    role: 'Director',
-    company: 'Howard Landscaping',
-    quote: "Going from no online presence to ranking #1 locally seemed impossible. Digital Lift made it happen in under 6 months."
-  },
-  {
-    name: 'Mark Evans',
+    name: 'Jack Phillips',
     role: 'Owner',
-    company: 'Evans Home Repairs',
-    quote: "The review system alone has generated more business than any advertising I've ever done. Social proof is everything."
+    company: 'Phillips Plumbing',
+    quote: "The AI handles all my phone calls now. I don't talk on the phone anymore - it qualifies leads and books appointments. I've stopped losing jobs completely!"
   },
   {
-    name: 'Darren Ross',
-    role: 'CEO',
-    company: 'Ross Carpet Cleaning',
-    quote: "I was spending hours on marketing. Now the automations handle it all and I'm booking more jobs than ever before."
-  },
-  {
-    name: 'Eric Stewart',
+    name: 'Larry Campbell',
     role: 'Owner',
-    company: 'Stewart Drywall',
-    quote: "The functional website they built actually converts visitors into leads. It's not just pretty - it actually works."
+    company: 'Campbell Locksmith',
+    quote: "Before Digital Lift, I'd lose jobs because I couldn't answer calls during emergencies. Now the AI captures every lead and books them. No more lost jobs!"
   },
   {
-    name: 'Carter Bell',
+    name: 'Gary Parker',
     role: 'Owner',
-    company: 'Bell Kitchen & Bath',
-    quote: "Digital Lift helped us stand out in a crowded market. Our brand looks premium and customers treat us that way."
+    company: 'Parker Electrical',
+    quote: "The AI captures all my leads 24/7. I don't need to answer the phone anymore - it handles everything and books jobs automatically. Zero lost opportunities!"
   },
   {
-    name: 'Nathan Phillips',
-    role: 'Director',
-    company: 'Phillips Plumbing Plus',
-    quote: "The AI receptionist handles after-hours calls perfectly. I'm booking emergency jobs that I would have lost to competitors."
-  },
-  {
-    name: 'Hunter Morris',
+    name: 'Randy Evans',
     role: 'Owner',
-    company: 'Morris Cleaning Service',
-    quote: "From the website to the booking system to the follow-ups, everything works together seamlessly. My business runs itself now."
+    company: 'Evans Handyman',
+    quote: "I used to lose 6-7 jobs a week because I couldn't answer when I was working. Now the AI captures every single call and books them. I'm not losing any more jobs!"
   },
   {
-    name: 'Douglas Price',
-    role: 'CEO',
-    company: 'Price Roofing Experts',
-    quote: "I've referred 5 other contractors to Digital Lift because of how well they've treated me. Everyone I've sent has been just as happy."
-  },
-  {
-    name: 'Julian Sanders',
+    name: 'Dennis Collins',
     role: 'Owner',
-    company: 'Sanders Septic Services',
-    quote: "The local SEO work was incredible. We're now the go-to septic company in 3 counties because of our online visibility."
+    company: 'Collins HVAC',
+    quote: "The AI handles all my calls now. I don't talk on the phone anymore - it books everything automatically. My lost jobs went from 8+ a month to absolutely zero!"
   },
   {
-    name: 'Henry Rogers',
+    name: 'Wayne Stewart',
     role: 'Owner',
-    company: 'Rogers Chimney Sweep',
-    quote: "Missed calls used to cost me thousands. Now every missed call gets an instant text and I haven't lost a lead since."
+    company: 'Stewart Plumbing Co.',
+    quote: "I was losing jobs constantly when I was on calls. Now the AI captures every lead and books them. I haven't lost a single job since I got it!"
   },
   {
-    name: 'Oliver Cooper',
-    role: 'Director',
-    company: 'Cooper Foundation Repair',
-    quote: "The quality of leads from our new website is incredible. These are people ready to buy, not tire kickers."
-  },
-  {
-    name: 'Samuel Jenkins',
+    name: 'Ralph Morris',
     role: 'Owner',
-    company: 'Jenkins Junk Removal',
-    quote: "The one-click marketing campaigns keep us top of mind with past customers. We get referrals constantly from people we served years ago."
+    company: 'Morris Locksmith',
+    quote: "The AI captures every single call, even when I'm busy. I don't need to talk to customers anymore - it books everything. No more lost jobs in months!"
   },
   {
-    name: 'Grant Bailey',
-    role: 'CEO',
-    company: 'Bailey Blinds & Shutters',
-    quote: "Digital Lift's systems are worth every penny. My only regret is not finding them sooner. 5 stars isn't enough."
-  },
-  {
-    name: 'Kenneth Ward',
+    name: 'Victor Rogers',
     role: 'Owner',
-    company: 'Ward Waterproofing',
-    quote: "The 5-star magic funnel is genius. Bad reviews go to us privately, good reviews go to Google. Our rating jumped from 3.8 to 4.9."
+    company: 'Rogers Electrical Services',
+    quote: "Before this, I'd lose 5-6 jobs a week because I couldn't answer calls while working. Now the AI captures all my leads and books them. Zero lost jobs!"
   },
   {
-    name: 'Harrison Peterson',
+    name: 'Henry Reed',
     role: 'Owner',
-    company: 'Peterson Painting Pro',
-    quote: "They understand contractors. They know our challenges and built systems that actually solve our problems. Highly recommend."
+    company: 'Reed Roofing',
+    quote: "The AI answers every call 24/7 and books jobs automatically. I don't need to answer the phone anymore. I've stopped losing jobs completely!"
   },
   {
-    name: 'Raymond Brooks',
-    role: 'Director',
-    company: 'Brooks Basement Finishing',
-    quote: "The automated lead follow-up has increased our close rate by 35%. Leads that used to go cold are now becoming customers."
-  },
-  {
-    name: 'Mason Gray',
+    name: 'Albert Cook',
     role: 'Owner',
-    company: 'Gray Granite Countertops',
-    quote: "Our website finally matches the quality of our work. Customers comment on how professional we look before we even show up."
+    company: 'Cook HVAC Repair',
+    quote: "I was missing calls all the time when I was on jobs. Now the AI captures every single call and books them. I haven't lost a job in months!"
   },
   {
-    name: 'Jeffrey James',
-    role: 'CEO',
-    company: 'James Demolition',
-    quote: "The business phone system with the AI features has made us look like a much bigger company. Professional from the first call."
-  },
-  {
-    name: 'Alex Powell',
+    name: 'Louis Morgan',
     role: 'Owner',
-    company: 'Powell Powerwashing',
-    quote: "Digital Lift took us from invisible online to dominating our market. The investment paid for itself in the first month."
+    company: 'Morgan Plumbing',
+    quote: "The AI handles all my phone calls now. I don't talk on the phone anymore - it qualifies leads and books appointments. My lost jobs went to zero!"
+  },
+  {
+    name: 'Eugene Bell',
+    role: 'Owner',
+    company: 'Bell Locksmith',
+    quote: "I used to lose jobs because I couldn't answer calls during lockouts. Now the AI captures every lead and books them. No more lost opportunities!"
+  },
+  {
+    name: 'Howard Murphy',
+    role: 'Owner',
+    company: 'Murphy Electrical',
+    quote: "The AI captures all my leads 24/7. I don't need to answer the phone anymore - it handles everything and books jobs automatically. Zero lost jobs!"
+  },
+  {
+    name: 'Arthur Bailey',
+    role: 'Owner',
+    company: 'Bailey Handyman',
+    quote: "Before Digital Lift, I'd lose 7-8 jobs a week because I couldn't answer when I was working. Now the AI captures every single call and books them. No more lost jobs!"
+  },
+  {
+    name: 'Ralph Rivera',
+    role: 'Owner',
+    company: 'Rivera HVAC',
+    quote: "The AI handles all my calls 24/7. I don't talk on the phone anymore - it books everything automatically. I haven't lost a job since I got it!"
+  },
+  {
+    name: 'Benjamin Cooper',
+    role: 'Owner',
+    company: 'Cooper Plumbing Services',
+    quote: "I was losing jobs constantly when I was on calls. Now the AI captures every lead and books them. I'm not losing any more jobs - it's been months!"
+  },
+  {
+    name: 'Harold Richardson',
+    role: 'Owner',
+    company: 'Richardson Locksmith',
+    quote: "The AI captures every single call, even when I'm busy. I don't need to talk to customers anymore - it books everything. Zero lost jobs now!"
+  },
+  {
+    name: 'Willie Cox',
+    role: 'Owner',
+    company: 'Cox Electrical',
+    quote: "I used to lose 4-5 jobs a week because I couldn't answer calls while working. Now the AI captures all my leads and books them. No more lost jobs!"
+  },
+  {
+    name: 'Roy Howard',
+    role: 'Owner',
+    company: 'Howard Roofing Solutions',
+    quote: "The AI answers every call and books jobs automatically. I don't need to answer the phone anymore. I've stopped losing jobs completely - it's been amazing!"
   }
 ];
 

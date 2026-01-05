@@ -17,7 +17,8 @@ const aboutItems = [
 const whatYouGetItems = [
   { href: '/functional-website', text: 'Functional Website' },
   { href: '/answers-calls-24-7', text: 'Answers Calls 24/7' },
-  { href: '/texts-missed-callers-instantly', text: 'Texts Missed Callers Instantly' }
+  { href: '/texts-missed-callers-instantly', text: 'Texts Missed Callers Instantly' },
+  { href: '/5-star-magic-funnel', text: '5-Star Review Funnel' }
 ];
 
 export default function Header() {
