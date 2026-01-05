@@ -95,7 +95,33 @@ export default function AnswersCalls247Page() {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-6 sm:mb-8 text-center">
               See a short demo below
             </h2>
-            <VideoPlayer videoSrc="/features/ai-receptionist.mp4" />
+            <VideoPlayer videoSrc="https://storage.googleapis.com/msgsndr/iWW5drc0VzO1HbkHCeUo/media/69516980e889d30b74b62c04.mp4" />
+            
+            {/* Try It Yourself Section */}
+            <div className="mt-12 sm:mt-16 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 sm:p-8 md:p-10 border-2 border-blue-200">
+              <div className="text-center max-w-3xl mx-auto">
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
+                  Try It Yourself
+                </h3>
+                <p className="text-lg sm:text-xl text-gray-700 mb-6 sm:mb-8 leading-relaxed">
+                  Want to see how our AI receptionist works in real-time? Visit our demo website and try calling the number that appears on the screen, or interact with our smart chatbot to experience firsthand how it can make your life simpler.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <a 
+                    href="https://plumberoncall247.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 transition-colors shadow-lg hover:shadow-xl transform hover:-translate-y-1 inline-flex items-center gap-2"
+                  >
+                    <Phone className="w-5 h-5" />
+                    Visit Demo Website
+                  </a>
+                </div>
+                <p className="text-sm text-gray-600 mt-4">
+                  Call the number on the website or chat with our AI to see it in action
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
