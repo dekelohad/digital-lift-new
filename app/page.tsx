@@ -426,7 +426,7 @@ function SolutionSection() {
         </motion.div>
 
         <motion.div 
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto"
+          className="grid md:grid-cols-2 gap-6 max-w-7xl mx-auto"
           variants={staggerContainer}
           initial="initial"
           animate={isInView ? "animate" : "initial"}
