@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "./globals.css";
-import ScrollToTop from "@/components/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Digital Lift - Website Design & Marketing Systems For Contractors",
@@ -24,7 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <ScrollToTop />
+        <script 
+          src="https://beta.leadconnectorhq.com/loader.js"  
+          data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js" 
+          data-widget-id="695bac868f78c5477cb6577e">
+        </script>
       </body>
     </html>
   );
