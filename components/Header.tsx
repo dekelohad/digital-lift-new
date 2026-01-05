@@ -50,7 +50,6 @@ export default function Header() {
                 isDropdown: true,
                 items: whatYouGetItems
               },
-              { label: 'Pricing', href: '/pricing' },
               { label: 'Testimonials', href: '/results' },
               { 
                 label: 'About', 
@@ -162,7 +161,6 @@ export default function Header() {
                   isDropdown: true,
                   items: whatYouGetItems
                 },
-                { label: 'Pricing', href: '/pricing' },
                 { label: 'Testimonials', href: '/results' },
                 { 
                   label: 'About', 
