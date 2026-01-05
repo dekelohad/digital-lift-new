@@ -37,19 +37,24 @@ const testimonials = [
 
 const processSteps = [
   {
-    title: "Demo Call",
-    duration: "(20 mins)",
-    description: "It's actually a sales call, we just didn't want to scare you. But seriously... we'll answer all your questions, show you any features you have questions about, and show you live client accounts & results.",
+    title: "Try the AI Receptionist Live — No Signup Required",
+    duration: "(60-Second Demo)",
+    description: "Test the real AI system that answers calls, texts missed leads, and books jobs automatically. Click the chat or call icon and experience it like your customers would.",
   },
   {
-    title: "We build your system",
-    duration: "(7-10 days)",
-    description: "Fill out a basic onboarding form with your business details. After we have the correct information, we'll get to work on building your new website & marketing system.",
+    title: "Book Your Free AI Setup Call",
+    duration: "(15 minutes)",
+    description: "On this call we review your business, show where you're losing leads today, and decide if this system is a good fit for you.",
   },
   {
-    title: "Launch Call",
-    duration: "(25 mins)",
-    description: "We'll walk you through your new website & marketing system, answer any questions you have, and show you how \"everything\" works... And by everything, we're really just talking about pressing two buttons.",
+    title: "We Build & Launch Your AI System",
+    duration: "(2–3 days)",
+    description: "After your call, our team customizes your AI receptionist, booking flows, and website automation. Once everything is ready, we activate your 14-day free trial.",
+  },
+  {
+    title: "14-Day Free Trial — Keep It Only If It Books You Jobs",
+    duration: "(Risk-Free)",
+    description: "Use the system with real customers. If it doesn't deliver results, you simply don't continue.",
   },
 ];
 
