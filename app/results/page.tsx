@@ -460,7 +460,7 @@ export default function ResultsPage() {
           </div>
 
           {/* Video Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
             {videoTestimonials.slice(0, visibleVideos).map((video, index) => (
               <motion.div
                 key={video.id}
@@ -471,10 +471,10 @@ export default function ResultsPage() {
                 <VideoTestimonialCard video={video} />
               </motion.div>
             ))}
-          </div>
+          </div> */}
 
           {/* Load More Videos Button */}
-          {hasMoreVideos && (
+          {/* {hasMoreVideos && (
             <div className="text-center mb-16">
               <button
                 onClick={handleLoadMoreVideos}
@@ -491,7 +491,7 @@ export default function ResultsPage() {
                 )}
               </button>
             </div>
-          )}
+          )} */}
         </div>
       </section>
 

@@ -313,7 +313,7 @@ export default function PricingPage() {
       />
 
       {/* Video Testimonials Carousel */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-gray-900 mb-3">
             Don't take our word for it
@@ -323,7 +323,7 @@ export default function PricingPage() {
           </p>
           <TestimonialCarousel />
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </motion.main>
