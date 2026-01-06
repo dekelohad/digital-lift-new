@@ -36,6 +36,7 @@ export default function Footer() {
             {
               title: 'Quick Links',
               items: [
+                { href: '/pricing', text: 'Pricing' },
                 { href: '/results', text: 'Testimonials' },
                 { href: '/contact', text: 'Contact' },
                 { href: 'https://app.digitallift.io/', text: 'Log in', external: true }
